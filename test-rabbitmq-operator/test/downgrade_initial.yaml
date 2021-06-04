@@ -1,0 +1,6 @@
+apiVersion: rabbitmq.com/v1beta1
+kind: RabbitmqCluster
+metadata:
+  name: rabbitmq-cluster
+spec:
+  image: rabbitmq:3.8.16-management

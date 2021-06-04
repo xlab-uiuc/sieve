@@ -15,7 +15,7 @@ class Suite:
         self.num_workers = num_workers
 
 
-docker_repo = "xudongs"
+docker_repo = "ramanala"
 front_runner = "kind-control-plane"
 straggler = "kind-control-plane3"
 
@@ -81,6 +81,8 @@ test_suites = {
             workloads.workloads["rabbitmq-operator"]["recreate"], "test-rabbitmq-operator/test/time-travel-1.yaml", "time-travel"),
         "resize-pvc": Suite(
             workloads.workloads["rabbitmq-operator"]["resize-pvc"], "test-rabbitmq-operator/test/time-travel-2.yaml", "time-travel", two_sided=True),
+        "downgrade": Suite(
+            workloads.workloads["rabbitmq-operator"]["downgrade"], "test-rabbitmq-operator/test/time-travel-1.yaml", "time-travel"),
     },
     "mongodb-operator": {
         "recreate": Suite(
