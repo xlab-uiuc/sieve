@@ -34,7 +34,8 @@ github_link = {
     "rabbitmq-operator": "https://github.com/rabbitmq/cluster-operator.git",
     "mongodb-operator": "https://github.com/percona/percona-server-mongodb-operator.git",
     "cass-operator": "https://github.com/datastax/cass-operator.git",
-    "casskop-operator": "https://github.com/Orange-OpenSource/casskop.git",
+    "casskop-operator": "https://github.com/srteam2020/casskop.git",
+    # "casskop-operator": "https://github.com/Orange-OpenSource/casskop.git",
     "xtradb-operator": "https://github.com/percona/percona-xtradb-cluster-operator.git",
 }
 
@@ -185,7 +186,8 @@ sha = {
     "rabbitmq-operator": "4f13b9a942ad34fece0171d2174aa0264b10e947",
     "mongodb-operator": "c12b69e2c41efc67336a890039394250420f60bb",
     "cass-operator": "dbd4f7a10533bb2298aed0d40ea20bfd8c133da2",
-    "casskop-operator": "f87c8e05c1a2896732fc5f3a174f1eb99e936907",
+    "casskop-operator": "6b48962f4859e94d0f9b8ac24ffec533dc6e99b2",
+    # "casskop-operator": "f87c8e05c1a2896732fc5f3a174f1eb99e936907",
     "xtradb-operator": "29092c9b145af6eaf5cbff534287483bec4167b6",
 }
 
