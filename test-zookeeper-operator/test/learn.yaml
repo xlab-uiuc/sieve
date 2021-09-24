@@ -1,0 +1,4 @@
+stage: learn
+mode: obs-gap
+crd-list:
+- zookeepercluster

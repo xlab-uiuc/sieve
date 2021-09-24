@@ -1,0 +1,6 @@
+[metadata field changed] cassandracluster sonar-cassandra-cluster generation changed delta:  [10, 9]
+[spec field changed] cassandracluster sonar-cassandra-cluster topology changed delta:  {'dc': {insert: [(0, {'name': 'SIEVE-IGNORE', 'nodesPerRacks': 0, 'rack': [{'name': 'SIEVE-IGNORE'}], 'resources': {}}), (1, {'name': 'SIEVE-IGNORE', 'nodesPerRacks': 0, 'rack': [{'name': 'SIEVE-IGNORE'}], 'resources': {}})]}}
+[status field changed] cassandracluster sonar-cassandra-cluster cassandraRackStatus changed delta:  {insert: {'dc2-rack1': {'cassandraLastAction': {'name': 'SIEVE-IGNORE', 'status': 'Ongoing'}, 'phase': 'Initializing', 'podLastOperation': {}}, 'dc3-rack1': {'cassandraLastAction': {'name': 'SIEVE-IGNORE', 'status': 'Ongoing'}, 'phase': 'Initializing', 'podLastOperation': {}}}}
+[status field changed] cassandracluster sonar-cassandra-cluster lastClusterAction changed delta:  ['ScaleDown', 'Initializing']
+[status field changed] cassandracluster sonar-cassandra-cluster lastClusterActionStatus changed delta:  ['ToDo', 'Ongoing']
+total time: 434.1479697227478 seconds

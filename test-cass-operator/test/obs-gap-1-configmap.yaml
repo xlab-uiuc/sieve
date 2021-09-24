@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sonar-testing-global-config
+data:
+  SONAR-CE-DIFF-CURRENT: '{"metadata": {"deletionTimestamp": "SONAR-NON-NIL", "deletionGracePeriodSeconds":
+    0}}'
+  SONAR-CE-DIFF-PREVIOUS: '{}'
+  SONAR-CE-ETYPE-CURRENT: Updated
+  SONAR-CE-ETYPE-PREVIOUS: Updated
+  SONAR-CE-NAME: sonar-cassandra-datacenter
+  SONAR-CE-NAMESPACE: default
+  SONAR-CE-RTYPE: cassandradatacenter
+  SONAR-DEPLOYMENT-NAME: cass-operator
+  SONAR-DESCRIPTION: 'Pause kind-control-plane3 after it processes a default/cassandradatacenter/sonar-cassandra-datacenter
+    event E. E should match the pattern {"metadata": {"deletionTimestamp": "SONAR-NON-NIL",
+    "deletionGracePeriodSeconds": 0}} and the events before E should match {}. And
+    restart the controller cass-operator after kind-control-plane processes a ADDED
+    default/persistentvolumeclaim/server-data-cluster1-sonar-cassandra-datacenter-default-sts-0
+    event.'
+  SONAR-FRONT-RUNNER: kind-control-plane
+  SONAR-MODE: obs-gap
+  SONAR-OPERATOR-POD-LABEL: cass-operator
+  SONAR-PROJECT: cass-operator
+  SONAR-SE-ETYPE: ADDED
+  SONAR-SE-NAME: server-data-cluster1-sonar-cassandra-datacenter-default-sts-0
+  SONAR-SE-NAMESPACE: default
+  SONAR-SE-RTYPE: persistentvolumeclaim
+  SONAR-STAGE: test
+  SONAR-STRAGGLER: kind-control-plane3
+  SONAR-TIMING: after

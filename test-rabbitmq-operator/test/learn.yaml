@@ -1,0 +1,4 @@
+stage: learn
+mode: atomic
+crd-list:
+- rabbitmqcluster

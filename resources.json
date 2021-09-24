@@ -1,0 +1,3179 @@
+{
+    "deployment": [
+        {
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/revision": "1",
+                    "meta.helm.sh/release-name": "nifikop-operator",
+                    "meta.helm.sh/release-namespace": "default"
+                },
+                "creationTimestamp": "2021-09-13T20:06:53Z",
+                "generation": 1,
+                "labels": {
+                    "app": "nifikop",
+                    "app.kubernetes.io/managed-by": "Helm",
+                    "chart": "nifikop-0.6.3",
+                    "control-plane": "nifikop",
+                    "heritage": "Helm",
+                    "operator": "nifi",
+                    "release": "nifikop-operator"
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:meta.helm.sh/release-name": {},
+                                    "f:meta.helm.sh/release-namespace": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:app": {},
+                                    "f:app.kubernetes.io/managed-by": {},
+                                    "f:chart": {},
+                                    "f:control-plane": {},
+                                    "f:heritage": {},
+                                    "f:operator": {},
+                                    "f:release": {}
+                                }
+                            },
+                            "f:spec": {
+                                "f:progressDeadlineSeconds": {},
+                                "f:replicas": {},
+                                "f:revisionHistoryLimit": {},
+                                "f:selector": {
+                                    "f:matchLabels": {
+                                        ".": {},
+                                        "f:control-plane": {},
+                                        "f:name": {},
+                                        "f:sievetag": {}
+                                    }
+                                },
+                                "f:strategy": {
+                                    "f:rollingUpdate": {
+                                        ".": {},
+                                        "f:maxSurge": {},
+                                        "f:maxUnavailable": {}
+                                    },
+                                    "f:type": {}
+                                },
+                                "f:template": {
+                                    "f:metadata": {
+                                        "f:labels": {
+                                            ".": {},
+                                            "f:app": {},
+                                            "f:control-plane": {},
+                                            "f:name": {},
+                                            "f:operator": {},
+                                            "f:release": {},
+                                            "f:sievetag": {}
+                                        }
+                                    },
+                                    "f:spec": {
+                                        "f:containers": {
+                                            "k:{\"name\":\"nifikop\"}": {
+                                                ".": {},
+                                                "f:args": {},
+                                                "f:command": {},
+                                                "f:env": {
+                                                    ".": {},
+                                                    "k:{\"name\":\"KUBERNETES_SERVICE_HOST\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"KUBERNETES_SERVICE_PORT\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"OPERATOR_NAME\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"POD_NAME\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:valueFrom": {
+                                                            ".": {},
+                                                            "f:fieldRef": {
+                                                                ".": {},
+                                                                "f:apiVersion": {},
+                                                                "f:fieldPath": {}
+                                                            }
+                                                        }
+                                                    },
+                                                    "k:{\"name\":\"WATCH_NAMESPACE\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:valueFrom": {
+                                                            ".": {},
+                                                            "f:fieldRef": {
+                                                                ".": {},
+                                                                "f:apiVersion": {},
+                                                                "f:fieldPath": {}
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "f:envFrom": {},
+                                                "f:image": {},
+                                                "f:imagePullPolicy": {},
+                                                "f:livenessProbe": {
+                                                    ".": {},
+                                                    "f:failureThreshold": {},
+                                                    "f:httpGet": {
+                                                        ".": {},
+                                                        "f:path": {},
+                                                        "f:port": {},
+                                                        "f:scheme": {}
+                                                    },
+                                                    "f:initialDelaySeconds": {},
+                                                    "f:periodSeconds": {},
+                                                    "f:successThreshold": {},
+                                                    "f:timeoutSeconds": {}
+                                                },
+                                                "f:name": {},
+                                                "f:readinessProbe": {
+                                                    ".": {},
+                                                    "f:failureThreshold": {},
+                                                    "f:httpGet": {
+                                                        ".": {},
+                                                        "f:path": {},
+                                                        "f:port": {},
+                                                        "f:scheme": {}
+                                                    },
+                                                    "f:initialDelaySeconds": {},
+                                                    "f:periodSeconds": {},
+                                                    "f:successThreshold": {},
+                                                    "f:timeoutSeconds": {}
+                                                },
+                                                "f:resources": {
+                                                    ".": {},
+                                                    "f:limits": {
+                                                        ".": {},
+                                                        "f:cpu": {},
+                                                        "f:memory": {}
+                                                    },
+                                                    "f:requests": {
+                                                        ".": {},
+                                                        "f:cpu": {},
+                                                        "f:memory": {}
+                                                    }
+                                                },
+                                                "f:securityContext": {
+                                                    ".": {},
+                                                    "f:allowPrivilegeEscalation": {}
+                                                },
+                                                "f:terminationMessagePath": {},
+                                                "f:terminationMessagePolicy": {}
+                                            }
+                                        },
+                                        "f:dnsPolicy": {},
+                                        "f:restartPolicy": {},
+                                        "f:schedulerName": {},
+                                        "f:securityContext": {
+                                            ".": {},
+                                            "f:runAsUser": {}
+                                        },
+                                        "f:terminationGracePeriodSeconds": {}
+                                    }
+                                }
+                            }
+                        },
+                        "manager": "helm",
+                        "operation": "Update",
+                        "time": "2021-09-13T20:06:53Z"
+                    },
+                    {
+                        "apiVersion": "apps/v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    "f:deployment.kubernetes.io/revision": {}
+                                }
+                            },
+                            "f:status": {
+                                "f:availableReplicas": {},
+                                "f:conditions": {
+                                    ".": {},
+                                    "k:{\"type\":\"Available\"}": {
+                                        ".": {},
+                                        "f:lastTransitionTime": {},
+                                        "f:lastUpdateTime": {},
+                                        "f:message": {},
+                                        "f:reason": {},
+                                        "f:status": {},
+                                        "f:type": {}
+                                    },
+                                    "k:{\"type\":\"Progressing\"}": {
+                                        ".": {},
+                                        "f:lastTransitionTime": {},
+                                        "f:lastUpdateTime": {},
+                                        "f:message": {},
+                                        "f:reason": {},
+                                        "f:status": {},
+                                        "f:type": {}
+                                    }
+                                },
+                                "f:observedGeneration": {},
+                                "f:readyReplicas": {},
+                                "f:replicas": {},
+                                "f:updatedReplicas": {}
+                            }
+                        },
+                        "manager": "kube-controller-manager",
+                        "operation": "Update",
+                        "time": "2021-09-13T20:07:08Z"
+                    }
+                ],
+                "name": "nifikop-operator",
+                "namespace": "default",
+                "resourceVersion": "931",
+                "selfLink": "/apis/apps/v1/namespaces/default/deployments/nifikop-operator",
+                "uid": "7ac085d4-fe2e-4015-8e44-51d3cc4746ac"
+            },
+            "spec": {
+                "progressDeadlineSeconds": 600,
+                "replicas": 1,
+                "revisionHistoryLimit": 10,
+                "selector": {
+                    "matchLabels": {
+                        "control-plane": "nifikop",
+                        "name": "nifikop",
+                        "sievetag": "nifikop-operator"
+                    }
+                },
+                "strategy": {
+                    "rollingUpdate": {
+                        "maxSurge": "25%",
+                        "maxUnavailable": "25%"
+                    },
+                    "type": "RollingUpdate"
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "app": "nifikop",
+                            "control-plane": "nifikop",
+                            "name": "nifikop",
+                            "operator": "nifi",
+                            "release": "nifikop-operator",
+                            "sievetag": "nifikop-operator"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "args": [
+                                    "--leader-elect"
+                                ],
+                                "command": [
+                                    "/manager"
+                                ],
+                                "env": [
+                                    {
+                                        "name": "WATCH_NAMESPACE",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "metadata.namespace"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "POD_NAME",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "metadata.name"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "KUBERNETES_SERVICE_HOST",
+                                        "value": "kind-control-plane"
+                                    },
+                                    {
+                                        "name": "KUBERNETES_SERVICE_PORT",
+                                        "value": "6443"
+                                    },
+                                    {
+                                        "name": "OPERATOR_NAME",
+                                        "value": "nifikop"
+                                    }
+                                ],
+                                "envFrom": [
+                                    {
+                                        "configMapRef": {
+                                            "name": "sieve-testing-global-config"
+                                        }
+                                    }
+                                ],
+                                "image": "laphets/nifikop-operator:learn",
+                                "imagePullPolicy": "Always",
+                                "livenessProbe": {
+                                    "failureThreshold": 3,
+                                    "httpGet": {
+                                        "path": "/healthz",
+                                        "port": 8081,
+                                        "scheme": "HTTP"
+                                    },
+                                    "initialDelaySeconds": 15,
+                                    "periodSeconds": 20,
+                                    "successThreshold": 1,
+                                    "timeoutSeconds": 1
+                                },
+                                "name": "nifikop",
+                                "readinessProbe": {
+                                    "failureThreshold": 3,
+                                    "httpGet": {
+                                        "path": "/readyz",
+                                        "port": 8081,
+                                        "scheme": "HTTP"
+                                    },
+                                    "initialDelaySeconds": 5,
+                                    "periodSeconds": 10,
+                                    "successThreshold": 1,
+                                    "timeoutSeconds": 1
+                                },
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "1",
+                                        "memory": "512Mi"
+                                    },
+                                    "requests": {
+                                        "cpu": "10m",
+                                        "memory": "50Mi"
+                                    }
+                                },
+                                "securityContext": {
+                                    "allowPrivilegeEscalation": false
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {
+                            "runAsUser": 1000
+                        },
+                        "terminationGracePeriodSeconds": 10
+                    }
+                }
+            },
+            "status": {
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2021-09-13T20:07:08Z",
+                        "lastUpdateTime": "2021-09-13T20:07:08Z",
+                        "message": "Deployment has minimum availability.",
+                        "reason": "MinimumReplicasAvailable",
+                        "status": "True",
+                        "type": "Available"
+                    },
+                    {
+                        "lastTransitionTime": "2021-09-13T20:06:53Z",
+                        "lastUpdateTime": "2021-09-13T20:07:08Z",
+                        "message": "ReplicaSet \"nifikop-operator-6756f8bf87\" has successfully progressed.",
+                        "reason": "NewReplicaSetAvailable",
+                        "status": "True",
+                        "type": "Progressing"
+                    }
+                ],
+                "observedGeneration": 1,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "updatedReplicas": 1
+            }
+        }
+    ],
+    "nificluster": [
+        {
+            "apiVersion": "nifi.orange.com/v1alpha1",
+            "kind": "NifiCluster",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"nifi.orange.com/v1alpha1\",\"kind\":\"NifiCluster\",\"metadata\":{\"annotations\":{},\"name\":\"simplenifi\",\"namespace\":\"default\"},\"spec\":{\"clusterImage\":\"apache/nifi:1.12.1\",\"externalServices\":[{\"name\":\"clusterip\",\"serviceAnnotations\":{\"toto\":\"tata\"},\"spec\":{\"portConfigs\":[{\"internalListenerName\":\"http\",\"port\":8080}],\"type\":\"ClusterIP\"}},{\"name\":\"loadbalancer\",\"serviceAnnotations\":{\"toto\":\"tata\"},\"spec\":{\"portConfigs\":[{\"internalListenerName\":\"http\",\"port\":8080}],\"type\":\"LoadBalancer\"}},{\"name\":\"nodepart\",\"serviceAnnotations\":{\"toto\":\"tata\"},\"spec\":{\"portConfigs\":[{\"internalListenerName\":\"http\",\"port\":8080}],\"type\":\"NodePort\"}}],\"listenersConfig\":{\"internalListeners\":[{\"containerPort\":8080,\"name\":\"http\",\"type\":\"http\"},{\"containerPort\":6007,\"name\":\"cluster\",\"type\":\"cluster\"},{\"containerPort\":10000,\"name\":\"s2s\",\"type\":\"s2s\"},{\"containerPort\":9090,\"name\":\"prometheus\",\"type\":\"prometheus\"}]},\"nifiClusterTaskSpec\":{\"retryDurationMinutes\":10},\"nodeConfigGroups\":{\"default_group\":{\"isNode\":true,\"resourcesRequirements\":{\"limits\":{\"cpu\":\"0.5\",\"memory\":\"2Gi\"},\"requests\":{\"cpu\":\"0.5\",\"memory\":\"2Gi\"}},\"serviceAccountName\":\"default\",\"storageConfigs\":[{\"mountPath\":\"/opt/nifi/nifi-current/logs\",\"name\":\"logs\",\"pvcSpec\":{\"accessModes\":[\"ReadWriteOnce\"],\"resources\":{\"requests\":{\"storage\":\"10Gi\"}},\"storageClassName\":\"standard\"}}]}},\"nodes\":[{\"id\":1,\"nodeConfigGroup\":\"default_group\",\"readOnlyConfig\":{\"nifiProperties\":{\"overrideConfigs\":\"nifi.ui.banner.text=NiFiKop by Sieve - Node 1\\n\"}}}],\"oneNifiNodePerNode\":false,\"propagateLabels\":true,\"service\":{\"headlessEnabled\":true},\"zkAddress\":\"zookeeper:2181\",\"zkPath\":\"/simplenifi\"}}\n"
+                },
+                "creationTimestamp": "2021-09-13T20:07:13Z",
+                "generation": 2,
+                "managedFields": [
+                    {
+                        "apiVersion": "nifi.orange.com/v1alpha1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:kubectl.kubernetes.io/last-applied-configuration": {}
+                                }
+                            },
+                            "f:spec": {
+                                ".": {},
+                                "f:clusterImage": {},
+                                "f:externalServices": {},
+                                "f:listenersConfig": {
+                                    ".": {},
+                                    "f:internalListeners": {}
+                                },
+                                "f:nifiClusterTaskSpec": {
+                                    ".": {},
+                                    "f:retryDurationMinutes": {}
+                                },
+                                "f:nodeConfigGroups": {
+                                    ".": {},
+                                    "f:default_group": {
+                                        ".": {},
+                                        "f:isNode": {},
+                                        "f:resourcesRequirements": {
+                                            ".": {},
+                                            "f:limits": {
+                                                ".": {},
+                                                "f:memory": {}
+                                            },
+                                            "f:requests": {
+                                                ".": {},
+                                                "f:memory": {}
+                                            }
+                                        },
+                                        "f:serviceAccountName": {},
+                                        "f:storageConfigs": {}
+                                    }
+                                },
+                                "f:oneNifiNodePerNode": {},
+                                "f:propagateLabels": {},
+                                "f:service": {
+                                    ".": {},
+                                    "f:headlessEnabled": {}
+                                },
+                                "f:zkAddress": {},
+                                "f:zkPath": {}
+                            }
+                        },
+                        "manager": "kubectl",
+                        "operation": "Update",
+                        "time": "2021-09-13T20:12:37Z"
+                    },
+                    {
+                        "apiVersion": "nifi.orange.com/v1alpha1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:spec": {
+                                "f:disruptionBudget": {},
+                                "f:ldapConfiguration": {},
+                                "f:nodeConfigGroups": {
+                                    "f:default_group": {
+                                        "f:resourcesRequirements": {
+                                            "f:limits": {
+                                                "f:cpu": {}
+                                            },
+                                            "f:requests": {
+                                                "f:cpu": {}
+                                            }
+                                        }
+                                    }
+                                },
+                                "f:nodes": {},
+                                "f:pod": {},
+                                "f:readOnlyConfig": {
+                                    ".": {},
+                                    "f:bootstrapNotificationServicesConfig": {},
+                                    "f:bootstrapProperties": {},
+                                    "f:logbackConfig": {},
+                                    "f:nifiProperties": {},
+                                    "f:zookeeperProperties": {}
+                                }
+                            },
+                            "f:status": {
+                                ".": {},
+                                "f:nodesState": {
+                                    ".": {},
+                                    "f:1": {
+                                        ".": {},
+                                        "f:configurationState": {},
+                                        "f:gracefulActionState": {
+                                            ".": {},
+                                            "f:TaskStarted": {},
+                                            "f:actionState": {},
+                                            "f:actionStep": {},
+                                            "f:errorMessage": {}
+                                        },
+                                        "f:initClusterNode": {}
+                                    }
+                                },
+                                "f:prometheusReportingTask": {
+                                    ".": {},
+                                    "f:id": {},
+                                    "f:version": {}
+                                },
+                                "f:rollingUpgradeStatus": {
+                                    ".": {},
+                                    "f:errorCount": {},
+                                    "f:lastSuccess": {}
+                                },
+                                "f:rootProcessGroupId": {},
+                                "f:state": {}
+                            }
+                        },
+                        "manager": "manager",
+                        "operation": "Update",
+                        "time": "2021-09-13T20:17:42Z"
+                    }
+                ],
+                "name": "simplenifi",
+                "namespace": "default",
+                "resourceVersion": "3442",
+                "selfLink": "/apis/nifi.orange.com/v1alpha1/namespaces/default/nificlusters/simplenifi",
+                "uid": "7a3d8576-a389-4ef4-a2ba-118a96156b15"
+            },
+            "spec": {
+                "clusterImage": "apache/nifi:1.12.1",
+                "externalServices": [
+                    {
+                        "name": "clusterip",
+                        "serviceAnnotations": {
+                            "toto": "tata"
+                        },
+                        "spec": {
+                            "portConfigs": [
+                                {
+                                    "internalListenerName": "http",
+                                    "port": 8080
+                                }
+                            ],
+                            "type": "ClusterIP"
+                        }
+                    },
+                    {
+                        "name": "loadbalancer",
+                        "serviceAnnotations": {
+                            "toto": "tata"
+                        },
+                        "spec": {
+                            "portConfigs": [
+                                {
+                                    "internalListenerName": "http",
+                                    "port": 8080
+                                }
+                            ],
+                            "type": "LoadBalancer"
+                        }
+                    },
+                    {
+                        "name": "nodepart",
+                        "serviceAnnotations": {
+                            "toto": "tata"
+                        },
+                        "spec": {
+                            "portConfigs": [
+                                {
+                                    "internalListenerName": "http",
+                                    "port": 8080
+                                }
+                            ],
+                            "type": "NodePort"
+                        }
+                    }
+                ],
+                "listenersConfig": {
+                    "internalListeners": [
+                        {
+                            "containerPort": 8080,
+                            "name": "http",
+                            "type": "http"
+                        },
+                        {
+                            "containerPort": 6007,
+                            "name": "cluster",
+                            "type": "cluster"
+                        },
+                        {
+                            "containerPort": 10000,
+                            "name": "s2s",
+                            "type": "s2s"
+                        },
+                        {
+                            "containerPort": 9090,
+                            "name": "prometheus",
+                            "type": "prometheus"
+                        }
+                    ]
+                },
+                "nifiClusterTaskSpec": {
+                    "retryDurationMinutes": 10
+                },
+                "nodeConfigGroups": {
+                    "default_group": {
+                        "isNode": true,
+                        "resourcesRequirements": {
+                            "limits": {
+                                "cpu": "0.5",
+                                "memory": "2Gi"
+                            },
+                            "requests": {
+                                "cpu": "0.5",
+                                "memory": "2Gi"
+                            }
+                        },
+                        "serviceAccountName": "default",
+                        "storageConfigs": [
+                            {
+                                "mountPath": "/opt/nifi/nifi-current/logs",
+                                "name": "logs",
+                                "pvcSpec": {
+                                    "accessModes": [
+                                        "ReadWriteOnce"
+                                    ],
+                                    "resources": {
+                                        "requests": {
+                                            "storage": "10Gi"
+                                        }
+                                    },
+                                    "storageClassName": "standard"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "nodes": [
+                    {
+                        "id": 1,
+                        "nodeConfigGroup": "default_group",
+                        "readOnlyConfig": {
+                            "nifiProperties": {
+                                "overrideConfigs": "nifi.ui.banner.text=NiFiKop by Sieve - Node 1\n"
+                            }
+                        }
+                    }
+                ],
+                "oneNifiNodePerNode": false,
+                "propagateLabels": true,
+                "service": {
+                    "headlessEnabled": true
+                },
+                "zkAddress": "zookeeper:2181",
+                "zkPath": "/simplenifi"
+            },
+            "status": {
+                "nodesState": {
+                    "1": {
+                        "configurationState": "ConfigInSync",
+                        "gracefulActionState": {
+                            "TaskStarted": "Mon, 13 Sep 2021 20:13:05 GMT",
+                            "actionState": "GracefulUpscaleRunning",
+                            "actionStep": "CONNECTED",
+                            "errorMessage": ""
+                        },
+                        "initClusterNode": true
+                    }
+                },
+                "prometheusReportingTask": {
+                    "id": "",
+                    "version": 0
+                },
+                "rollingUpgradeStatus": {
+                    "errorCount": 0,
+                    "lastSuccess": ""
+                },
+                "rootProcessGroupId": "e0cd518d-017b-1000-6719-2b2b2d7b8473",
+                "state": "ClusterRollingUpgrading"
+            }
+        }
+    ],
+    "nifidataflow": [],
+    "nifiparametercontext": [],
+    "nifiregistryclient": [],
+    "nifiuser": [],
+    "nifiusergroup": [],
+    "persistentvolumeclaim": [
+        {
+            "metadata": {
+                "annotations": {
+                    "pv.kubernetes.io/bind-completed": "yes",
+                    "pv.kubernetes.io/bound-by-controller": "yes",
+                    "volume.beta.kubernetes.io/storage-provisioner": "rancher.io/local-path",
+                    "volume.kubernetes.io/selected-node": "kind-worker2"
+                },
+                "creationTimestamp": "2021-09-13T20:06:34Z",
+                "finalizers": [
+                    "kubernetes.io/pvc-protection"
+                ],
+                "labels": {
+                    "app.kubernetes.io/component": "zookeeper",
+                    "app.kubernetes.io/instance": "zookeeper",
+                    "app.kubernetes.io/name": "zookeeper"
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:volume.kubernetes.io/selected-node": {}
+                                }
+                            }
+                        },
+                        "manager": "kube-scheduler",
+                        "operation": "Update",
+                        "time": "2021-09-13T20:06:34Z"
+                    },
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    "f:pv.kubernetes.io/bind-completed": {},
+                                    "f:pv.kubernetes.io/bound-by-controller": {},
+                                    "f:volume.beta.kubernetes.io/storage-provisioner": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:app.kubernetes.io/component": {},
+                                    "f:app.kubernetes.io/instance": {},
+                                    "f:app.kubernetes.io/name": {}
+                                }
+                            },
+                            "f:spec": {
+                                "f:accessModes": {},
+                                "f:resources": {
+                                    "f:requests": {
+                                        ".": {},
+                                        "f:storage": {}
+                                    }
+                                },
+                                "f:storageClassName": {},
+                                "f:volumeMode": {},
+                                "f:volumeName": {}
+                            },
+                            "f:status": {
+                                "f:accessModes": {},
+                                "f:capacity": {
+                                    ".": {},
+                                    "f:storage": {}
+                                },
+                                "f:phase": {}
+                            }
+                        },
+                        "manager": "kube-controller-manager",
+                        "operation": "Update",
+                        "time": "2021-09-13T20:06:55Z"
+                    }
+                ],
+                "name": "data-zookeeper-0",
+                "namespace": "default",
+                "resourceVersion": "876",
+                "selfLink": "/api/v1/namespaces/default/persistentvolumeclaims/data-zookeeper-0",
+                "uid": "8aeb95b2-bfe8-4fab-b863-c24d2897e7d5"
+            },
+            "spec": {
+                "accessModes": [
+                    "ReadWriteOnce"
+                ],
+                "resources": {
+                    "requests": {
+                        "storage": "8Gi"
+                    }
+                },
+                "storageClassName": "standard",
+                "volumeMode": "Filesystem",
+                "volumeName": "pvc-8aeb95b2-bfe8-4fab-b863-c24d2897e7d5"
+            },
+            "status": {
+                "accessModes": [
+                    "ReadWriteOnce"
+                ],
+                "capacity": {
+                    "storage": "8Gi"
+                },
+                "phase": "Bound"
+            }
+        },
+        {
+            "metadata": {
+                "annotations": {
+                    "banzaicloud.com/last-applied": "UEsDBBQACAAIAAAAAAAAAAAAAAAAAAAAAAAIAAAAb3JpZ2luYWxcUU1vEzEQ/S/v7G0wbdJ0r0VCHGhRD3BAFZrYs6lVr72Mx3CI9r8jmwSJXnbt53kfM3PCzEqelDCeQCllJQ05lXadc036hfQFIzZ50U0KU+ifwVURTrqJ+VhgUDQLHfmBZsaIDq4GR04spBe4hHmJ3Ol2ODNgEOnAsfvRsmBEK4Dpvx9O/uM1OHv+5DHCNodEM5eFXJP3PFGNCoP8O7E88cTCyXHB+L1ph68sJeR0trjKQunIVy7Pm1+W4vJCFgaHmN3rYxP4wJG116tUNnA5qeQYWS7Ia0gtyUOYwn2sRVnwN9Lb0DW0ulu69vvt7W6g6/3dcMPTzUDvDzRYu6e7nd3uDnaL9Xk1KAu7PhDnuJTP2fcm8MTkv0lQfkyO8WwgXHKV3uIJwj8rF+3ny3RH2HcfA9b134ruI5VyWYhS8iQe/Zm0Nu66/gkAAP//UEsHCFSWif9OAQAAFAIAAFBLAQIUABQACAAIAAAAAABUlon/TgEAABQCAAAIAAAAAAAAAAAAAAAAAAAAAABvcmlnaW5hbFBLBQYAAAAAAQABADYAAACEAQAAAAA=",
+                    "mountPath": "/opt/nifi/nifi-current/logs",
+                    "pv.kubernetes.io/bind-completed": "yes",
+                    "pv.kubernetes.io/bound-by-controller": "yes",
+                    "storageName": "logs",
+                    "volume.beta.kubernetes.io/storage-provisioner": "rancher.io/local-path",
+                    "volume.kubernetes.io/selected-node": "kind-worker"
+                },
+                "creationTimestamp": "2021-09-13T20:07:13Z",
+                "finalizers": [
+                    "kubernetes.io/pvc-protection"
+                ],
+                "generateName": "simplenifi-1-storage",
+                "labels": {
+                    "app": "nifi",
+                    "nifi_cr": "simplenifi",
+                    "nodeId": "1"
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    "f:volume.kubernetes.io/selected-node": {}
+                                }
+                            }
+                        },
+                        "manager": "kube-scheduler",
+                        "operation": "Update",
+                        "time": "2021-09-13T20:07:13Z"
+                    },
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:banzaicloud.com/last-applied": {},
+                                    "f:mountPath": {},
+                                    "f:storageName": {}
+                                },
+                                "f:generateName": {},
+                                "f:labels": {
+                                    ".": {},
+                                    "f:app": {},
+                                    "f:nifi_cr": {},
+                                    "f:nodeId": {}
+                                },
+                                "f:ownerReferences": {
+                                    ".": {},
+                                    "k:{\"uid\":\"7a3d8576-a389-4ef4-a2ba-118a96156b15\"}": {
+                                        ".": {},
+                                        "f:apiVersion": {},
+                                        "f:blockOwnerDeletion": {},
+                                        "f:controller": {},
+                                        "f:kind": {},
+                                        "f:name": {},
+                                        "f:uid": {}
+                                    }
+                                }
+                            },
+                            "f:spec": {
+                                "f:accessModes": {},
+                                "f:resources": {
+                                    "f:requests": {
+                                        ".": {},
+                                        "f:storage": {}
+                                    }
+                                },
+                                "f:storageClassName": {},
+                                "f:volumeMode": {}
+                            }
+                        },
+                        "manager": "manager",
+                        "operation": "Update",
+                        "time": "2021-09-13T20:07:13Z"
+                    },
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    "f:pv.kubernetes.io/bind-completed": {},
+                                    "f:pv.kubernetes.io/bound-by-controller": {},
+                                    "f:volume.beta.kubernetes.io/storage-provisioner": {}
+                                }
+                            },
+                            "f:spec": {
+                                "f:volumeName": {}
+                            },
+                            "f:status": {
+                                "f:accessModes": {},
+                                "f:capacity": {
+                                    ".": {},
+                                    "f:storage": {}
+                                },
+                                "f:phase": {}
+                            }
+                        },
+                        "manager": "kube-controller-manager",
+                        "operation": "Update",
+                        "time": "2021-09-13T20:07:35Z"
+                    }
+                ],
+                "name": "simplenifi-1-storage7pdqq",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "nifi.orange.com/v1alpha1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "NifiCluster",
+                        "name": "simplenifi",
+                        "uid": "7a3d8576-a389-4ef4-a2ba-118a96156b15"
+                    }
+                ],
+                "resourceVersion": "1086",
+                "selfLink": "/api/v1/namespaces/default/persistentvolumeclaims/simplenifi-1-storage7pdqq",
+                "uid": "f3964e95-b636-4a44-967c-95c2a15faa44"
+            },
+            "spec": {
+                "accessModes": [
+                    "ReadWriteOnce"
+                ],
+                "resources": {
+                    "requests": {
+                        "storage": "10Gi"
+                    }
+                },
+                "storageClassName": "standard",
+                "volumeMode": "Filesystem",
+                "volumeName": "pvc-f3964e95-b636-4a44-967c-95c2a15faa44"
+            },
+            "status": {
+                "accessModes": [
+                    "ReadWriteOnce"
+                ],
+                "capacity": {
+                    "storage": "10Gi"
+                },
+                "phase": "Bound"
+            }
+        }
+    ],
+    "pod": [
+        {
+            "metadata": {
+                "creationTimestamp": "2021-09-13T20:06:53Z",
+                "generateName": "nifikop-operator-6756f8bf87-",
+                "labels": {
+                    "app": "nifikop",
+                    "control-plane": "nifikop",
+                    "name": "nifikop",
+                    "operator": "nifi",
+                    "pod-template-hash": "6756f8bf87",
+                    "release": "nifikop-operator",
+                    "sievetag": "nifikop-operator"
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:generateName": {},
+                                "f:labels": {
+                                    ".": {},
+                                    "f:app": {},
+                                    "f:control-plane": {},
+                                    "f:name": {},
+                                    "f:operator": {},
+                                    "f:pod-template-hash": {},
+                                    "f:release": {},
+                                    "f:sievetag": {}
+                                },
+                                "f:ownerReferences": {
+                                    ".": {},
+                                    "k:{\"uid\":\"ed088389-9a37-4dd1-b1a6-95fda807f6c9\"}": {
+                                        ".": {},
+                                        "f:apiVersion": {},
+                                        "f:blockOwnerDeletion": {},
+                                        "f:controller": {},
+                                        "f:kind": {},
+                                        "f:name": {},
+                                        "f:uid": {}
+                                    }
+                                }
+                            },
+                            "f:spec": {
+                                "f:containers": {
+                                    "k:{\"name\":\"nifikop\"}": {
+                                        ".": {},
+                                        "f:args": {},
+                                        "f:command": {},
+                                        "f:env": {
+                                            ".": {},
+                                            "k:{\"name\":\"KUBERNETES_SERVICE_HOST\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"KUBERNETES_SERVICE_PORT\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"OPERATOR_NAME\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"POD_NAME\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:valueFrom": {
+                                                    ".": {},
+                                                    "f:fieldRef": {
+                                                        ".": {},
+                                                        "f:apiVersion": {},
+                                                        "f:fieldPath": {}
+                                                    }
+                                                }
+                                            },
+                                            "k:{\"name\":\"WATCH_NAMESPACE\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:valueFrom": {
+                                                    ".": {},
+                                                    "f:fieldRef": {
+                                                        ".": {},
+                                                        "f:apiVersion": {},
+                                                        "f:fieldPath": {}
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "f:envFrom": {},
+                                        "f:image": {},
+                                        "f:imagePullPolicy": {},
+                                        "f:livenessProbe": {
+                                            ".": {},
+                                            "f:failureThreshold": {},
+                                            "f:httpGet": {
+                                                ".": {},
+                                                "f:path": {},
+                                                "f:port": {},
+                                                "f:scheme": {}
+                                            },
+                                            "f:initialDelaySeconds": {},
+                                            "f:periodSeconds": {},
+                                            "f:successThreshold": {},
+                                            "f:timeoutSeconds": {}
+                                        },
+                                        "f:name": {},
+                                        "f:readinessProbe": {
+                                            ".": {},
+                                            "f:failureThreshold": {},
+                                            "f:httpGet": {
+                                                ".": {},
+                                                "f:path": {},
+                                                "f:port": {},
+                                                "f:scheme": {}
+                                            },
+                                            "f:initialDelaySeconds": {},
+                                            "f:periodSeconds": {},
+                                            "f:successThreshold": {},
+                                            "f:timeoutSeconds": {}
+                                        },
+                                        "f:resources": {
+                                            ".": {},
+                                            "f:limits": {
+                                                ".": {},
+                                                "f:cpu": {},
+                                                "f:memory": {}
+                                            },
+                                            "f:requests": {
+                                                ".": {},
+                                                "f:cpu": {},
+                                                "f:memory": {}
+                                            }
+                                        },
+                                        "f:securityContext": {
+                                            ".": {},
+                                            "f:allowPrivilegeEscalation": {}
+                                        },
+                                        "f:terminationMessagePath": {},
+                                        "f:terminationMessagePolicy": {}
+                                    }
+                                },
+                                "f:dnsPolicy": {},
+                                "f:enableServiceLinks": {},
+                                "f:restartPolicy": {},
+                                "f:schedulerName": {},
+                                "f:securityContext": {
+                                    ".": {},
+                                    "f:runAsUser": {}
+                                },
+                                "f:terminationGracePeriodSeconds": {}
+                            }
+                        },
+                        "manager": "kube-controller-manager",
+                        "operation": "Update",
+                        "time": "2021-09-13T20:06:53Z"
+                    },
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:status": {
+                                "f:conditions": {
+                                    "k:{\"type\":\"ContainersReady\"}": {
+                                        ".": {},
+                                        "f:lastProbeTime": {},
+                                        "f:lastTransitionTime": {},
+                                        "f:status": {},
+                                        "f:type": {}
+                                    },
+                                    "k:{\"type\":\"Initialized\"}": {
+                                        ".": {},
+                                        "f:lastProbeTime": {},
+                                        "f:lastTransitionTime": {},
+                                        "f:status": {},
+                                        "f:type": {}
+                                    },
+                                    "k:{\"type\":\"Ready\"}": {
+                                        ".": {},
+                                        "f:lastProbeTime": {},
+                                        "f:lastTransitionTime": {},
+                                        "f:status": {},
+                                        "f:type": {}
+                                    }
+                                },
+                                "f:containerStatuses": {},
+                                "f:hostIP": {},
+                                "f:phase": {},
+                                "f:podIP": {},
+                                "f:podIPs": {
+                                    ".": {},
+                                    "k:{\"ip\":\"10.244.2.2\"}": {
+                                        ".": {},
+                                        "f:ip": {}
+                                    }
+                                },
+                                "f:startTime": {}
+                            }
+                        },
+                        "manager": "kubelet",
+                        "operation": "Update",
+                        "time": "2021-09-13T20:07:07Z"
+                    }
+                ],
+                "name": "nifikop-operator-6756f8bf87-lq88l",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "nifikop-operator-6756f8bf87",
+                        "uid": "ed088389-9a37-4dd1-b1a6-95fda807f6c9"
+                    }
+                ],
+                "resourceVersion": "927",
+                "selfLink": "/api/v1/namespaces/default/pods/nifikop-operator-6756f8bf87-lq88l",
+                "uid": "858f8f93-dfa3-450d-9383-fa93e96c5660"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "args": [
+                            "--leader-elect"
+                        ],
+                        "command": [
+                            "/manager"
+                        ],
+                        "env": [
+                            {
+                                "name": "WATCH_NAMESPACE",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "metadata.namespace"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "POD_NAME",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "metadata.name"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "KUBERNETES_SERVICE_HOST",
+                                "value": "kind-control-plane"
+                            },
+                            {
+                                "name": "KUBERNETES_SERVICE_PORT",
+                                "value": "6443"
+                            },
+                            {
+                                "name": "OPERATOR_NAME",
+                                "value": "nifikop"
+                            }
+                        ],
+                        "envFrom": [
+                            {
+                                "configMapRef": {
+                                    "name": "sieve-testing-global-config"
+                                }
+                            }
+                        ],
+                        "image": "laphets/nifikop-operator:learn",
+                        "imagePullPolicy": "Always",
+                        "livenessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/healthz",
+                                "port": 8081,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 15,
+                            "periodSeconds": 20,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 1
+                        },
+                        "name": "nifikop",
+                        "readinessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/readyz",
+                                "port": 8081,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 5,
+                            "periodSeconds": 10,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 1
+                        },
+                        "resources": {
+                            "limits": {
+                                "cpu": "1",
+                                "memory": "512Mi"
+                            },
+                            "requests": {
+                                "cpu": "10m",
+                                "memory": "50Mi"
+                            }
+                        },
+                        "securityContext": {
+                            "allowPrivilegeEscalation": false
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-rszkb",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "kind-worker",
+                "priority": 0,
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {
+                    "runAsUser": 1000
+                },
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 10,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-rszkb",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-rszkb"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-09-13T20:06:54Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-09-13T20:07:07Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-09-13T20:07:07Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-09-13T20:06:54Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "containerd://a0eb27ae9a788df173cdefb8b2621df10e049a369a2f0d1bd5c8e320fcf06ee3",
+                        "image": "docker.io/laphets/nifikop-operator:learn",
+                        "imageID": "docker.io/laphets/nifikop-operator@sha256:208083510487975c0a07d276e6915690519fb58f4df506d9669738c43f606013",
+                        "lastState": {},
+                        "name": "nifikop",
+                        "ready": true,
+                        "restartCount": 0,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-09-13T20:07:01Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "172.18.0.2",
+                "phase": "Running",
+                "podIP": "10.244.2.2",
+                "podIPs": [
+                    {
+                        "ip": "10.244.2.2"
+                    }
+                ],
+                "qosClass": "Burstable",
+                "startTime": "2021-09-13T20:06:54Z"
+            }
+        },
+        {
+            "metadata": {
+                "annotations": {
+                    "banzaicloud.com/last-applied": "UEsDBBQACAAIAAAAAAAAAAAAAAAAAAAAAAAIAAAAb3JpZ2luYWysV/9P4zoS/1csq9JjT0mbdBcWuuIHji/7qndARXnvpEcq5DqTxodjB9spFLb/+2mcNG2X3i4r3S8ljOf7fDwzfqUFOJYyx+jglTKltGNOaGXx39LoAlwOle0K3Su1cXRAj6KjiAbfnVluWAl0QJ2pgC4DOgMFhjm4YgWSrShKCUpkIoxDpVOgAZVsCtLbYWVJBxRPaeD/3HOzJYRkncIwpQMao3rFCrAl46g7hYxV0tGA6icF5gYyMKA4WDq4Q93iLzBWaNWY6GrD1Ay6XBe9ecxkmbOYBnQqNX+4RgVnIMF5fgwmoFwrZ7SUYFaUB6HQkyuRiVNZWQeG1i5973QlkO8z+5ge7n8+CNnHw6PwE2SfQtafsjCOD9nRQbx/MI336XKyDKgtgfuEZJlQwi18EXR6opw42SQZjNFAelYZoWZjnkNaSaFmw5nSLfn8GXhVB3JXq2lU3IIpUI0vwBgkcKcNEgrmeP6vXyjLchlQp0st9WzxByzogD5UUzAKHHhY5No6n5dlQJ9AzHJHB3EULScoiHllQoGpC8V1UTDM6x2dMpvTgIYcYcJL0nm9Gl4M73+/vjxf9lxR9v6xTeJaZb1EAc81Sei/mXBCzUimDUEHiNNkCsQA4zmbSkhogjC/xGAhHZbHWNREPeVCAulsniQq1YlKXKM4Y0JCiuq8LvIG1N0NSg4slWBtt4Fn1855l9do6UrNmRwcRocROtMauNCVSgekI8obsFrOIQ0IPJfAMZ4B6Yyuz+6HIxQhhBArAUqynyjUsBY57uw9zcCRMHRGgD2OSXhLYhJek14K856qpPy/eE5IP6mi6CPgb/8gJt+IhZSEinwsvxH29EB+e7WlFG6vEwUsSOi3hH74QkojlCPsrj8hy98+fB882Yp+FanIyN0dSejWETk+RtIqJ2Qy+UJcDj4bjdJhSTykPRRWnP54q/4ZkxaQngmsuIIWSr83+CXCEltxDtZmlZQLMhUqhZQ8CZcvyHBEWGrAWvRXZIRXRpIwRLiQcE5y58pBr/frGe55ZlaK3roF9Ro2UueedPw1+OfJ+Pz+bHizOu1axxys89GEM94M4bECsyBX4kKQRqrG4vj25PbP8XFn7z+PJDQkoa1nCBR7N/GFxqax12Wpj/v4OEkS2tlbXXcSZh+Q8oF8I96Vyib0h65uAsETSKf2o/apBkD4ggVf0duCk42KJ/QGCj3H618amAtdWQLPwIkFV5W1slodCTPUtu0TzsFeZcHY7nMh0UZjwhTI/0PuLwTh83P1rHK5NuKlHrM77ew09FZul8WdopnUTyjQnb28z9aGwMqI/1X4uzMXW9UkifJJnwrlMdy1OTGVopOAgpr7bt9MS6/k7+vrP87PR+c396fXV1fnp7f349ub4dVXGtA5kxXyvWj9AFCCGfTjQ9wAWg31rV6xXhjtR1smQKY3kNVjbGMDmOOs96cj5nKcZh6e3VKnwxFdLpeTgIqCzVA1KxnPwUcwiLtxv4uyUmTAF1xCM4jHTpf4iQHj311jjAYNEnBc9TazYlF6ssRxKMUcFFg7MnrqlWP/qAzc5gZsrmVKB/sBxQEumDwDyRZj4Fqllg6OooCWYIROW9JBFFDHy7HmD+DqNQK3N2wrOLNFAbpyLXc/WrYLTDPvkX81mJs5PWpVtMzY2+pl0GmuJR3Q29ORL893UgdR9LmV4u3S9HPBOIqitT3bt++SwiW1FVqvqjtkJwE1wFKxlfqfFLNu8A9ta9/ufNu9m+Je9/5SHrwtZT96W7AYC2bA6sr4RfeVSlEI5794WdEB3Y+igga0gEIbXMz6XwX1Mo8V2J8yLgM617Iq4FJXqsFBgZ/Nrenp0vkQ6zh5ZQwo15N6ZtersP8Pi/MOSVeUa0EcNCEudWL2Vv4tJ1KWE6xkquxIS8ExjmYzvxDG4tugXUV3P0awGKf/cyFdl75ZDZxZ4IxxmnjgcUf+bjsU2W5WiaqUE5IoTsL5yxOJ1+cEz7+QrSXzaWN7bRm73W49u+qdr1+vKXSjV00ru5jq53VmWln6i0DZj/uX74RKw+qbZmmENv59EnmDjhnX1uIK5t4RW79UwDTPwmb/CVs68gCvUBFWA55978rsV6Orsm4GATWVOrFXWt1o7VZPMk/70+IbDZnwLQVmLjiccI7o2TaIZqppqgsm1DYgVqsZDagDUwjlx+1XwziMtq9ljPeyviR2c6Q1d6DEkWMdKPeX5zmVTPjRxPFj17PYOm3YDD6X6eMj3sDXXdfB58fULb0J5hIRPPiE7tRnb5XXwmFcq4WidIszgU++5c6bFDRTERmW/w0AAP//UEsHCE3uua/HBgAAIhAAAFBLAQIUABQACAAIAAAAAABN7rmvxwYAACIQAAAIAAAAAAAAAAAAAAAAAAAAAABvcmlnaW5hbFBLBQYAAAAAAQABADYAAAD9BgAAAAA=",
+                    "prometheus.io/port": "9090",
+                    "prometheus.io/scrape": "true"
+                },
+                "creationTimestamp": "2021-09-13T20:13:05Z",
+                "generateName": "simplenifi-1-node",
+                "labels": {
+                    "app": "nifi",
+                    "nifi_cr": "simplenifi",
+                    "nodeId": "1"
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:banzaicloud.com/last-applied": {},
+                                    "f:prometheus.io/port": {},
+                                    "f:prometheus.io/scrape": {}
+                                },
+                                "f:generateName": {},
+                                "f:labels": {
+                                    ".": {},
+                                    "f:app": {},
+                                    "f:nifi_cr": {},
+                                    "f:nodeId": {}
+                                },
+                                "f:ownerReferences": {
+                                    ".": {},
+                                    "k:{\"uid\":\"7a3d8576-a389-4ef4-a2ba-118a96156b15\"}": {
+                                        ".": {},
+                                        "f:apiVersion": {},
+                                        "f:blockOwnerDeletion": {},
+                                        "f:controller": {},
+                                        "f:kind": {},
+                                        "f:name": {},
+                                        "f:uid": {}
+                                    }
+                                }
+                            },
+                            "f:spec": {
+                                "f:affinity": {
+                                    ".": {},
+                                    "f:podAntiAffinity": {
+                                        ".": {},
+                                        "f:preferredDuringSchedulingIgnoredDuringExecution": {}
+                                    }
+                                },
+                                "f:containers": {
+                                    "k:{\"name\":\"nifi\"}": {
+                                        ".": {},
+                                        "f:command": {},
+                                        "f:env": {
+                                            ".": {},
+                                            "k:{\"name\":\"NIFI_ZOOKEEPER_CONNECT_STRING\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"POD_IP\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:valueFrom": {
+                                                    ".": {},
+                                                    "f:fieldRef": {
+                                                        ".": {},
+                                                        "f:apiVersion": {},
+                                                        "f:fieldPath": {}
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "f:image": {},
+                                        "f:imagePullPolicy": {},
+                                        "f:lifecycle": {
+                                            ".": {},
+                                            "f:preStop": {
+                                                ".": {},
+                                                "f:exec": {
+                                                    ".": {},
+                                                    "f:command": {}
+                                                }
+                                            }
+                                        },
+                                        "f:livenessProbe": {
+                                            ".": {},
+                                            "f:failureThreshold": {},
+                                            "f:initialDelaySeconds": {},
+                                            "f:periodSeconds": {},
+                                            "f:successThreshold": {},
+                                            "f:tcpSocket": {
+                                                ".": {},
+                                                "f:port": {}
+                                            },
+                                            "f:timeoutSeconds": {}
+                                        },
+                                        "f:name": {},
+                                        "f:ports": {
+                                            ".": {},
+                                            "k:{\"containerPort\":10000,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:name": {},
+                                                "f:protocol": {}
+                                            },
+                                            "k:{\"containerPort\":6007,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:name": {},
+                                                "f:protocol": {}
+                                            },
+                                            "k:{\"containerPort\":8080,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:name": {},
+                                                "f:protocol": {}
+                                            },
+                                            "k:{\"containerPort\":9090,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:name": {},
+                                                "f:protocol": {}
+                                            }
+                                        },
+                                        "f:readinessProbe": {
+                                            ".": {},
+                                            "f:exec": {
+                                                ".": {},
+                                                "f:command": {}
+                                            },
+                                            "f:failureThreshold": {},
+                                            "f:initialDelaySeconds": {},
+                                            "f:periodSeconds": {},
+                                            "f:successThreshold": {},
+                                            "f:timeoutSeconds": {}
+                                        },
+                                        "f:resources": {
+                                            ".": {},
+                                            "f:limits": {
+                                                ".": {},
+                                                "f:cpu": {},
+                                                "f:memory": {}
+                                            },
+                                            "f:requests": {
+                                                ".": {},
+                                                "f:cpu": {},
+                                                "f:memory": {}
+                                            }
+                                        },
+                                        "f:terminationMessagePath": {},
+                                        "f:terminationMessagePolicy": {},
+                                        "f:volumeMounts": {
+                                            ".": {},
+                                            "k:{\"mountPath\":\"/opt/nifi/nifi-current/logs\"}": {
+                                                ".": {},
+                                                "f:mountPath": {},
+                                                "f:name": {}
+                                            },
+                                            "k:{\"mountPath\":\"/opt/nifi/nifi-current/tmp\"}": {
+                                                ".": {},
+                                                "f:mountPath": {},
+                                                "f:name": {}
+                                            },
+                                            "k:{\"mountPath\":\"/tmp\"}": {
+                                                ".": {},
+                                                "f:mountPath": {},
+                                                "f:name": {}
+                                            }
+                                        }
+                                    }
+                                },
+                                "f:dnsPolicy": {},
+                                "f:enableServiceLinks": {},
+                                "f:hostname": {},
+                                "f:initContainers": {
+                                    ".": {},
+                                    "k:{\"name\":\"zookeeper\"}": {
+                                        ".": {},
+                                        "f:command": {},
+                                        "f:image": {},
+                                        "f:imagePullPolicy": {},
+                                        "f:name": {},
+                                        "f:resources": {
+                                            ".": {},
+                                            "f:limits": {
+                                                ".": {},
+                                                "f:cpu": {},
+                                                "f:memory": {}
+                                            },
+                                            "f:requests": {
+                                                ".": {},
+                                                "f:cpu": {},
+                                                "f:memory": {}
+                                            }
+                                        },
+                                        "f:terminationMessagePath": {},
+                                        "f:terminationMessagePolicy": {}
+                                    }
+                                },
+                                "f:priority": {},
+                                "f:restartPolicy": {},
+                                "f:schedulerName": {},
+                                "f:securityContext": {
+                                    ".": {},
+                                    "f:fsGroup": {},
+                                    "f:runAsNonRoot": {},
+                                    "f:runAsUser": {}
+                                },
+                                "f:serviceAccount": {},
+                                "f:serviceAccountName": {},
+                                "f:subdomain": {},
+                                "f:terminationGracePeriodSeconds": {},
+                                "f:volumes": {
+                                    ".": {},
+                                    "k:{\"name\":\"logs\"}": {
+                                        ".": {},
+                                        "f:name": {},
+                                        "f:persistentVolumeClaim": {
+                                            ".": {},
+                                            "f:claimName": {}
+                                        }
+                                    },
+                                    "k:{\"name\":\"node-config\"}": {
+                                        ".": {},
+                                        "f:name": {},
+                                        "f:secret": {
+                                            ".": {},
+                                            "f:defaultMode": {},
+                                            "f:secretName": {}
+                                        }
+                                    },
+                                    "k:{\"name\":\"node-tmp\"}": {
+                                        ".": {},
+                                        "f:emptyDir": {},
+                                        "f:name": {}
+                                    }
+                                }
+                            }
+                        },
+                        "manager": "manager",
+                        "operation": "Update",
+                        "time": "2021-09-13T20:13:05Z"
+                    },
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:status": {
+                                "f:conditions": {
+                                    "k:{\"type\":\"ContainersReady\"}": {
+                                        ".": {},
+                                        "f:lastProbeTime": {},
+                                        "f:lastTransitionTime": {},
+                                        "f:status": {},
+                                        "f:type": {}
+                                    },
+                                    "k:{\"type\":\"Initialized\"}": {
+                                        ".": {},
+                                        "f:lastProbeTime": {},
+                                        "f:lastTransitionTime": {},
+                                        "f:status": {},
+                                        "f:type": {}
+                                    },
+                                    "k:{\"type\":\"Ready\"}": {
+                                        ".": {},
+                                        "f:lastProbeTime": {},
+                                        "f:lastTransitionTime": {},
+                                        "f:status": {},
+                                        "f:type": {}
+                                    }
+                                },
+                                "f:containerStatuses": {},
+                                "f:hostIP": {},
+                                "f:initContainerStatuses": {},
+                                "f:phase": {},
+                                "f:podIP": {},
+                                "f:podIPs": {
+                                    ".": {},
+                                    "k:{\"ip\":\"10.244.2.5\"}": {
+                                        ".": {},
+                                        "f:ip": {}
+                                    }
+                                },
+                                "f:startTime": {}
+                            }
+                        },
+                        "manager": "kubelet",
+                        "operation": "Update",
+                        "time": "2021-09-13T20:16:35Z"
+                    }
+                ],
+                "name": "simplenifi-1-nodetbx2f",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "nifi.orange.com/v1alpha1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "NifiCluster",
+                        "name": "simplenifi",
+                        "uid": "7a3d8576-a389-4ef4-a2ba-118a96156b15"
+                    }
+                ],
+                "resourceVersion": "3170",
+                "selfLink": "/api/v1/namespaces/default/pods/simplenifi-1-nodetbx2f",
+                "uid": "2cb2a4dd-d4db-42a9-886f-81fa27e5cbed"
+            },
+            "spec": {
+                "affinity": {
+                    "podAntiAffinity": {
+                        "preferredDuringSchedulingIgnoredDuringExecution": [
+                            {
+                                "podAffinityTerm": {
+                                    "labelSelector": {
+                                        "matchLabels": {
+                                            "app": "nifi",
+                                            "nifi_cr": "simplenifi"
+                                        }
+                                    },
+                                    "topologyKey": "kubernetes.io/hostname"
+                                },
+                                "weight": 100
+                            }
+                        ]
+                    }
+                },
+                "containers": [
+                    {
+                        "command": [
+                            "bash",
+                            "-ce",
+                            "cp ${NIFI_HOME}/tmp/* ${NIFI_HOME}/conf/\necho \"Waiting for host to be reachable\"\nnotMatchedIp=true\nwhile $notMatchedIp\ndo\n\techo \"failed to reach simplenifi-1-node.simplenifi-headless.default.svc.cluster.local:8080\"\n\techo \"Found: $ipResolved, expecting: $POD_IP\"\n    sleep 5\n\n\tipResolved=$(wget --tries=1 -T 1 -O /dev/null simplenifi-1-node.simplenifi-headless.default.svc.cluster.local:8080  2>&1 | sed -n 3p| awk '{split($0,a,\"|\"); print a[2] }')\n\techo \"Found : $ipResolved\"\n    if [[ \"$ipResolved\" == \"$POD_IP\" ]]; then\n\t\techo Ip match for $POD_IP\n\t\tnotMatchedIp=false\n\tfi\ndone\necho \"Hostname is successfully binded withy IP adress\"\nif curl --fail -v http://simplenifi-headless.default.svc.cluster.local:8080/nifi-api/controller/cluster > $NIFI_BASE_DIR/cluster.state; then\n\techo \"Successfully query NiFi cluster\"\n\tSTATUS=$(jq -r \".cluster.nodes[] | select(.address==\\\"$(hostname -f)\\\") | .status\" $NIFI_BASE_DIR/cluster.state)\n\techo \"state $STATUS\"\n\tif [[ -z \"$STATUS\" ]]; then \n\t\techo \"Removing previous exec setup\"\n\t\tif [ -f \"$NIFI_BASE_DIR/data/users.xml\" ]; then rm -f $NIFI_BASE_DIR/data/users.xml; fi\n\t\tif [ -f \"$NIFI_BASE_DIR/data/authorizations.xml\" ]; then rm -f  $NIFI_BASE_DIR/data/authorizations.xml; fi\n\t\tif [ -f \" $NIFI_BASE_DIR/data/flow.xml.gz\" ]; then rm -f  $NIFI_BASE_DIR/data/flow.xml.gz; fi\n\tfi\n\nfi\nrm -f $NIFI_BASE_DIR/cluster.state \nexec bin/nifi.sh run"
+                        ],
+                        "env": [
+                            {
+                                "name": "NIFI_ZOOKEEPER_CONNECT_STRING",
+                                "value": "zookeeper:2181"
+                            },
+                            {
+                                "name": "POD_IP",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "status.podIP"
+                                    }
+                                }
+                            }
+                        ],
+                        "image": "apache/nifi:1.12.1",
+                        "imagePullPolicy": "IfNotPresent",
+                        "lifecycle": {
+                            "preStop": {
+                                "exec": {
+                                    "command": [
+                                        "bash",
+                                        "-c",
+                                        "$NIFI_HOME/bin/nifi.sh stop"
+                                    ]
+                                }
+                            }
+                        },
+                        "livenessProbe": {
+                            "failureThreshold": 5,
+                            "initialDelaySeconds": 90,
+                            "periodSeconds": 60,
+                            "successThreshold": 1,
+                            "tcpSocket": {
+                                "port": 8080
+                            },
+                            "timeoutSeconds": 20
+                        },
+                        "name": "nifi",
+                        "ports": [
+                            {
+                                "containerPort": 8080,
+                                "name": "http",
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 6007,
+                                "name": "cluster",
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 10000,
+                                "name": "s2s",
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 9090,
+                                "name": "prometheus",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "readinessProbe": {
+                            "exec": {
+                                "command": [
+                                    "bash",
+                                    "-c",
+                                    "curl -kv http://$(hostname -f):8080/nifi-api"
+                                ]
+                            },
+                            "failureThreshold": 5,
+                            "initialDelaySeconds": 60,
+                            "periodSeconds": 20,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 10
+                        },
+                        "resources": {
+                            "limits": {
+                                "cpu": "500m",
+                                "memory": "2Gi"
+                            },
+                            "requests": {
+                                "cpu": "500m",
+                                "memory": "2Gi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/opt/nifi/nifi-current/logs",
+                                "name": "logs"
+                            },
+                            {
+                                "mountPath": "/opt/nifi/nifi-current/tmp",
+                                "name": "node-config"
+                            },
+                            {
+                                "mountPath": "/tmp",
+                                "name": "node-tmp"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-rszkb",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "hostname": "simplenifi-1-node",
+                "initContainers": [
+                    {
+                        "command": [
+                            "sh",
+                            "-c",
+                            "\necho trying to contact Zookeeper: zookeeper:2181\nuntil nc -vzw 1 zookeeper 2181; do\n\techo \"waiting for zookeeper...\"\n\tsleep 2\ndone"
+                        ],
+                        "image": "busybox",
+                        "imagePullPolicy": "Always",
+                        "name": "zookeeper",
+                        "resources": {
+                            "limits": {
+                                "cpu": "500m",
+                                "memory": "512Mi"
+                            },
+                            "requests": {
+                                "cpu": "500m",
+                                "memory": "512Mi"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-rszkb",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "nodeName": "kind-worker",
+                "priority": 0,
+                "restartPolicy": "Never",
+                "schedulerName": "default-scheduler",
+                "securityContext": {
+                    "fsGroup": 1000,
+                    "runAsNonRoot": true,
+                    "runAsUser": 1000
+                },
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "subdomain": "simplenifi-headless",
+                "terminationGracePeriodSeconds": 120,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "logs",
+                        "persistentVolumeClaim": {
+                            "claimName": "simplenifi-1-storage7pdqq"
+                        }
+                    },
+                    {
+                        "name": "node-config",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "simplenifi-config-1"
+                        }
+                    },
+                    {
+                        "emptyDir": {},
+                        "name": "node-tmp"
+                    },
+                    {
+                        "name": "default-token-rszkb",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-rszkb"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-09-13T20:13:11Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-09-13T20:16:35Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-09-13T20:16:35Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-09-13T20:13:05Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "containerd://146030f4bf547fcd3f94ffefc56cc766101cce35c8efdf61f01e038fe1246346",
+                        "image": "docker.io/apache/nifi:1.12.1",
+                        "imageID": "docker.io/apache/nifi@sha256:bf7576ab7ad0bfe38c86be5baa47229d1644287984034dc9d5ff4801c5827115",
+                        "lastState": {},
+                        "name": "nifi",
+                        "ready": true,
+                        "restartCount": 0,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-09-13T20:13:13Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "172.18.0.2",
+                "initContainerStatuses": [
+                    {
+                        "containerID": "containerd://584ed9f42328ebfd3e4301ebddaa4065fcff58279cde89cca82f68ea7e4d926e",
+                        "image": "docker.io/library/busybox:latest",
+                        "imageID": "docker.io/library/busybox@sha256:b37dd066f59a4961024cf4bed74cae5e68ac26b48807292bd12198afa3ecb778",
+                        "lastState": {},
+                        "name": "zookeeper",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "terminated": {
+                                "containerID": "containerd://584ed9f42328ebfd3e4301ebddaa4065fcff58279cde89cca82f68ea7e4d926e",
+                                "exitCode": 0,
+                                "finishedAt": "2021-09-13T20:13:10Z",
+                                "reason": "Completed",
+                                "startedAt": "2021-09-13T20:13:10Z"
+                            }
+                        }
+                    }
+                ],
+                "phase": "Running",
+                "podIP": "10.244.2.5",
+                "podIPs": [
+                    {
+                        "ip": "10.244.2.5"
+                    }
+                ],
+                "qosClass": "Guaranteed",
+                "startTime": "2021-09-13T20:13:05Z"
+            }
+        },
+        {
+            "metadata": {
+                "creationTimestamp": "2021-09-13T20:06:34Z",
+                "generateName": "zookeeper-",
+                "labels": {
+                    "app.kubernetes.io/component": "zookeeper",
+                    "app.kubernetes.io/instance": "zookeeper",
+                    "app.kubernetes.io/managed-by": "Helm",
+                    "app.kubernetes.io/name": "zookeeper",
+                    "controller-revision-hash": "zookeeper-56dfdc696d",
+                    "helm.sh/chart": "zookeeper-7.4.3",
+                    "statefulset.kubernetes.io/pod-name": "zookeeper-0"
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:generateName": {},
+                                "f:labels": {
+                                    ".": {},
+                                    "f:app.kubernetes.io/component": {},
+                                    "f:app.kubernetes.io/instance": {},
+                                    "f:app.kubernetes.io/managed-by": {},
+                                    "f:app.kubernetes.io/name": {},
+                                    "f:controller-revision-hash": {},
+                                    "f:helm.sh/chart": {},
+                                    "f:statefulset.kubernetes.io/pod-name": {}
+                                },
+                                "f:ownerReferences": {
+                                    ".": {},
+                                    "k:{\"uid\":\"896c90aa-df73-46b6-87d5-84b4091c5278\"}": {
+                                        ".": {},
+                                        "f:apiVersion": {},
+                                        "f:blockOwnerDeletion": {},
+                                        "f:controller": {},
+                                        "f:kind": {},
+                                        "f:name": {},
+                                        "f:uid": {}
+                                    }
+                                }
+                            },
+                            "f:spec": {
+                                "f:affinity": {
+                                    ".": {},
+                                    "f:podAntiAffinity": {
+                                        ".": {},
+                                        "f:preferredDuringSchedulingIgnoredDuringExecution": {}
+                                    }
+                                },
+                                "f:containers": {
+                                    "k:{\"name\":\"zookeeper\"}": {
+                                        ".": {},
+                                        "f:command": {},
+                                        "f:env": {
+                                            ".": {},
+                                            "k:{\"name\":\"ALLOW_ANONYMOUS_LOGIN\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"BITNAMI_DEBUG\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"POD_NAME\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:valueFrom": {
+                                                    ".": {},
+                                                    "f:fieldRef": {
+                                                        ".": {},
+                                                        "f:apiVersion": {},
+                                                        "f:fieldPath": {}
+                                                    }
+                                                }
+                                            },
+                                            "k:{\"name\":\"ZOO_4LW_COMMANDS_WHITELIST\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"ZOO_AUTOPURGE_INTERVAL\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"ZOO_AUTOPURGE_RETAIN_COUNT\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"ZOO_DATA_LOG_DIR\"}": {
+                                                ".": {},
+                                                "f:name": {}
+                                            },
+                                            "k:{\"name\":\"ZOO_ENABLE_AUTH\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"ZOO_HEAP_SIZE\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"ZOO_INIT_LIMIT\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"ZOO_LISTEN_ALLIPS_ENABLED\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"ZOO_LOG_LEVEL\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"ZOO_MAX_CLIENT_CNXNS\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"ZOO_MAX_SESSION_TIMEOUT\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"ZOO_PORT_NUMBER\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"ZOO_PRE_ALLOC_SIZE\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"ZOO_SERVERS\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"ZOO_SNAPCOUNT\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"ZOO_SYNC_LIMIT\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            },
+                                            "k:{\"name\":\"ZOO_TICK_TIME\"}": {
+                                                ".": {},
+                                                "f:name": {},
+                                                "f:value": {}
+                                            }
+                                        },
+                                        "f:image": {},
+                                        "f:imagePullPolicy": {},
+                                        "f:livenessProbe": {
+                                            ".": {},
+                                            "f:exec": {
+                                                ".": {},
+                                                "f:command": {}
+                                            },
+                                            "f:failureThreshold": {},
+                                            "f:initialDelaySeconds": {},
+                                            "f:periodSeconds": {},
+                                            "f:successThreshold": {},
+                                            "f:timeoutSeconds": {}
+                                        },
+                                        "f:name": {},
+                                        "f:ports": {
+                                            ".": {},
+                                            "k:{\"containerPort\":2181,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:name": {},
+                                                "f:protocol": {}
+                                            },
+                                            "k:{\"containerPort\":2888,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:name": {},
+                                                "f:protocol": {}
+                                            },
+                                            "k:{\"containerPort\":3888,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:containerPort": {},
+                                                "f:name": {},
+                                                "f:protocol": {}
+                                            }
+                                        },
+                                        "f:readinessProbe": {
+                                            ".": {},
+                                            "f:exec": {
+                                                ".": {},
+                                                "f:command": {}
+                                            },
+                                            "f:failureThreshold": {},
+                                            "f:initialDelaySeconds": {},
+                                            "f:periodSeconds": {},
+                                            "f:successThreshold": {},
+                                            "f:timeoutSeconds": {}
+                                        },
+                                        "f:resources": {
+                                            ".": {},
+                                            "f:limits": {
+                                                ".": {},
+                                                "f:cpu": {},
+                                                "f:memory": {}
+                                            },
+                                            "f:requests": {
+                                                ".": {},
+                                                "f:cpu": {},
+                                                "f:memory": {}
+                                            }
+                                        },
+                                        "f:securityContext": {
+                                            ".": {},
+                                            "f:runAsUser": {}
+                                        },
+                                        "f:terminationMessagePath": {},
+                                        "f:terminationMessagePolicy": {},
+                                        "f:volumeMounts": {
+                                            ".": {},
+                                            "k:{\"mountPath\":\"/bitnami/zookeeper\"}": {
+                                                ".": {},
+                                                "f:mountPath": {},
+                                                "f:name": {}
+                                            }
+                                        }
+                                    }
+                                },
+                                "f:dnsPolicy": {},
+                                "f:enableServiceLinks": {},
+                                "f:hostname": {},
+                                "f:restartPolicy": {},
+                                "f:schedulerName": {},
+                                "f:securityContext": {
+                                    ".": {},
+                                    "f:fsGroup": {}
+                                },
+                                "f:serviceAccount": {},
+                                "f:serviceAccountName": {},
+                                "f:subdomain": {},
+                                "f:terminationGracePeriodSeconds": {},
+                                "f:volumes": {
+                                    ".": {},
+                                    "k:{\"name\":\"data\"}": {
+                                        ".": {},
+                                        "f:name": {},
+                                        "f:persistentVolumeClaim": {
+                                            ".": {},
+                                            "f:claimName": {}
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "manager": "kube-controller-manager",
+                        "operation": "Update",
+                        "time": "2021-09-13T20:06:34Z"
+                    },
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:status": {
+                                "f:conditions": {
+                                    "k:{\"type\":\"ContainersReady\"}": {
+                                        ".": {},
+                                        "f:lastProbeTime": {},
+                                        "f:lastTransitionTime": {},
+                                        "f:status": {},
+                                        "f:type": {}
+                                    },
+                                    "k:{\"type\":\"Initialized\"}": {
+                                        ".": {},
+                                        "f:lastProbeTime": {},
+                                        "f:lastTransitionTime": {},
+                                        "f:status": {},
+                                        "f:type": {}
+                                    },
+                                    "k:{\"type\":\"Ready\"}": {
+                                        ".": {},
+                                        "f:lastProbeTime": {},
+                                        "f:lastTransitionTime": {},
+                                        "f:status": {},
+                                        "f:type": {}
+                                    }
+                                },
+                                "f:containerStatuses": {},
+                                "f:hostIP": {},
+                                "f:phase": {},
+                                "f:podIP": {},
+                                "f:podIPs": {
+                                    ".": {},
+                                    "k:{\"ip\":\"10.244.1.3\"}": {
+                                        ".": {},
+                                        "f:ip": {}
+                                    }
+                                },
+                                "f:startTime": {}
+                            }
+                        },
+                        "manager": "kubelet",
+                        "operation": "Update",
+                        "time": "2021-09-13T20:07:55Z"
+                    }
+                ],
+                "name": "zookeeper-0",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "StatefulSet",
+                        "name": "zookeeper",
+                        "uid": "896c90aa-df73-46b6-87d5-84b4091c5278"
+                    }
+                ],
+                "resourceVersion": "1177",
+                "selfLink": "/api/v1/namespaces/default/pods/zookeeper-0",
+                "uid": "7bc2c8f1-8b00-4ff0-8a01-207f135a74af"
+            },
+            "spec": {
+                "affinity": {
+                    "podAntiAffinity": {
+                        "preferredDuringSchedulingIgnoredDuringExecution": [
+                            {
+                                "podAffinityTerm": {
+                                    "labelSelector": {
+                                        "matchLabels": {
+                                            "app.kubernetes.io/component": "zookeeper",
+                                            "app.kubernetes.io/instance": "zookeeper",
+                                            "app.kubernetes.io/name": "zookeeper"
+                                        }
+                                    },
+                                    "namespaces": [
+                                        "default"
+                                    ],
+                                    "topologyKey": "kubernetes.io/hostname"
+                                },
+                                "weight": 1
+                            }
+                        ]
+                    }
+                },
+                "containers": [
+                    {
+                        "command": [
+                            "bash",
+                            "-ec",
+                            "# Execute entrypoint as usual after obtaining ZOO_SERVER_ID\n# check ZOO_SERVER_ID in persistent volume via myid\n# if not present, set based on POD hostname\nif [[ -f \"/bitnami/zookeeper/data/myid\" ]]; then\n  export ZOO_SERVER_ID=\"$(cat /bitnami/zookeeper/data/myid)\"\nelse\n  HOSTNAME=`hostname -s`\n  if [[ $HOSTNAME =~ (.*)-([0-9]+)$ ]]; then\n    ORD=${BASH_REMATCH[2]}\n    export ZOO_SERVER_ID=$((ORD + 1 ))\n  else\n    echo \"Failed to get index from hostname $HOST\"\n    exit 1\n  fi\nfi\nexec /entrypoint.sh /run.sh\n"
+                        ],
+                        "env": [
+                            {
+                                "name": "BITNAMI_DEBUG",
+                                "value": "false"
+                            },
+                            {
+                                "name": "ZOO_DATA_LOG_DIR"
+                            },
+                            {
+                                "name": "ZOO_PORT_NUMBER",
+                                "value": "2181"
+                            },
+                            {
+                                "name": "ZOO_TICK_TIME",
+                                "value": "2000"
+                            },
+                            {
+                                "name": "ZOO_INIT_LIMIT",
+                                "value": "10"
+                            },
+                            {
+                                "name": "ZOO_SYNC_LIMIT",
+                                "value": "5"
+                            },
+                            {
+                                "name": "ZOO_PRE_ALLOC_SIZE",
+                                "value": "65536"
+                            },
+                            {
+                                "name": "ZOO_SNAPCOUNT",
+                                "value": "100000"
+                            },
+                            {
+                                "name": "ZOO_MAX_CLIENT_CNXNS",
+                                "value": "60"
+                            },
+                            {
+                                "name": "ZOO_4LW_COMMANDS_WHITELIST",
+                                "value": "srvr, mntr, ruok"
+                            },
+                            {
+                                "name": "ZOO_LISTEN_ALLIPS_ENABLED",
+                                "value": "no"
+                            },
+                            {
+                                "name": "ZOO_AUTOPURGE_INTERVAL",
+                                "value": "0"
+                            },
+                            {
+                                "name": "ZOO_AUTOPURGE_RETAIN_COUNT",
+                                "value": "3"
+                            },
+                            {
+                                "name": "ZOO_MAX_SESSION_TIMEOUT",
+                                "value": "40000"
+                            },
+                            {
+                                "name": "ZOO_SERVERS",
+                                "value": "zookeeper-0.zookeeper-headless.default.svc.cluster.local:2888:3888::1"
+                            },
+                            {
+                                "name": "ZOO_ENABLE_AUTH",
+                                "value": "no"
+                            },
+                            {
+                                "name": "ZOO_HEAP_SIZE",
+                                "value": "1024"
+                            },
+                            {
+                                "name": "ZOO_LOG_LEVEL",
+                                "value": "ERROR"
+                            },
+                            {
+                                "name": "ALLOW_ANONYMOUS_LOGIN",
+                                "value": "yes"
+                            },
+                            {
+                                "name": "POD_NAME",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "metadata.name"
+                                    }
+                                }
+                            }
+                        ],
+                        "image": "docker.io/bitnami/zookeeper:3.7.0-debian-10-r127",
+                        "imagePullPolicy": "IfNotPresent",
+                        "livenessProbe": {
+                            "exec": {
+                                "command": [
+                                    "/bin/bash",
+                                    "-c",
+                                    "echo \"ruok\" | timeout 2 nc -w 2 localhost 2181 | grep imok"
+                                ]
+                            },
+                            "failureThreshold": 6,
+                            "initialDelaySeconds": 30,
+                            "periodSeconds": 10,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 5
+                        },
+                        "name": "zookeeper",
+                        "ports": [
+                            {
+                                "containerPort": 2181,
+                                "name": "client",
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 2888,
+                                "name": "follower",
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 3888,
+                                "name": "election",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "readinessProbe": {
+                            "exec": {
+                                "command": [
+                                    "/bin/bash",
+                                    "-c",
+                                    "echo \"ruok\" | timeout 2 nc -w 2 localhost 2181 | grep imok"
+                                ]
+                            },
+                            "failureThreshold": 6,
+                            "initialDelaySeconds": 5,
+                            "periodSeconds": 10,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 5
+                        },
+                        "resources": {
+                            "limits": {
+                                "cpu": "250m",
+                                "memory": "256Mi"
+                            },
+                            "requests": {
+                                "cpu": "250m",
+                                "memory": "256Mi"
+                            }
+                        },
+                        "securityContext": {
+                            "runAsUser": 1001
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/bitnami/zookeeper",
+                                "name": "data"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-rszkb",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "hostname": "zookeeper-0",
+                "nodeName": "kind-worker2",
+                "priority": 0,
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {
+                    "fsGroup": 1001
+                },
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "subdomain": "zookeeper-headless",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "data",
+                        "persistentVolumeClaim": {
+                            "claimName": "data-zookeeper-0"
+                        }
+                    },
+                    {
+                        "name": "default-token-rszkb",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-rszkb"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-09-13T20:06:55Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-09-13T20:07:55Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-09-13T20:07:55Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-09-13T20:06:55Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "containerd://70c2e9efc829144dcbd618f6ada5b5262dd57d5240889dfa6c98b8ec47da1e8d",
+                        "image": "docker.io/bitnami/zookeeper:3.7.0-debian-10-r127",
+                        "imageID": "docker.io/bitnami/zookeeper@sha256:1e4a13c1d6f7b222ed2e6e1224535e028d9c690fb05ad7591dac2aefdfab2031",
+                        "lastState": {},
+                        "name": "zookeeper",
+                        "ready": true,
+                        "restartCount": 0,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-09-13T20:07:33Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "172.18.0.3",
+                "phase": "Running",
+                "podIP": "10.244.1.3",
+                "podIPs": [
+                    {
+                        "ip": "10.244.1.3"
+                    }
+                ],
+                "qosClass": "Guaranteed",
+                "startTime": "2021-09-13T20:06:55Z"
+            }
+        }
+    ],
+    "statefulset": [
+        {
+            "metadata": {
+                "annotations": {
+                    "meta.helm.sh/release-name": "zookeeper",
+                    "meta.helm.sh/release-namespace": "default"
+                },
+                "creationTimestamp": "2021-09-13T20:06:34Z",
+                "generation": 1,
+                "labels": {
+                    "app.kubernetes.io/component": "zookeeper",
+                    "app.kubernetes.io/instance": "zookeeper",
+                    "app.kubernetes.io/managed-by": "Helm",
+                    "app.kubernetes.io/name": "zookeeper",
+                    "helm.sh/chart": "zookeeper-7.4.3",
+                    "role": "zookeeper"
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:meta.helm.sh/release-name": {},
+                                    "f:meta.helm.sh/release-namespace": {}
+                                },
+                                "f:labels": {
+                                    ".": {},
+                                    "f:app.kubernetes.io/component": {},
+                                    "f:app.kubernetes.io/instance": {},
+                                    "f:app.kubernetes.io/managed-by": {},
+                                    "f:app.kubernetes.io/name": {},
+                                    "f:helm.sh/chart": {},
+                                    "f:role": {}
+                                }
+                            },
+                            "f:spec": {
+                                "f:podManagementPolicy": {},
+                                "f:replicas": {},
+                                "f:revisionHistoryLimit": {},
+                                "f:selector": {
+                                    "f:matchLabels": {
+                                        ".": {},
+                                        "f:app.kubernetes.io/component": {},
+                                        "f:app.kubernetes.io/instance": {},
+                                        "f:app.kubernetes.io/name": {}
+                                    }
+                                },
+                                "f:serviceName": {},
+                                "f:template": {
+                                    "f:metadata": {
+                                        "f:labels": {
+                                            ".": {},
+                                            "f:app.kubernetes.io/component": {},
+                                            "f:app.kubernetes.io/instance": {},
+                                            "f:app.kubernetes.io/managed-by": {},
+                                            "f:app.kubernetes.io/name": {},
+                                            "f:helm.sh/chart": {}
+                                        },
+                                        "f:name": {}
+                                    },
+                                    "f:spec": {
+                                        "f:affinity": {
+                                            ".": {},
+                                            "f:podAntiAffinity": {
+                                                ".": {},
+                                                "f:preferredDuringSchedulingIgnoredDuringExecution": {}
+                                            }
+                                        },
+                                        "f:containers": {
+                                            "k:{\"name\":\"zookeeper\"}": {
+                                                ".": {},
+                                                "f:command": {},
+                                                "f:env": {
+                                                    ".": {},
+                                                    "k:{\"name\":\"ALLOW_ANONYMOUS_LOGIN\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"BITNAMI_DEBUG\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"POD_NAME\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:valueFrom": {
+                                                            ".": {},
+                                                            "f:fieldRef": {
+                                                                ".": {},
+                                                                "f:apiVersion": {},
+                                                                "f:fieldPath": {}
+                                                            }
+                                                        }
+                                                    },
+                                                    "k:{\"name\":\"ZOO_4LW_COMMANDS_WHITELIST\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"ZOO_AUTOPURGE_INTERVAL\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"ZOO_AUTOPURGE_RETAIN_COUNT\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"ZOO_DATA_LOG_DIR\"}": {
+                                                        ".": {},
+                                                        "f:name": {}
+                                                    },
+                                                    "k:{\"name\":\"ZOO_ENABLE_AUTH\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"ZOO_HEAP_SIZE\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"ZOO_INIT_LIMIT\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"ZOO_LISTEN_ALLIPS_ENABLED\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"ZOO_LOG_LEVEL\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"ZOO_MAX_CLIENT_CNXNS\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"ZOO_MAX_SESSION_TIMEOUT\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"ZOO_PORT_NUMBER\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"ZOO_PRE_ALLOC_SIZE\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"ZOO_SERVERS\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"ZOO_SNAPCOUNT\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"ZOO_SYNC_LIMIT\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    },
+                                                    "k:{\"name\":\"ZOO_TICK_TIME\"}": {
+                                                        ".": {},
+                                                        "f:name": {},
+                                                        "f:value": {}
+                                                    }
+                                                },
+                                                "f:image": {},
+                                                "f:imagePullPolicy": {},
+                                                "f:livenessProbe": {
+                                                    ".": {},
+                                                    "f:exec": {
+                                                        ".": {},
+                                                        "f:command": {}
+                                                    },
+                                                    "f:failureThreshold": {},
+                                                    "f:initialDelaySeconds": {},
+                                                    "f:periodSeconds": {},
+                                                    "f:successThreshold": {},
+                                                    "f:timeoutSeconds": {}
+                                                },
+                                                "f:name": {},
+                                                "f:ports": {
+                                                    ".": {},
+                                                    "k:{\"containerPort\":2181,\"protocol\":\"TCP\"}": {
+                                                        ".": {},
+                                                        "f:containerPort": {},
+                                                        "f:name": {},
+                                                        "f:protocol": {}
+                                                    },
+                                                    "k:{\"containerPort\":2888,\"protocol\":\"TCP\"}": {
+                                                        ".": {},
+                                                        "f:containerPort": {},
+                                                        "f:name": {},
+                                                        "f:protocol": {}
+                                                    },
+                                                    "k:{\"containerPort\":3888,\"protocol\":\"TCP\"}": {
+                                                        ".": {},
+                                                        "f:containerPort": {},
+                                                        "f:name": {},
+                                                        "f:protocol": {}
+                                                    }
+                                                },
+                                                "f:readinessProbe": {
+                                                    ".": {},
+                                                    "f:exec": {
+                                                        ".": {},
+                                                        "f:command": {}
+                                                    },
+                                                    "f:failureThreshold": {},
+                                                    "f:initialDelaySeconds": {},
+                                                    "f:periodSeconds": {},
+                                                    "f:successThreshold": {},
+                                                    "f:timeoutSeconds": {}
+                                                },
+                                                "f:resources": {
+                                                    ".": {},
+                                                    "f:limits": {
+                                                        ".": {},
+                                                        "f:cpu": {},
+                                                        "f:memory": {}
+                                                    },
+                                                    "f:requests": {
+                                                        ".": {},
+                                                        "f:cpu": {},
+                                                        "f:memory": {}
+                                                    }
+                                                },
+                                                "f:securityContext": {
+                                                    ".": {},
+                                                    "f:runAsUser": {}
+                                                },
+                                                "f:terminationMessagePath": {},
+                                                "f:terminationMessagePolicy": {},
+                                                "f:volumeMounts": {
+                                                    ".": {},
+                                                    "k:{\"mountPath\":\"/bitnami/zookeeper\"}": {
+                                                        ".": {},
+                                                        "f:mountPath": {},
+                                                        "f:name": {}
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "f:dnsPolicy": {},
+                                        "f:restartPolicy": {},
+                                        "f:schedulerName": {},
+                                        "f:securityContext": {
+                                            ".": {},
+                                            "f:fsGroup": {}
+                                        },
+                                        "f:serviceAccount": {},
+                                        "f:serviceAccountName": {},
+                                        "f:terminationGracePeriodSeconds": {}
+                                    }
+                                },
+                                "f:updateStrategy": {
+                                    "f:type": {}
+                                },
+                                "f:volumeClaimTemplates": {}
+                            }
+                        },
+                        "manager": "helm",
+                        "operation": "Update",
+                        "time": "2021-09-13T20:06:34Z"
+                    },
+                    {
+                        "apiVersion": "apps/v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:status": {
+                                "f:collisionCount": {},
+                                "f:currentReplicas": {},
+                                "f:currentRevision": {},
+                                "f:observedGeneration": {},
+                                "f:readyReplicas": {},
+                                "f:replicas": {},
+                                "f:updateRevision": {},
+                                "f:updatedReplicas": {}
+                            }
+                        },
+                        "manager": "kube-controller-manager",
+                        "operation": "Update",
+                        "time": "2021-09-13T20:07:55Z"
+                    }
+                ],
+                "name": "zookeeper",
+                "namespace": "default",
+                "resourceVersion": "1182",
+                "selfLink": "/apis/apps/v1/namespaces/default/statefulsets/zookeeper",
+                "uid": "896c90aa-df73-46b6-87d5-84b4091c5278"
+            },
+            "spec": {
+                "podManagementPolicy": "Parallel",
+                "replicas": 1,
+                "revisionHistoryLimit": 10,
+                "selector": {
+                    "matchLabels": {
+                        "app.kubernetes.io/component": "zookeeper",
+                        "app.kubernetes.io/instance": "zookeeper",
+                        "app.kubernetes.io/name": "zookeeper"
+                    }
+                },
+                "serviceName": "zookeeper-headless",
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "app.kubernetes.io/component": "zookeeper",
+                            "app.kubernetes.io/instance": "zookeeper",
+                            "app.kubernetes.io/managed-by": "Helm",
+                            "app.kubernetes.io/name": "zookeeper",
+                            "helm.sh/chart": "zookeeper-7.4.3"
+                        },
+                        "name": "zookeeper"
+                    },
+                    "spec": {
+                        "affinity": {
+                            "podAntiAffinity": {
+                                "preferredDuringSchedulingIgnoredDuringExecution": [
+                                    {
+                                        "podAffinityTerm": {
+                                            "labelSelector": {
+                                                "matchLabels": {
+                                                    "app.kubernetes.io/component": "zookeeper",
+                                                    "app.kubernetes.io/instance": "zookeeper",
+                                                    "app.kubernetes.io/name": "zookeeper"
+                                                }
+                                            },
+                                            "namespaces": [
+                                                "default"
+                                            ],
+                                            "topologyKey": "kubernetes.io/hostname"
+                                        },
+                                        "weight": 1
+                                    }
+                                ]
+                            }
+                        },
+                        "containers": [
+                            {
+                                "command": [
+                                    "bash",
+                                    "-ec",
+                                    "# Execute entrypoint as usual after obtaining ZOO_SERVER_ID\n# check ZOO_SERVER_ID in persistent volume via myid\n# if not present, set based on POD hostname\nif [[ -f \"/bitnami/zookeeper/data/myid\" ]]; then\n  export ZOO_SERVER_ID=\"$(cat /bitnami/zookeeper/data/myid)\"\nelse\n  HOSTNAME=`hostname -s`\n  if [[ $HOSTNAME =~ (.*)-([0-9]+)$ ]]; then\n    ORD=${BASH_REMATCH[2]}\n    export ZOO_SERVER_ID=$((ORD + 1 ))\n  else\n    echo \"Failed to get index from hostname $HOST\"\n    exit 1\n  fi\nfi\nexec /entrypoint.sh /run.sh\n"
+                                ],
+                                "env": [
+                                    {
+                                        "name": "BITNAMI_DEBUG",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "name": "ZOO_DATA_LOG_DIR"
+                                    },
+                                    {
+                                        "name": "ZOO_PORT_NUMBER",
+                                        "value": "2181"
+                                    },
+                                    {
+                                        "name": "ZOO_TICK_TIME",
+                                        "value": "2000"
+                                    },
+                                    {
+                                        "name": "ZOO_INIT_LIMIT",
+                                        "value": "10"
+                                    },
+                                    {
+                                        "name": "ZOO_SYNC_LIMIT",
+                                        "value": "5"
+                                    },
+                                    {
+                                        "name": "ZOO_PRE_ALLOC_SIZE",
+                                        "value": "65536"
+                                    },
+                                    {
+                                        "name": "ZOO_SNAPCOUNT",
+                                        "value": "100000"
+                                    },
+                                    {
+                                        "name": "ZOO_MAX_CLIENT_CNXNS",
+                                        "value": "60"
+                                    },
+                                    {
+                                        "name": "ZOO_4LW_COMMANDS_WHITELIST",
+                                        "value": "srvr, mntr, ruok"
+                                    },
+                                    {
+                                        "name": "ZOO_LISTEN_ALLIPS_ENABLED",
+                                        "value": "no"
+                                    },
+                                    {
+                                        "name": "ZOO_AUTOPURGE_INTERVAL",
+                                        "value": "0"
+                                    },
+                                    {
+                                        "name": "ZOO_AUTOPURGE_RETAIN_COUNT",
+                                        "value": "3"
+                                    },
+                                    {
+                                        "name": "ZOO_MAX_SESSION_TIMEOUT",
+                                        "value": "40000"
+                                    },
+                                    {
+                                        "name": "ZOO_SERVERS",
+                                        "value": "zookeeper-0.zookeeper-headless.default.svc.cluster.local:2888:3888::1"
+                                    },
+                                    {
+                                        "name": "ZOO_ENABLE_AUTH",
+                                        "value": "no"
+                                    },
+                                    {
+                                        "name": "ZOO_HEAP_SIZE",
+                                        "value": "1024"
+                                    },
+                                    {
+                                        "name": "ZOO_LOG_LEVEL",
+                                        "value": "ERROR"
+                                    },
+                                    {
+                                        "name": "ALLOW_ANONYMOUS_LOGIN",
+                                        "value": "yes"
+                                    },
+                                    {
+                                        "name": "POD_NAME",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "metadata.name"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "image": "docker.io/bitnami/zookeeper:3.7.0-debian-10-r127",
+                                "imagePullPolicy": "IfNotPresent",
+                                "livenessProbe": {
+                                    "exec": {
+                                        "command": [
+                                            "/bin/bash",
+                                            "-c",
+                                            "echo \"ruok\" | timeout 2 nc -w 2 localhost 2181 | grep imok"
+                                        ]
+                                    },
+                                    "failureThreshold": 6,
+                                    "initialDelaySeconds": 30,
+                                    "periodSeconds": 10,
+                                    "successThreshold": 1,
+                                    "timeoutSeconds": 5
+                                },
+                                "name": "zookeeper",
+                                "ports": [
+                                    {
+                                        "containerPort": 2181,
+                                        "name": "client",
+                                        "protocol": "TCP"
+                                    },
+                                    {
+                                        "containerPort": 2888,
+                                        "name": "follower",
+                                        "protocol": "TCP"
+                                    },
+                                    {
+                                        "containerPort": 3888,
+                                        "name": "election",
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "readinessProbe": {
+                                    "exec": {
+                                        "command": [
+                                            "/bin/bash",
+                                            "-c",
+                                            "echo \"ruok\" | timeout 2 nc -w 2 localhost 2181 | grep imok"
+                                        ]
+                                    },
+                                    "failureThreshold": 6,
+                                    "initialDelaySeconds": 5,
+                                    "periodSeconds": 10,
+                                    "successThreshold": 1,
+                                    "timeoutSeconds": 5
+                                },
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "250m",
+                                        "memory": "256Mi"
+                                    },
+                                    "requests": {
+                                        "cpu": "250m",
+                                        "memory": "256Mi"
+                                    }
+                                },
+                                "securityContext": {
+                                    "runAsUser": 1001
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File",
+                                "volumeMounts": [
+                                    {
+                                        "mountPath": "/bitnami/zookeeper",
+                                        "name": "data"
+                                    }
+                                ]
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {
+                            "fsGroup": 1001
+                        },
+                        "serviceAccount": "default",
+                        "serviceAccountName": "default",
+                        "terminationGracePeriodSeconds": 30
+                    }
+                },
+                "updateStrategy": {
+                    "type": "RollingUpdate"
+                },
+                "volumeClaimTemplates": [
+                    {
+                        "apiVersion": "v1",
+                        "kind": "PersistentVolumeClaim",
+                        "metadata": {
+                            "creationTimestamp": null,
+                            "name": "data"
+                        },
+                        "spec": {
+                            "accessModes": [
+                                "ReadWriteOnce"
+                            ],
+                            "resources": {
+                                "requests": {
+                                    "storage": "8Gi"
+                                }
+                            },
+                            "storageClassName": "standard",
+                            "volumeMode": "Filesystem"
+                        },
+                        "status": {
+                            "phase": "Pending"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "collisionCount": 0,
+                "currentReplicas": 1,
+                "currentRevision": "zookeeper-56dfdc696d",
+                "observedGeneration": 1,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "updateRevision": "zookeeper-56dfdc696d",
+                "updatedReplicas": 1
+            }
+        }
+    ]
+}

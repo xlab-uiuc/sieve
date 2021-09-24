@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sonar-testing-global-config
+data:
+  SONAR-STAGE: learn
+  SONAR-MODE: time-travel
+  SONAR-CRD-LIST: perconaservermongodb,perconaservermongodbbackup,perconaservermongodbrestore

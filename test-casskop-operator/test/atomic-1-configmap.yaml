@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sonar-testing-global-config
+data:
+  SONAR-PROJECT: casskop-operator
+  SONAR-STAGE: test
+  SONAR-MODE: atomic
+  SONAR-STRAGGLER: kind-control-plane3
+  SONAR-FRONT-RUNNER: kind-control-plane
+  SONAR-OPERATOR-POD-LABEL: casskop-operator
+  SONAR-DEPLOYMENT-NAME: casskop-operator
+  SONAR-CE-NAME: sonar-cassandra-cluster
+  SONAR-CE-NAMESPACE: default
+  SONAR-CE-RTYPE: cassandracluster
+  SONAR-CE-DIFF-CURRENT: '{"metadata": {"annotations": {"kubectl.kubernetes.io/last-applied-configuration":
+    "{\"apiVersion\":\"db.orange.com/v1alpha1\",\"kind\":\"CassandraCluster\",\"metadata\":{\"annotations\":{},\"labels\":{\"cluster\":\"k8s.kaas\"},\"name\":\"sonar-cassandra-cluster\",\"namespace\":\"default\"},\"spec\":{\"autoPilot\":false,\"autoUpdateSeedList\":false,\"bootstrapImage\":\"orangeopensource/cassandra-bootstrap:0.1.8\",\"cassandraImage\":\"cassandra:3.11\",\"configMapName\":\"cassandra-configmap-v1\",\"dataCapacity\":\"200Mi\",\"deletePVC\":true,\"gcStdout\":true,\"hardAntiAffinity\":false,\"imagepullpolicy\":\"IfNotPresent\",\"maxPodUnavailable\":1,\"resources\":{\"limits\":{\"cpu\":\"1\",\"memory\":\"2Gi\"},\"requests\":{\"cpu\":\"1\",\"memory\":\"2Gi\"}},\"runAsUser\":999,\"topology\":{\"dc\":[{\"name\":\"dc1\",\"nodesPerRacks\":0,\"rack\":[{\"name\":\"rack1\"}]},{\"name\":\"dc2\",\"nodesPerRacks\":0,\"rack\":[{\"name\":\"rack1\"}]}]}}}\n"}},
+    "spec": {"topology": {"dc": ["SONAR-SKIP", "SONAR-SKIP"]}}}'
+  SONAR-CE-DIFF-PREVIOUS: '{"metadata": {"annotations": {"kubectl.kubernetes.io/last-applied-configuration":
+    "{\"apiVersion\":\"db.orange.com/v1alpha1\",\"kind\":\"CassandraCluster\",\"metadata\":{\"annotations\":{},\"labels\":{\"cluster\":\"k8s.kaas\"},\"name\":\"sonar-cassandra-cluster\",\"namespace\":\"default\"},\"spec\":{\"autoPilot\":false,\"autoUpdateSeedList\":false,\"bootstrapImage\":\"orangeopensource/cassandra-bootstrap:0.1.8\",\"cassandraImage\":\"cassandra:3.11\",\"configMapName\":\"cassandra-configmap-v1\",\"dataCapacity\":\"200Mi\",\"deletePVC\":true,\"gcStdout\":true,\"hardAntiAffinity\":false,\"imagepullpolicy\":\"IfNotPresent\",\"maxPodUnavailable\":1,\"resources\":{\"limits\":{\"cpu\":\"1\",\"memory\":\"2Gi\"},\"requests\":{\"cpu\":\"1\",\"memory\":\"2Gi\"}},\"runAsUser\":999,\"topology\":{\"dc\":[{\"name\":\"dc1\",\"nodesPerRacks\":0,\"rack\":[{\"name\":\"rack1\"}]},{\"name\":\"dc2\",\"nodesPerRacks\":0,\"rack\":[{\"name\":\"rack1\"}]},{\"name\":\"dc3\",\"nodesPerRacks\":0,\"rack\":[{\"name\":\"rack1\"}]}]}}}\n"}},
+    "spec": {"topology": {"dc": ["SONAR-SKIP", "SONAR-SKIP", {"name": "dc3", "rack":
+    [{"name": "rack1"}], "nodesPerRacks": 0, "resources": {}}]}}}'
+  SONAR-CE-ETYPE-CURRENT: Updated
+  SONAR-CE-ETYPE-PREVIOUS: Updated
+  SONAR-SE-NAME: sonar-cassandra-cluster
+  SONAR-SE-NAMESPACE: default
+  SONAR-SE-RTYPE: cassandracluster
+  SONAR-SE-ETYPE: Update
+  SONAR-DESCRIPTION: ''

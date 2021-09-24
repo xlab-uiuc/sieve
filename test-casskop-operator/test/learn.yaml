@@ -1,0 +1,6 @@
+stage: learn
+mode: atomic
+crd-list:
+- cassandracluster
+- cassandrarestore
+- cassandrabackup

@@ -1,0 +1,6 @@
+stage: learn
+mode: learn
+crd-list:
+- ybcluster
+rate-limiter-enabled: 'false'
+rate-limiter-interval: '3'

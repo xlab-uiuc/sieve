@@ -1,0 +1,6 @@
+stage: learn
+mode: time-travel
+crd-list:
+- perconaservermongodb
+- perconaservermongodbbackup
+- perconaservermongodbrestore
