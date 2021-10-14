@@ -1,0 +1,90 @@
+{
+    "configmap": {
+        "default": {
+            "auto-xtradb-cluster-pxc": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "percona-xtradb-cluster-operator-lock": {
+                "Create": 1,
+                "Delete": 0
+            }
+        }
+    },
+    "persistentvolumeclaim": {
+        "default": {
+            "proxydata-xtradb-cluster-proxysql-0": {
+                "Create": 0,
+                "Delete": 1
+            }
+        }
+    },
+    "poddisruptionbudget": {
+        "default": {
+            "xtradb-cluster-proxysql": {
+                "Create": 2,
+                "Delete": 0
+            },
+            "xtradb-cluster-pxc": {
+                "Create": 1,
+                "Delete": 0
+            }
+        }
+    },
+    "secret": {
+        "default": {
+            "internal-xtradb-cluster": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "xtradb-cluster-secrets": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "xtradb-cluster-ssl": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "xtradb-cluster-ssl-internal": {
+                "Create": 1,
+                "Delete": 0
+            }
+        }
+    },
+    "service": {
+        "default": {
+            "percona-xtradb-cluster-operator": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "xtradb-cluster-proxysql": {
+                "Create": 2,
+                "Delete": 1
+            },
+            "xtradb-cluster-proxysql-unready": {
+                "Create": 2,
+                "Delete": 1
+            },
+            "xtradb-cluster-pxc": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "xtradb-cluster-pxc-unready": {
+                "Create": 1,
+                "Delete": 0
+            }
+        }
+    },
+    "statefulset": {
+        "default": {
+            "xtradb-cluster-proxysql": {
+                "Create": 2,
+                "Delete": 1
+            },
+            "xtradb-cluster-pxc": {
+                "Create": 1,
+                "Delete": 0
+            }
+        }
+    }
+}
