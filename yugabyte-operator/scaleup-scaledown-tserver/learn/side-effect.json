@@ -1,0 +1,42 @@
+{
+    "configmap": {
+        "default": {
+            "yugabyte-k8s-operator-lock": {
+                "Create": 1,
+                "Delete": 0
+            }
+        }
+    },
+    "service": {
+        "default": {
+            "yb-master-ui": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "yb-masters": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "yb-tservers": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "yugabyte-operator-metrics": {
+                "Create": 1,
+                "Delete": 0
+            }
+        }
+    },
+    "statefulset": {
+        "default": {
+            "yb-master": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "yb-tserver": {
+                "Create": 1,
+                "Delete": 0
+            }
+        }
+    }
+}
