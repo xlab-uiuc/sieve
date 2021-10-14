@@ -1,0 +1,90 @@
+{
+    "configmap": {
+        "default": {
+            "percona-server-mongodb-operator-lock": {
+                "Create": 1,
+                "Delete": 0
+            }
+        }
+    },
+    "deployment": {
+        "default": {
+            "mongodb-cluster-mongos": {
+                "Create": 2,
+                "Delete": 1
+            }
+        }
+    },
+    "poddisruptionbudget": {
+        "default": {
+            "mongodb-cluster-cfg-cfg": {
+                "Create": 2,
+                "Delete": 0
+            },
+            "mongodb-cluster-mongod-rs0": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "mongodb-cluster-mongos-": {
+                "Create": 2,
+                "Delete": 0
+            }
+        }
+    },
+    "secret": {
+        "default": {
+            "internal-mongodb-cluster-users": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "mongodb-cluster-mongodb-encryption-key": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "mongodb-cluster-mongodb-keyfile": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "mongodb-cluster-secrets": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "mongodb-cluster-ssl": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "mongodb-cluster-ssl-internal": {
+                "Create": 1,
+                "Delete": 0
+            }
+        }
+    },
+    "service": {
+        "default": {
+            "mongodb-cluster-cfg": {
+                "Create": 2,
+                "Delete": 1
+            },
+            "mongodb-cluster-mongos": {
+                "Create": 2,
+                "Delete": 1
+            },
+            "mongodb-cluster-rs0": {
+                "Create": 1,
+                "Delete": 0
+            }
+        }
+    },
+    "statefulset": {
+        "default": {
+            "mongodb-cluster-cfg": {
+                "Create": 2,
+                "Delete": 1
+            },
+            "mongodb-cluster-rs0": {
+                "Create": 1,
+                "Delete": 0
+            }
+        }
+    }
+}
