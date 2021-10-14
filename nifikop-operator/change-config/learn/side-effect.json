@@ -1,0 +1,46 @@
+{
+    "persistentvolumeclaim": {
+        "default": {
+            "simplenifi-1-storage-SIEVE-NON-NIL": {
+                "Create": 1,
+                "Delete": 0
+            }
+        }
+    },
+    "pod": {
+        "default": {
+            "simplenifi-1-node-SIEVE-NON-NIL": {
+                "Create": 2,
+                "Delete": 1
+            }
+        }
+    },
+    "secret": {
+        "default": {
+            "simplenifi-config-1": {
+                "Create": 1,
+                "Delete": 0
+            }
+        }
+    },
+    "service": {
+        "default": {
+            "clusterip": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "loadbalancer": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "nodepart": {
+                "Create": 1,
+                "Delete": 0
+            },
+            "simplenifi-headless": {
+                "Create": 1,
+                "Delete": 0
+            }
+        }
+    }
+}
