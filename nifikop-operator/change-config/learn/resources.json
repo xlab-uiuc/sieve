@@ -586,7 +586,7 @@
                     "pv.kubernetes.io/bind-completed": "yes",
                     "pv.kubernetes.io/bound-by-controller": "yes",
                     "volume.beta.kubernetes.io/storage-provisioner": "rancher.io/local-path",
-                    "volume.kubernetes.io/selected-node": "kind-worker"
+                    "volume.kubernetes.io/selected-node": "SIEVE-IGNORE"
                 },
                 "creationTimestamp": "SIEVE-IGNORE",
                 "finalizers": [
@@ -685,11 +685,11 @@
                 "phase": "Bound"
             }
         },
-        "simplenifi-1-storage8twnh": "SIEVE-IGNORE"
+        "simplenifi-1-storagefndpj": "SIEVE-IGNORE"
     },
     "pod": {
-        "nifikop-operator-5d9557d9dd-6b2nq": "SIEVE-IGNORE",
-        "simplenifi-1-node5r9jg": "SIEVE-IGNORE",
+        "nifikop-operator-5d9557d9dd-4wtd6": "SIEVE-IGNORE",
+        "simplenifi-1-nodevrnmc": "SIEVE-IGNORE",
         "zookeeper-0": {
             "metadata": {
                 "creationTimestamp": "SIEVE-IGNORE",
@@ -722,7 +722,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"b2951f75-5020-4ad5-8692-8bfc450b7037\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"cfc7040a-fb75-4eb2-b6ff-9ef453a1af8e\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -959,43 +959,19 @@
                         "fieldsV1": {
                             "f:status": {
                                 "f:conditions": {
-                                    "k:{\"type\":\"ContainersReady\"}": {
-                                        ".": {},
-                                        "f:lastProbeTime": {},
-                                        "f:lastTransitionTime": {},
-                                        "f:status": {},
-                                        "f:type": {}
-                                    },
-                                    "k:{\"type\":\"Initialized\"}": {
-                                        ".": {},
-                                        "f:lastProbeTime": {},
-                                        "f:lastTransitionTime": {},
-                                        "f:status": {},
-                                        "f:type": {}
-                                    },
-                                    "k:{\"type\":\"Ready\"}": {
-                                        ".": {},
-                                        "f:lastProbeTime": {},
-                                        "f:lastTransitionTime": {},
-                                        "f:status": {},
-                                        "f:type": {}
-                                    }
+                                    "k:{\"type\":\"ContainersReady\"}": "SIEVE-IGNORE",
+                                    "k:{\"type\":\"Initialized\"}": "SIEVE-IGNORE",
+                                    "k:{\"type\":\"Ready\"}": "SIEVE-IGNORE"
                                 },
-                                "f:containerStatuses": {},
-                                "f:hostIP": {},
-                                "f:phase": {},
-                                "f:podIP": {},
-                                "f:podIPs": {
-                                    ".": {},
-                                    "k:{\"ip\":\"10.244.1.4\"}": {
-                                        ".": {},
-                                        "f:ip": {}
-                                    }
-                                },
-                                "f:startTime": {}
+                                "f:containerStatuses": "SIEVE-IGNORE",
+                                "f:hostIP": "SIEVE-IGNORE",
+                                "f:phase": "SIEVE-IGNORE",
+                                "f:podIP": "SIEVE-IGNORE",
+                                "f:podIPs": "SIEVE-IGNORE",
+                                "f:startTime": "SIEVE-IGNORE"
                             }
                         },
-                        "manager": "kubelet",
+                        "manager": "SIEVE-IGNORE",
                         "operation": "Update",
                         "time": "SIEVE-IGNORE"
                     }
@@ -1211,7 +1187,7 @@
                 "dnsPolicy": "ClusterFirst",
                 "enableServiceLinks": true,
                 "hostname": "zookeeper-0",
-                "nodeName": "kind-worker",
+                "nodeName": "SIEVE-IGNORE",
                 "priority": 0,
                 "restartPolicy": "Always",
                 "schedulerName": "default-scheduler",
@@ -1296,12 +1272,12 @@
                         }
                     }
                 ],
-                "hostIP": "172.18.0.2",
+                "hostIP": "SIEVE-IGNORE",
                 "phase": "Running",
-                "podIP": "10.244.1.4",
+                "podIP": "SIEVE-IGNORE",
                 "podIPs": [
                     {
-                        "ip": "10.244.1.4"
+                        "ip": "SIEVE-IGNORE"
                     }
                 ],
                 "qosClass": "Guaranteed",
@@ -1310,7 +1286,7 @@
         }
     },
     "secret": {
-        "default-token-hgvkb": "SIEVE-IGNORE",
+        "default-token-9z5v2": "SIEVE-IGNORE",
         "sh.helm.release.v1.nifikop-operator.v1": {
             "data": {
                 "release": "SIEVE-IGNORE"
@@ -1453,7 +1429,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"98a6c942-180e-47c7-929e-1a22f3b36089\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"2691e3a4-e95f-465e-9ba4-4bd2f1a95165\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:type": {}
@@ -1512,7 +1488,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"98a6c942-180e-47c7-929e-1a22f3b36089\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"2691e3a4-e95f-465e-9ba4-4bd2f1a95165\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1631,7 +1607,7 @@
                 ],
                 "name": "kubernetes",
                 "namespace": "default",
-                "resourceVersion": "SIEVE-IGNORE",
+                "resourceVersion": "151",
                 "selfLink": "/api/v1/namespaces/default/services/kubernetes",
                 "uid": "SIEVE-IGNORE"
             },
@@ -1681,7 +1657,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"98a6c942-180e-47c7-929e-1a22f3b36089\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"2691e3a4-e95f-465e-9ba4-4bd2f1a95165\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1790,7 +1766,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"98a6c942-180e-47c7-929e-1a22f3b36089\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"2691e3a4-e95f-465e-9ba4-4bd2f1a95165\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1897,7 +1873,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"98a6c942-180e-47c7-929e-1a22f3b36089\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"2691e3a4-e95f-465e-9ba4-4bd2f1a95165\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -2194,7 +2170,7 @@
                 ],
                 "name": "zookeeper-headless",
                 "namespace": "default",
-                "resourceVersion": "SIEVE-IGNORE",
+                "resourceVersion": "663",
                 "selfLink": "/api/v1/namespaces/default/services/zookeeper-headless",
                 "uid": "SIEVE-IGNORE"
             },
