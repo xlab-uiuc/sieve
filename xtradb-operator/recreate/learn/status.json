@@ -4,12 +4,12 @@
         "terminating": 0
     },
     "persistentvolumeclaim": {
-        "size": 2,
-        "terminating": 2
+        "size": 1,
+        "terminating": 1
     },
     "pod": {
-        "size": 3,
-        "terminating": 2
+        "size": 2,
+        "terminating": 1
     },
     "statefulset": {
         "size": 0,
