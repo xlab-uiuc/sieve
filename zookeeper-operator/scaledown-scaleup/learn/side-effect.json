@@ -15,7 +15,7 @@
         "default": {
             "data-zookeeper-cluster-1": {
                 "Create": 0,
-                "Delete": 66
+                "Delete": 54
             }
         }
     },
