@@ -62,7 +62,7 @@
     "service": {
         "default": {
             "mongodb-cluster-rs0": {
-                "Create": 2,
+                "Create": 3,
                 "Delete": 0
             }
         }
