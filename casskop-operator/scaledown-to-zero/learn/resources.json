@@ -167,7 +167,7 @@
                             "f:metadata": {
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"c01541dc-d9c5-4cb4-9c8f-096ea8c89e16\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"85dc2cbd-e700-419f-ba71-9cbbaa58d8fd\"}": "SIEVE-IGNORE"
                                 }
                             }
                         },
@@ -710,7 +710,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"2621f772-3fd6-4d3c-a39e-a48bb110803e\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"a3346f3e-8c63-4027-b39a-1571d3c1b861\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1742,7 +1742,7 @@
                     {
                         "containerID": "SIEVE-IGNORE",
                         "image": "docker.io/library/cassandra:3.11",
-                        "imageID": "docker.io/library/cassandra@sha256:bf90f529d54dab3d833b4f98095711d802bde1ce876f2ece9f2b1e29ff17f1cb",
+                        "imageID": "docker.io/library/cassandra@sha256:9269cb0c0235107c141d80e244bc76909155115faf63d2f055891ce3f91b6f25",
                         "lastState": {},
                         "name": "cassandra",
                         "ready": true,
@@ -1755,12 +1755,12 @@
                         }
                     }
                 ],
-                "hostIP": "SIEVE-IGNORE",
+                "hostIP": "172.18.0.4",
                 "initContainerStatuses": [
                     {
                         "containerID": "SIEVE-IGNORE",
                         "image": "docker.io/library/cassandra:3.11",
-                        "imageID": "docker.io/library/cassandra@sha256:bf90f529d54dab3d833b4f98095711d802bde1ce876f2ece9f2b1e29ff17f1cb",
+                        "imageID": "docker.io/library/cassandra@sha256:9269cb0c0235107c141d80e244bc76909155115faf63d2f055891ce3f91b6f25",
                         "lastState": {},
                         "name": "init-config",
                         "ready": true,
@@ -1805,7 +1805,7 @@
                 "startTime": "SIEVE-IGNORE"
             }
         },
-        "casskop-operator-546674cfdd-hhv5z": "SIEVE-IGNORE"
+        "casskop-operator-546674cfdd-mscsk": "SIEVE-IGNORE"
     },
     "service": {
         "cassandra-cluster": {
@@ -1830,7 +1830,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"3f1b8790-9198-44fa-ac3a-45b0f1e6057a\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"695d4f7f-a065-4594-87d4-7f4d926a7ef0\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1923,7 +1923,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"3f1b8790-9198-44fa-ac3a-45b0f1e6057a\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"695d4f7f-a065-4594-87d4-7f4d926a7ef0\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -2008,7 +2008,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"20e0aeab-fc02-4b07-b2a4-d86f7985aa9f\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"bc6180c0-3591-48c2-9570-7e556d0e4373\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -2113,7 +2113,7 @@
                 ],
                 "name": "kubernetes",
                 "namespace": "default",
-                "resourceVersion": "SIEVE-IGNORE",
+                "resourceVersion": "150",
                 "selfLink": "/api/v1/namespaces/default/services/kubernetes",
                 "uid": "SIEVE-IGNORE"
             },
@@ -2172,7 +2172,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"3f1b8790-9198-44fa-ac3a-45b0f1e6057a\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"695d4f7f-a065-4594-87d4-7f4d926a7ef0\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {

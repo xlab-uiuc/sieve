@@ -78,7 +78,7 @@
                 "cassandraNodeStatus": {
                     "cassandra-cluster-dc1-rack1-0": {
                         "hostId": "SIEVE-IGNORE",
-                        "nodeIp": "SIEVE-IGNORE"
+                        "nodeIp": "10.244.2.4"
                     }
                 },
                 "cassandraRackStatus": {
@@ -153,7 +153,7 @@
                             "f:metadata": {
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"9da553f4-a581-4692-b8f1-61ac223c5de7\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"6d946bb2-06b0-4f10-99a4-76907f9dbe17\"}": "SIEVE-IGNORE"
                                 }
                             }
                         },
@@ -696,7 +696,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"07e42fb3-6147-470d-bbaa-dfdb01fc60b6\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"dd6afd79-3d7d-459a-a199-b1229da18235\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1206,7 +1206,10 @@
                                 "f:podIP": {},
                                 "f:podIPs": {
                                     ".": {},
-                                    "k:{\"ip\":\"10.244.2.4\"}": "SIEVE-IGNORE"
+                                    "k:{\"ip\":\"10.244.2.4\"}": {
+                                        ".": {},
+                                        "f:ip": {}
+                                    }
                                 },
                                 "f:startTime": {}
                             }
@@ -1725,7 +1728,7 @@
                     {
                         "containerID": "SIEVE-IGNORE",
                         "image": "docker.io/library/cassandra:3.11",
-                        "imageID": "docker.io/library/cassandra@sha256:bf90f529d54dab3d833b4f98095711d802bde1ce876f2ece9f2b1e29ff17f1cb",
+                        "imageID": "docker.io/library/cassandra@sha256:9269cb0c0235107c141d80e244bc76909155115faf63d2f055891ce3f91b6f25",
                         "lastState": {},
                         "name": "cassandra",
                         "ready": true,
@@ -1738,12 +1741,12 @@
                         }
                     }
                 ],
-                "hostIP": "172.18.0.2",
+                "hostIP": "SIEVE-IGNORE",
                 "initContainerStatuses": [
                     {
                         "containerID": "SIEVE-IGNORE",
                         "image": "docker.io/library/cassandra:3.11",
-                        "imageID": "docker.io/library/cassandra@sha256:bf90f529d54dab3d833b4f98095711d802bde1ce876f2ece9f2b1e29ff17f1cb",
+                        "imageID": "docker.io/library/cassandra@sha256:9269cb0c0235107c141d80e244bc76909155115faf63d2f055891ce3f91b6f25",
                         "lastState": {},
                         "name": "init-config",
                         "ready": true,
@@ -1778,17 +1781,17 @@
                     }
                 ],
                 "phase": "Running",
-                "podIP": "SIEVE-IGNORE",
+                "podIP": "10.244.2.4",
                 "podIPs": [
                     {
-                        "ip": "SIEVE-IGNORE"
+                        "ip": "10.244.2.4"
                     }
                 ],
                 "qosClass": "Guaranteed",
                 "startTime": "SIEVE-IGNORE"
             }
         },
-        "casskop-operator-546674cfdd-gp99w": "SIEVE-IGNORE"
+        "casskop-operator-546674cfdd-dzjt9": "SIEVE-IGNORE"
     },
     "service": {
         "cassandra-cluster": {
@@ -1813,7 +1816,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"d7d50c82-16b9-4a17-8436-82eacf6d56b8\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"1b6d1150-d9ad-40bb-b430-dec6ded54555\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1906,7 +1909,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"d7d50c82-16b9-4a17-8436-82eacf6d56b8\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"1b6d1150-d9ad-40bb-b430-dec6ded54555\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1991,7 +1994,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"2cc7c54f-1969-45a8-8326-e290ac4acf62\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"8bd198e9-ac63-498b-9c33-5217cae3448d\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -2096,7 +2099,7 @@
                 ],
                 "name": "kubernetes",
                 "namespace": "default",
-                "resourceVersion": "151",
+                "resourceVersion": "SIEVE-IGNORE",
                 "selfLink": "/api/v1/namespaces/default/services/kubernetes",
                 "uid": "SIEVE-IGNORE"
             },
@@ -2155,7 +2158,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"d7d50c82-16b9-4a17-8436-82eacf6d56b8\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"1b6d1150-d9ad-40bb-b430-dec6ded54555\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
