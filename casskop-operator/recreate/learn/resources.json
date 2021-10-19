@@ -435,7 +435,7 @@
                     "pv.kubernetes.io/bind-completed": "yes",
                     "pv.kubernetes.io/bound-by-controller": "yes",
                     "volume.beta.kubernetes.io/storage-provisioner": "rancher.io/local-path",
-                    "volume.kubernetes.io/selected-node": "kind-worker"
+                    "volume.kubernetes.io/selected-node": "kind-worker2"
                 },
                 "creationTimestamp": "SIEVE-IGNORE",
                 "finalizers": [
@@ -575,7 +575,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"2a07ff76-4fbd-4dac-ac9c-2e1478fe93de\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"48c6dc78-20d0-42b1-a837-38849e32e488\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1085,7 +1085,7 @@
                                 "f:podIP": {},
                                 "f:podIPs": {
                                     ".": {},
-                                    "k:{\"ip\":\"10.244.1.6\"}": "SIEVE-IGNORE"
+                                    "k:{\"ip\":\"10.244.2.7\"}": "SIEVE-IGNORE"
                                 },
                                 "f:startTime": {}
                             }
@@ -1107,7 +1107,7 @@
                         "uid": "SIEVE-IGNORE"
                     }
                 ],
-                "resourceVersion": "SIEVE-IGNORE",
+                "resourceVersion": "1413",
                 "selfLink": "/api/v1/namespaces/default/pods/cassandra-cluster-dc1-rack1-0",
                 "uid": "SIEVE-IGNORE"
             },
@@ -1492,7 +1492,7 @@
                         ]
                     }
                 ],
-                "nodeName": "kind-worker",
+                "nodeName": "kind-worker2",
                 "priority": 0,
                 "restartPolicy": "Always",
                 "schedulerName": "default-scheduler",
@@ -1617,7 +1617,7 @@
                         }
                     }
                 ],
-                "hostIP": "172.18.0.4",
+                "hostIP": "SIEVE-IGNORE",
                 "initContainerStatuses": [
                     {
                         "containerID": "SIEVE-IGNORE",
@@ -1667,12 +1667,12 @@
                 "startTime": "SIEVE-IGNORE"
             }
         },
-        "casskop-operator-546674cfdd-cr2n7": "SIEVE-IGNORE"
+        "casskop-operator-546674cfdd-xfqkv": "SIEVE-IGNORE"
     },
     "secret": {
-        "cassandra-cluster-node-token-s6glg": "SIEVE-IGNORE",
-        "cassandra-operator-token-gqzns": "SIEVE-IGNORE",
-        "default-token-cn2jt": "SIEVE-IGNORE",
+        "cassandra-cluster-node-token-p6c8q": "SIEVE-IGNORE",
+        "cassandra-operator-token-hnt2c": "SIEVE-IGNORE",
+        "default-token-c5j4r": "SIEVE-IGNORE",
         "sh.helm.release.v1.casskop-operator.v1": {
             "data": {
                 "release": "SIEVE-IGNORE"
@@ -1744,7 +1744,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"a8c5f261-218a-448d-be0e-27b5d600b531\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"088955f0-dcf4-43fb-9a8d-ca146acdcf26\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1837,7 +1837,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"a8c5f261-218a-448d-be0e-27b5d600b531\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"088955f0-dcf4-43fb-9a8d-ca146acdcf26\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1922,7 +1922,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"ab9f5e00-0e9a-4954-8898-ebab27891074\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"a559edd1-d677-4048-879c-21fd50a6b270\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -2027,7 +2027,7 @@
                 ],
                 "name": "kubernetes",
                 "namespace": "default",
-                "resourceVersion": "151",
+                "resourceVersion": "SIEVE-IGNORE",
                 "selfLink": "/api/v1/namespaces/default/services/kubernetes",
                 "uid": "SIEVE-IGNORE"
             },
@@ -2086,7 +2086,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"a8c5f261-218a-448d-be0e-27b5d600b531\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"088955f0-dcf4-43fb-9a8d-ca146acdcf26\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -2619,7 +2619,7 @@
                         "uid": "SIEVE-IGNORE"
                     }
                 ],
-                "resourceVersion": "SIEVE-IGNORE",
+                "resourceVersion": "1419",
                 "selfLink": "/apis/apps/v1/namespaces/default/statefulsets/cassandra-cluster-dc1-rack1",
                 "uid": "SIEVE-IGNORE"
             },
