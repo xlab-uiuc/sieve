@@ -321,11 +321,11 @@
     "perconaxtradbclusterrestore": {},
     "persistentvolumeclaim": {},
     "pod": {
-        "percona-xtradb-cluster-operator-56c7bd8b98-dnhc4": "SIEVE-IGNORE"
+        "percona-xtradb-cluster-operator-56c7bd8b98-t26mm": "SIEVE-IGNORE"
     },
     "secret": {
-        "default-token-t92mc": "SIEVE-IGNORE",
-        "percona-xtradb-cluster-operator-token-ll45v": "SIEVE-IGNORE"
+        "default-token-bmjs6": "SIEVE-IGNORE",
+        "percona-xtradb-cluster-operator-token-bsghv": "SIEVE-IGNORE"
     },
     "service": {
         "kubernetes": {
@@ -409,7 +409,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"d49bd000-3410-4b15-8be2-0cd6db8a5490\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"7655c03e-2ca0-4ffc-b3d8-853a1137faa9\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
