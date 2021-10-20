@@ -424,7 +424,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"aafc0f37-8c78-4b9a-8d36-588b69b3b616\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"d3dd840f-67e9-44b3-82a2-e149cfd6c6b0\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -866,11 +866,11 @@
                 "startTime": "SIEVE-IGNORE"
             }
         },
-        "zookeeper-operator-5fc77867c7-grdxt": "SIEVE-IGNORE"
+        "zookeeper-operator-5fc77867c7-sd24q": "SIEVE-IGNORE"
     },
     "secret": {
-        "default-token-4vqdd": "SIEVE-IGNORE",
-        "zookeeper-operator-token-m2p2s": "SIEVE-IGNORE"
+        "default-token-98pq7": "SIEVE-IGNORE",
+        "zookeeper-operator-token-qxf82": "SIEVE-IGNORE"
     },
     "service": {
         "kubernetes": {
@@ -958,7 +958,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"b206c50f-05fa-43fa-87c7-e72eb071cf93\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"62632f3d-e4bc-443c-94a3-20361f33f19a\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1046,7 +1046,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"b206c50f-05fa-43fa-87c7-e72eb071cf93\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"62632f3d-e4bc-443c-94a3-20361f33f19a\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1131,7 +1131,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"b206c50f-05fa-43fa-87c7-e72eb071cf93\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"62632f3d-e4bc-443c-94a3-20361f33f19a\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1270,7 +1270,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"b206c50f-05fa-43fa-87c7-e72eb071cf93\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"62632f3d-e4bc-443c-94a3-20361f33f19a\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
