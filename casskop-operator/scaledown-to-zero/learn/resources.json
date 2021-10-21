@@ -13,7 +13,7 @@
                 "finalizers": [
                     "kubernetes.io/pvc-to-delete"
                 ],
-                "generation": 16,
+                "generation": "SIEVE-IGNORE",
                 "labels": {
                     "cluster": "k8s.kaas"
                 },
@@ -105,7 +105,7 @@
                         }
                     }
                 },
-                "lastClusterAction": "SIEVE-IGNORE",
+                "lastClusterAction": "ScaleDown",
                 "lastClusterActionStatus": "Done",
                 "phase": "Running",
                 "seedlist": [
@@ -449,7 +449,7 @@
                     "pv.kubernetes.io/bind-completed": "yes",
                     "pv.kubernetes.io/bound-by-controller": "yes",
                     "volume.beta.kubernetes.io/storage-provisioner": "rancher.io/local-path",
-                    "volume.kubernetes.io/selected-node": "SIEVE-IGNORE"
+                    "volume.kubernetes.io/selected-node": "kind-worker"
                 },
                 "creationTimestamp": "SIEVE-IGNORE",
                 "finalizers": [
@@ -589,7 +589,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"6517232d-eb9a-4cfc-ba93-0bdab3d1dbda\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"699f0f8a-d685-4b66-bbbe-1e48bad0d2c9\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1099,7 +1099,7 @@
                                 "f:podIP": {},
                                 "f:podIPs": {
                                     ".": {},
-                                    "k:{\"ip\":\"10.244.2.4\"}": "SIEVE-IGNORE"
+                                    "k:{\"ip\":\"10.244.2.3\"}": "SIEVE-IGNORE"
                                 },
                                 "f:startTime": {}
                             }
@@ -1506,7 +1506,7 @@
                         ]
                     }
                 ],
-                "nodeName": "SIEVE-IGNORE",
+                "nodeName": "kind-worker",
                 "priority": 0,
                 "restartPolicy": "Always",
                 "schedulerName": "default-scheduler",
@@ -1631,7 +1631,7 @@
                         }
                     }
                 ],
-                "hostIP": "172.18.0.4",
+                "hostIP": "SIEVE-IGNORE",
                 "initContainerStatuses": [
                     {
                         "containerID": "SIEVE-IGNORE",
@@ -1681,12 +1681,12 @@
                 "startTime": "SIEVE-IGNORE"
             }
         },
-        "casskop-operator-546674cfdd-bks28": "SIEVE-IGNORE"
+        "casskop-operator-546674cfdd-8v5rj": "SIEVE-IGNORE"
     },
     "secret": {
-        "cassandra-cluster-node-token-7sk9q": "SIEVE-IGNORE",
-        "cassandra-operator-token-qrbm5": "SIEVE-IGNORE",
-        "default-token-62l7l": "SIEVE-IGNORE",
+        "cassandra-cluster-node-token-kpmfj": "SIEVE-IGNORE",
+        "cassandra-operator-token-7fkdr": "SIEVE-IGNORE",
+        "default-token-4kjcn": "SIEVE-IGNORE",
         "sh.helm.release.v1.casskop-operator.v1": {
             "data": {
                 "release": "SIEVE-IGNORE"
@@ -1758,7 +1758,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"700b81e3-9185-4ae1-95c0-0be61b05f269\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"cc0c5c95-5e8d-4fc9-b731-4ca5b904db7a\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1851,7 +1851,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"700b81e3-9185-4ae1-95c0-0be61b05f269\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"cc0c5c95-5e8d-4fc9-b731-4ca5b904db7a\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1936,7 +1936,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"8f54c5a6-6b89-4fd8-afe9-2a3448ef1634\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"8863b4fc-4b2e-4ef2-b5e6-e6d563f9e6fe\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -2041,7 +2041,7 @@
                 ],
                 "name": "kubernetes",
                 "namespace": "default",
-                "resourceVersion": "150",
+                "resourceVersion": "SIEVE-IGNORE",
                 "selfLink": "/api/v1/namespaces/default/services/kubernetes",
                 "uid": "SIEVE-IGNORE"
             },
@@ -2100,7 +2100,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"700b81e3-9185-4ae1-95c0-0be61b05f269\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"cc0c5c95-5e8d-4fc9-b731-4ca5b904db7a\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
