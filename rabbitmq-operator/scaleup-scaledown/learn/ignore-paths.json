@@ -1,0 +1,222 @@
+{
+    "deployment": {
+        "rabbitmq-operator": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/labels",
+            "status/conditions",
+            "metadata/resourceVersion",
+            "metadata/generation",
+            "metadata/managedFields",
+            "spec/template/spec/containers/0/env",
+            "metadata/annotations",
+            "spec/template/spec/containers/0/image"
+        ]
+    },
+    "persistentvolumeclaim": {
+        "persistence-rabbitmq-cluster-server-0": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/labels",
+            "metadata/ownerReferences",
+            "metadata/resourceVersion",
+            "metadata/managedFields",
+            "spec/volumeName",
+            "metadata/annotations"
+        ],
+        "persistence-rabbitmq-cluster-server-1": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/labels",
+            "metadata/ownerReferences",
+            "metadata/resourceVersion",
+            "metadata/managedFields",
+            "spec/volumeName",
+            "metadata/annotations"
+        ],
+        "persistence-rabbitmq-cluster-server-2": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/labels",
+            "metadata/ownerReferences",
+            "metadata/resourceVersion",
+            "metadata/managedFields",
+            "spec/volumeName",
+            "metadata/annotations"
+        ]
+    },
+    "pod": {
+        "rabbitmq-cluster-server-0": [
+            "metadata/creationTimestamp",
+            "spec/volumes/0/secret/secretName",
+            "spec/nodeName",
+            "status/initContainerStatuses/0/containerID",
+            "metadata/resourceVersion",
+            "metadata/managedFields",
+            "spec/initContainers/0/image",
+            "status/podIPs/0/ip",
+            "status/initContainerStatuses/0/state/terminated/containerID",
+            "metadata/uid",
+            "spec/containers/0/env",
+            "status/containerStatuses/0/imageID",
+            "spec/containers/0/volumeMounts/0/name",
+            "status/containerStatuses/0/containerID",
+            "spec/initContainers/0/volumeMounts/0/name",
+            "status/startTime",
+            "status/hostIP",
+            "metadata/annotations",
+            "status/initContainerStatuses/0/imageID",
+            "status/podIP",
+            "metadata/labels",
+            "metadata/ownerReferences",
+            "status/containerStatuses/0/image",
+            "status/initContainerStatuses/0/state/terminated/startedAt",
+            "status/initContainerStatuses/0/image",
+            "metadata/generateName",
+            "spec/containers/0/image",
+            "spec/volumes/0/name",
+            "status/conditions",
+            "status/containerStatuses/0/state/running/startedAt",
+            "status/initContainerStatuses/0/state/terminated/finishedAt"
+        ],
+        "rabbitmq-cluster-server-1": [
+            "metadata/creationTimestamp",
+            "spec/volumes/0/secret/secretName",
+            "spec/nodeName",
+            "status/initContainerStatuses/0/containerID",
+            "metadata/resourceVersion",
+            "metadata/managedFields",
+            "spec/initContainers/0/image",
+            "status/podIPs/0/ip",
+            "status/initContainerStatuses/0/state/terminated/containerID",
+            "metadata/uid",
+            "spec/containers/0/env",
+            "status/containerStatuses/0/imageID",
+            "spec/containers/0/volumeMounts/0/name",
+            "status/containerStatuses/0/containerID",
+            "spec/initContainers/0/volumeMounts/0/name",
+            "status/startTime",
+            "status/hostIP",
+            "metadata/annotations",
+            "status/initContainerStatuses/0/imageID",
+            "status/podIP",
+            "metadata/labels",
+            "metadata/ownerReferences",
+            "status/containerStatuses/0/image",
+            "status/initContainerStatuses/0/state/terminated/startedAt",
+            "status/initContainerStatuses/0/image",
+            "metadata/generateName",
+            "spec/containers/0/image",
+            "spec/volumes/0/name",
+            "status/conditions",
+            "status/containerStatuses/0/state/running/startedAt",
+            "status/initContainerStatuses/0/state/terminated/finishedAt"
+        ],
+        "rabbitmq-cluster-server-2": [
+            "metadata/creationTimestamp",
+            "spec/volumes/0/secret/secretName",
+            "spec/nodeName",
+            "status/initContainerStatuses/0/containerID",
+            "metadata/resourceVersion",
+            "metadata/managedFields",
+            "spec/initContainers/0/image",
+            "status/podIPs/0/ip",
+            "status/initContainerStatuses/0/state/terminated/containerID",
+            "metadata/uid",
+            "spec/containers/0/env",
+            "status/containerStatuses/0/imageID",
+            "spec/containers/0/volumeMounts/0/name",
+            "status/containerStatuses/0/containerID",
+            "spec/initContainers/0/volumeMounts/0/name",
+            "status/startTime",
+            "status/hostIP",
+            "metadata/annotations",
+            "status/initContainerStatuses/0/imageID",
+            "status/podIP",
+            "metadata/labels",
+            "metadata/ownerReferences",
+            "status/containerStatuses/0/image",
+            "status/initContainerStatuses/0/state/terminated/startedAt",
+            "status/initContainerStatuses/0/image",
+            "metadata/generateName",
+            "spec/containers/0/image",
+            "spec/volumes/0/name",
+            "status/conditions",
+            "status/containerStatuses/0/state/running/startedAt",
+            "status/initContainerStatuses/0/state/terminated/finishedAt"
+        ]
+    },
+    "rabbitmqcluster": {
+        "rabbitmq-cluster": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "spec/image",
+            "status/conditions",
+            "metadata/resourceVersion",
+            "metadata/generation",
+            "metadata/annotations"
+        ]
+    },
+    "secret": {
+        "rabbitmq-cluster-default-user": [
+            "data",
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/labels",
+            "metadata/ownerReferences",
+            "metadata/resourceVersion",
+            "metadata/managedFields"
+        ],
+        "rabbitmq-cluster-erlang-cookie": [
+            "data",
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/labels",
+            "metadata/ownerReferences",
+            "metadata/resourceVersion",
+            "metadata/managedFields"
+        ]
+    },
+    "service": {
+        "kubernetes": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/labels",
+            "metadata/resourceVersion",
+            "metadata/managedFields",
+            "spec/clusterIP"
+        ],
+        "rabbitmq-cluster": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/labels",
+            "metadata/ownerReferences",
+            "metadata/resourceVersion",
+            "metadata/managedFields",
+            "spec/clusterIP"
+        ],
+        "rabbitmq-cluster-nodes": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/labels",
+            "metadata/ownerReferences",
+            "metadata/resourceVersion",
+            "metadata/managedFields"
+        ]
+    },
+    "statefulset": {
+        "rabbitmq-cluster-server": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/labels",
+            "metadata/ownerReferences",
+            "metadata/resourceVersion",
+            "metadata/generation",
+            "metadata/managedFields",
+            "spec/template/spec/containers/0/env",
+            "spec/volumeClaimTemplates/0/metadata/ownerReferences/0/uid",
+            "spec/template/spec/initContainers/0/image",
+            "spec/template/spec/containers/0/image"
+        ]
+    }
+}
