@@ -1,0 +1,301 @@
+{
+    "certificate": {
+        "mongodb-cluster-ssl": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/ownerReferences",
+            "status/conditions",
+            "status/notAfter",
+            "metadata/generation",
+            "metadata/resourceVersion"
+        ],
+        "mongodb-cluster-ssl-internal": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/ownerReferences",
+            "status/conditions",
+            "status/notAfter",
+            "metadata/generation",
+            "metadata/resourceVersion"
+        ]
+    },
+    "certificaterequest": {
+        "mongodb-cluster-ssl-3054204647": [
+            "status/ca",
+            "spec/csr",
+            "metadata/creationTimestamp",
+            "metadata/ownerReferences",
+            "metadata/uid",
+            "metadata/annotations",
+            "status/conditions",
+            "status/certificate",
+            "metadata/generation",
+            "metadata/resourceVersion"
+        ],
+        "mongodb-cluster-ssl-internal-720546075": [
+            "status/ca",
+            "spec/csr",
+            "metadata/creationTimestamp",
+            "metadata/ownerReferences",
+            "metadata/uid",
+            "metadata/annotations",
+            "status/conditions",
+            "status/certificate",
+            "metadata/generation",
+            "metadata/resourceVersion"
+        ]
+    },
+    "challenge": {},
+    "clusterissuer": {},
+    "deployment": {
+        "percona-server-mongodb-operator": [
+            "spec/template/spec/containers/0/image",
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/annotations",
+            "status/conditions",
+            "metadata/generation",
+            "metadata/managedFields",
+            "spec/template/spec/containers/0/env",
+            "metadata/resourceVersion"
+        ]
+    },
+    "issuer": {
+        "mongodb-cluster-psmdb-ca": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/ownerReferences",
+            "status/conditions",
+            "metadata/generation",
+            "metadata/resourceVersion"
+        ]
+    },
+    "order": {},
+    "perconaservermongodb": {
+        "mongodb-cluster": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "spec/image",
+            "metadata/annotations",
+            "status/conditions",
+            "spec/pmm/image",
+            "metadata/generation",
+            "spec/backup/image",
+            "metadata/resourceVersion"
+        ]
+    },
+    "perconaservermongodbbackup": {},
+    "perconaservermongodbrestore": {},
+    "persistentvolumeclaim": {
+        "mongod-data-mongodb-cluster-rs0-0": [
+            "spec/volumeName",
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/annotations",
+            "metadata/labels",
+            "metadata/managedFields",
+            "metadata/resourceVersion"
+        ],
+        "mongod-data-mongodb-cluster-rs0-1": [
+            "spec/volumeName",
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/annotations",
+            "metadata/labels",
+            "metadata/managedFields",
+            "metadata/resourceVersion"
+        ],
+        "mongod-data-mongodb-cluster-rs0-2": [
+            "spec/volumeName",
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/annotations",
+            "metadata/labels",
+            "metadata/managedFields",
+            "metadata/resourceVersion"
+        ]
+    },
+    "pod": {
+        "mongodb-cluster-rs0-0": [
+            "status/initContainerStatuses/0/state/terminated/finishedAt",
+            "metadata/managedFields",
+            "metadata/resourceVersion",
+            "metadata/ownerReferences",
+            "spec/containers/0/image",
+            "status/startTime",
+            "status/initContainerStatuses/0/state/terminated/containerID",
+            "spec/initContainers/0/volumeMounts/0/name",
+            "status/podIP",
+            "spec/nodeName",
+            "status/containerStatuses/0/containerID",
+            "metadata/labels",
+            "status/podIPs/0/ip",
+            "metadata/generateName",
+            "spec/containers/0/env",
+            "metadata/uid",
+            "spec/volumes/0/secret/secretName",
+            "metadata/annotations",
+            "status/initContainerStatuses/0/imageID",
+            "status/containerStatuses/0/imageID",
+            "status/initContainerStatuses/0/image",
+            "spec/initContainers/0/image",
+            "status/initContainerStatuses/0/containerID",
+            "status/containerStatuses/0/state/running/startedAt",
+            "metadata/creationTimestamp",
+            "status/initContainerStatuses/0/state/terminated/startedAt",
+            "status/conditions",
+            "spec/containers/0/volumeMounts/0/name",
+            "status/hostIP",
+            "status/containerStatuses/0/image",
+            "spec/volumes/0/name"
+        ],
+        "mongodb-cluster-rs0-1": [
+            "status/initContainerStatuses/0/state/terminated/finishedAt",
+            "metadata/managedFields",
+            "metadata/resourceVersion",
+            "metadata/ownerReferences",
+            "spec/containers/0/image",
+            "status/startTime",
+            "status/initContainerStatuses/0/state/terminated/containerID",
+            "spec/initContainers/0/volumeMounts/0/name",
+            "status/podIP",
+            "spec/nodeName",
+            "status/containerStatuses/0/containerID",
+            "metadata/labels",
+            "status/podIPs/0/ip",
+            "metadata/generateName",
+            "spec/containers/0/env",
+            "metadata/uid",
+            "spec/volumes/0/secret/secretName",
+            "metadata/annotations",
+            "status/initContainerStatuses/0/imageID",
+            "status/containerStatuses/0/imageID",
+            "status/initContainerStatuses/0/image",
+            "spec/initContainers/0/image",
+            "status/initContainerStatuses/0/containerID",
+            "status/containerStatuses/0/state/running/startedAt",
+            "metadata/creationTimestamp",
+            "status/initContainerStatuses/0/state/terminated/startedAt",
+            "status/conditions",
+            "spec/containers/0/volumeMounts/0/name",
+            "status/hostIP",
+            "status/containerStatuses/0/image",
+            "spec/volumes/0/name"
+        ],
+        "mongodb-cluster-rs0-2": [
+            "status/initContainerStatuses/0/state/terminated/finishedAt",
+            "metadata/managedFields",
+            "metadata/resourceVersion",
+            "metadata/ownerReferences",
+            "spec/containers/0/image",
+            "status/startTime",
+            "status/initContainerStatuses/0/state/terminated/containerID",
+            "spec/initContainers/0/volumeMounts/0/name",
+            "status/podIP",
+            "spec/nodeName",
+            "status/containerStatuses/0/containerID",
+            "metadata/labels",
+            "status/podIPs/0/ip",
+            "metadata/generateName",
+            "spec/containers/0/env",
+            "metadata/uid",
+            "spec/volumes/0/secret/secretName",
+            "metadata/annotations",
+            "status/initContainerStatuses/0/imageID",
+            "status/containerStatuses/0/imageID",
+            "status/initContainerStatuses/0/image",
+            "spec/initContainers/0/image",
+            "status/initContainerStatuses/0/containerID",
+            "status/containerStatuses/0/state/running/startedAt",
+            "metadata/creationTimestamp",
+            "status/initContainerStatuses/0/state/terminated/startedAt",
+            "status/conditions",
+            "spec/containers/0/volumeMounts/0/name",
+            "status/hostIP",
+            "status/containerStatuses/0/image",
+            "spec/volumes/0/name"
+        ]
+    },
+    "secret": {
+        "internal-mongodb-cluster-users": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "data",
+            "metadata/managedFields",
+            "metadata/resourceVersion"
+        ],
+        "mongodb-cluster-mongodb-encryption-key": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "data",
+            "metadata/managedFields",
+            "metadata/resourceVersion"
+        ],
+        "mongodb-cluster-mongodb-keyfile": [
+            "metadata/creationTimestamp",
+            "metadata/ownerReferences",
+            "metadata/uid",
+            "data",
+            "metadata/managedFields",
+            "metadata/resourceVersion"
+        ],
+        "mongodb-cluster-secrets": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "data",
+            "metadata/managedFields",
+            "metadata/resourceVersion"
+        ],
+        "mongodb-cluster-ssl": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/annotations",
+            "data",
+            "metadata/managedFields",
+            "metadata/resourceVersion"
+        ],
+        "mongodb-cluster-ssl-internal": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/annotations",
+            "data",
+            "metadata/managedFields",
+            "metadata/resourceVersion"
+        ]
+    },
+    "service": {
+        "kubernetes": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/labels",
+            "metadata/managedFields",
+            "metadata/resourceVersion",
+            "spec/clusterIP"
+        ],
+        "mongodb-cluster-rs0": [
+            "metadata/creationTimestamp",
+            "metadata/uid",
+            "metadata/ownerReferences",
+            "metadata/managedFields",
+            "metadata/resourceVersion"
+        ]
+    },
+    "statefulset": {
+        "mongodb-cluster-rs0": [
+            "spec/template/spec/containers/0/image",
+            "spec/template/metadata/annotations/percona.com/ssl-hash",
+            "metadata/creationTimestamp",
+            "metadata/ownerReferences",
+            "metadata/uid",
+            "status/updateRevision",
+            "spec/template/metadata/annotations/percona.com/ssl-internal-hash",
+            "metadata/generation",
+            "status/currentRevision",
+            "spec/template/spec/initContainers/0/image",
+            "metadata/labels",
+            "metadata/managedFields",
+            "spec/template/spec/containers/0/env",
+            "metadata/resourceVersion"
+        ]
+    }
+}
