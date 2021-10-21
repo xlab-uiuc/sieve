@@ -1,0 +1,49 @@
+{
+    "certificate": {},
+    "certificaterequest": {},
+    "challenge": {},
+    "clusterissuer": {},
+    "deployment": {
+        "percona-xtradb-cluster-operator": [
+            "metadata/annotations",
+            "metadata/creationTimestamp",
+            "metadata/generation",
+            "status/conditions",
+            "spec/template/spec/containers/0/env",
+            "metadata/managedFields",
+            "metadata/uid",
+            "metadata/resourceVersion",
+            "spec/template/spec/containers/0/image"
+        ]
+    },
+    "issuer": {},
+    "order": {},
+    "perconaxtradbbackup": {},
+    "perconaxtradbcluster": {},
+    "perconaxtradbclusterbackup": {},
+    "perconaxtradbclusterrestore": {},
+    "persistentvolumeclaim": {},
+    "pod": {},
+    "secret": {},
+    "service": {
+        "kubernetes": [
+            "metadata/labels",
+            "metadata/creationTimestamp",
+            "spec/clusterIP",
+            "metadata/managedFields",
+            "metadata/uid",
+            "metadata/resourceVersion"
+        ],
+        "percona-xtradb-cluster-operator": [
+            "spec/selector/pod-template-hash",
+            "metadata/labels",
+            "metadata/resourceVersion",
+            "metadata/creationTimestamp",
+            "spec/clusterIP",
+            "metadata/managedFields",
+            "metadata/uid",
+            "metadata/ownerReferences"
+        ]
+    },
+    "statefulset": {}
+}
