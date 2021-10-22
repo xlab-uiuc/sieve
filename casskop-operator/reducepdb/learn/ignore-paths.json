@@ -2,83 +2,84 @@
     "cassandrabackup": {},
     "cassandracluster": {
         "cassandra-cluster": [
-            "status/cassandraRackStatus/dc1-rack1/cassandraLastAction/endTime",
-            "metadata/generation",
-            "status/cassandraNodeStatus/cassandra-cluster-dc1-rack1-0/hostId",
-            "metadata/resourceVersion",
             "metadata/uid",
             "metadata/annotations",
-            "metadata/labels",
-            "metadata/creationTimestamp",
+            "metadata/resourceVersion",
+            "metadata/generation",
             "status/cassandraNodeStatus/cassandra-cluster-dc1-rack1-0/nodeIp",
-            "spec/backRestSidecar/image"
+            "spec/backRestSidecar/image",
+            "status/cassandraNodeStatus/cassandra-cluster-dc1-rack1-0/hostId",
+            "metadata/labels",
+            "status/cassandraRackStatus/dc1-rack1/cassandraLastAction/endTime",
+            "metadata/creationTimestamp"
         ]
     },
     "cassandrarestore": {},
     "deployment": {
         "casskop-operator": [
-            "spec/template/spec/containers/0/env",
-            "metadata/generation",
-            "status/conditions",
-            "spec/template/spec/containers/0/image",
-            "metadata/resourceVersion",
             "metadata/uid",
             "metadata/annotations",
-            "metadata/labels",
+            "metadata/resourceVersion",
+            "status/observedGeneration",
+            "metadata/generation",
+            "status/conditions",
             "metadata/managedFields",
+            "spec/template/spec/containers/0/env",
+            "metadata/labels",
+            "spec/template/spec/containers/0/image",
             "metadata/creationTimestamp"
         ]
     },
     "persistentvolumeclaim": {
         "data-cassandra-cluster-dc1-rack1-0": [
-            "metadata/resourceVersion",
             "metadata/uid",
-            "spec/volumeName",
             "metadata/annotations",
-            "metadata/labels",
+            "metadata/resourceVersion",
             "metadata/managedFields",
+            "metadata/labels",
+            "spec/volumeName",
             "metadata/creationTimestamp"
         ]
     },
     "pod": {
         "cassandra-cluster-dc1-rack1-0": [
-            "status/podIP",
-            "metadata/managedFields",
+            "spec/initContainers/0/image",
             "status/initContainerStatuses/0/state/terminated/finishedAt",
-            "status/startTime",
-            "status/initContainerStatuses/0/state/terminated/containerID",
-            "metadata/resourceVersion",
+            "status/containerStatuses/0/containerID",
+            "metadata/labels",
+            "status/initContainerStatuses/0/state/terminated/startedAt",
+            "spec/containers/0/image",
+            "status/initContainerStatuses/0/imageID",
+            "spec/containers/0/env",
+            "status/initContainerStatuses/0/containerID",
+            "status/containerStatuses/0/imageID",
+            "metadata/managedFields",
+            "status/containerStatuses/0/image",
+            "status/hostIP",
             "metadata/creationTimestamp",
-            "metadata/ownerReferences",
-            "spec/initContainers/0/volumeMounts/0/name",
+            "metadata/uid",
+            "status/startTime",
+            "metadata/resourceVersion",
+            "spec/nodeName",
+            "status/podIP",
+            "status/podIPs/0/ip",
+            "spec/volumes/0/secret/secretName",
+            "status/conditions",
+            "status/initContainerStatuses/0/state/terminated/containerID",
+            "status/initContainerStatuses/0/image",
+            "spec/volumes/0/name",
             "spec/containers/0/volumeMounts/0/name",
             "status/containerStatuses/0/state/running/startedAt",
-            "status/initContainerStatuses/0/containerID",
-            "status/containerStatuses/0/image",
-            "spec/containers/0/image",
-            "spec/initContainers/0/image",
-            "metadata/uid",
-            "spec/volumes/0/name",
-            "spec/nodeName",
-            "status/containerStatuses/0/containerID",
-            "spec/volumes/0/secret/secretName",
-            "status/hostIP",
             "metadata/generateName",
-            "status/conditions",
-            "status/initContainerStatuses/0/imageID",
-            "status/initContainerStatuses/0/state/terminated/startedAt",
-            "spec/containers/0/env",
-            "metadata/labels",
-            "status/containerStatuses/0/imageID",
-            "status/initContainerStatuses/0/image",
-            "status/podIPs/0/ip"
+            "spec/initContainers/0/volumeMounts/0/name",
+            "metadata/ownerReferences"
         ]
     },
     "secret": {
         "sh.helm.release.v1.casskop-operator.v1": [
-            "metadata/resourceVersion",
-            "data",
             "metadata/uid",
+            "data",
+            "metadata/resourceVersion",
             "metadata/managedFields",
             "metadata/labels",
             "metadata/creationTimestamp"
@@ -86,52 +87,53 @@
     },
     "service": {
         "cassandra-cluster": [
-            "metadata/ownerReferences",
-            "metadata/resourceVersion",
             "metadata/uid",
-            "metadata/labels",
+            "metadata/resourceVersion",
             "metadata/managedFields",
+            "metadata/ownerReferences",
+            "metadata/labels",
             "metadata/creationTimestamp"
         ],
         "cassandra-cluster-exporter-jmx": [
-            "metadata/ownerReferences",
-            "metadata/resourceVersion",
             "metadata/uid",
-            "metadata/labels",
+            "metadata/resourceVersion",
             "metadata/managedFields",
+            "metadata/ownerReferences",
+            "metadata/labels",
             "metadata/creationTimestamp"
         ],
         "cassandra-operator-metrics": [
+            "metadata/uid",
+            "metadata/resourceVersion",
+            "metadata/managedFields",
             "metadata/ownerReferences",
             "spec/clusterIP",
-            "metadata/resourceVersion",
-            "metadata/uid",
             "metadata/labels",
-            "metadata/managedFields",
             "metadata/creationTimestamp"
         ],
         "kubernetes": [
-            "spec/clusterIP",
-            "metadata/resourceVersion",
             "metadata/uid",
-            "metadata/labels",
+            "metadata/resourceVersion",
             "metadata/managedFields",
+            "spec/clusterIP",
+            "metadata/labels",
             "metadata/creationTimestamp"
         ]
     },
     "statefulset": {
         "cassandra-cluster-dc1-rack1": [
-            "spec/template/spec/containers/0/env",
-            "metadata/generation",
-            "metadata/ownerReferences",
-            "spec/template/spec/containers/0/image",
-            "metadata/resourceVersion",
             "metadata/uid",
             "metadata/annotations",
-            "metadata/labels",
+            "metadata/resourceVersion",
+            "status/observedGeneration",
+            "metadata/generation",
+            "spec/template/spec/initContainers/0/image",
             "metadata/managedFields",
-            "metadata/creationTimestamp",
-            "spec/template/spec/initContainers/0/image"
+            "metadata/ownerReferences",
+            "spec/template/spec/containers/0/env",
+            "metadata/labels",
+            "spec/template/spec/containers/0/image",
+            "metadata/creationTimestamp"
         ]
     }
 }
