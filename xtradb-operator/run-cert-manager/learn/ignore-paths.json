@@ -5,15 +5,16 @@
     "clusterissuer": {},
     "deployment": {
         "percona-xtradb-cluster-operator": [
-            "metadata/annotations",
             "metadata/creationTimestamp",
-            "metadata/generation",
-            "status/conditions",
-            "spec/template/spec/containers/0/env",
-            "metadata/managedFields",
-            "metadata/uid",
             "metadata/resourceVersion",
-            "spec/template/spec/containers/0/image"
+            "spec/template/spec/containers/0/image",
+            "status/conditions",
+            "status/observedGeneration",
+            "metadata/annotations",
+            "metadata/generation",
+            "metadata/uid",
+            "metadata/managedFields",
+            "spec/template/spec/containers/0/env"
         ]
     },
     "issuer": {},
@@ -27,22 +28,22 @@
     "secret": {},
     "service": {
         "kubernetes": [
-            "metadata/labels",
             "metadata/creationTimestamp",
-            "spec/clusterIP",
-            "metadata/managedFields",
+            "metadata/resourceVersion",
+            "metadata/labels",
             "metadata/uid",
-            "metadata/resourceVersion"
+            "metadata/managedFields",
+            "spec/clusterIP"
         ],
         "percona-xtradb-cluster-operator": [
+            "metadata/creationTimestamp",
+            "metadata/ownerReferences",
+            "metadata/resourceVersion",
             "spec/selector/pod-template-hash",
             "metadata/labels",
-            "metadata/resourceVersion",
-            "metadata/creationTimestamp",
-            "spec/clusterIP",
-            "metadata/managedFields",
             "metadata/uid",
-            "metadata/ownerReferences"
+            "metadata/managedFields",
+            "spec/clusterIP"
         ]
     },
     "statefulset": {}
