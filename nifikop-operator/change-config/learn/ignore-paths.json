@@ -1,41 +1,41 @@
 {
     "deployment": {
         "nifikop-operator": [
-            "metadata/generation",
-            "metadata/resourceVersion",
+            "spec/template/spec/containers/0/env",
             "status/observedGeneration",
+            "spec/template/spec/containers/0/image",
+            "metadata/uid",
+            "metadata/generation",
             "metadata/annotations",
             "status/conditions",
             "metadata/managedFields",
-            "metadata/labels",
-            "spec/template/spec/containers/0/env",
-            "metadata/uid",
             "metadata/creationTimestamp",
-            "spec/template/spec/containers/0/image"
+            "metadata/labels",
+            "metadata/resourceVersion"
         ]
     },
     "nificluster": {
         "simplenifi": [
-            "spec/readOnlyConfig",
-            "status/rootProcessGroupId",
-            "status/rollingUpgradeStatus/lastSuccess",
-            "spec/nodes/0/readOnlyConfig/bootstrapNotificationServicesConfig",
-            "status/prometheusReportingTask/id",
-            "spec/pod",
-            "metadata/resourceVersion",
-            "spec/nodes/0/readOnlyConfig/bootstrapProperties",
-            "spec/nodeConfigGroups/default_group/resourcesRequirements/limits/cpu",
-            "spec/ldapConfiguration",
-            "spec/nodes/0/readOnlyConfig/zookeeperProperties",
-            "spec/nodeConfigGroups/default_group/resourcesRequirements/requests/cpu",
-            "metadata/generation",
             "spec/nodes/0/readOnlyConfig/logbackConfig",
-            "metadata/uid",
-            "status/state",
             "metadata/annotations",
+            "spec/nodeConfigGroups/default_group/resourcesRequirements/requests/cpu",
+            "spec/nodes/0/readOnlyConfig/bootstrapNotificationServicesConfig",
+            "metadata/uid",
+            "status/nodesState/1/gracefulActionState/actionState",
+            "status/prometheusReportingTask/id",
+            "spec/nodes/0/readOnlyConfig/zookeeperProperties",
+            "spec/nodes/0/readOnlyConfig/bootstrapProperties",
+            "spec/readOnlyConfig",
+            "spec/ldapConfiguration",
+            "spec/pod",
             "metadata/finalizers",
+            "spec/nodeConfigGroups/default_group/resourcesRequirements/limits/cpu",
+            "metadata/resourceVersion",
+            "status/rootProcessGroupId",
+            "metadata/generation",
+            "metadata/creationTimestamp",
             "spec/disruptionBudget",
-            "metadata/creationTimestamp"
+            "status/prometheusReportingTask/version"
         ]
     },
     "nifidataflow": {},
@@ -45,149 +45,149 @@
     "nifiusergroup": {},
     "persistentvolumeclaim": {
         "data-zookeeper-0": [
+            "metadata/uid",
             "spec/volumeName",
-            "metadata/resourceVersion",
             "metadata/annotations",
             "metadata/managedFields",
+            "metadata/creationTimestamp",
             "metadata/labels",
-            "metadata/uid",
-            "metadata/creationTimestamp"
+            "metadata/resourceVersion"
         ]
     },
     "pod": {
         "zookeeper-0": [
             "status/containerStatuses/0/containerID",
-            "status/conditions",
-            "status/containerStatuses/0/image",
+            "status/containerStatuses/0/state/running/startedAt",
+            "spec/containers/0/env",
+            "status/containerStatuses/0/imageID",
             "metadata/labels",
-            "status/hostIP",
+            "metadata/uid",
+            "status/containerStatuses/0/image",
             "metadata/generateName",
             "spec/containers/0/volumeMounts/0/name",
-            "metadata/resourceVersion",
-            "status/containerStatuses/0/state/running/startedAt",
             "status/podIP",
-            "status/containerStatuses/0/imageID",
-            "spec/volumes/0/name",
-            "metadata/ownerReferences",
             "status/podIPs/0/ip",
-            "spec/containers/0/env",
-            "metadata/uid",
+            "spec/volumes/0/name",
             "spec/nodeName",
+            "status/conditions",
+            "metadata/resourceVersion",
             "status/startTime",
+            "spec/volumes/0/secret/secretName",
             "spec/containers/0/image",
+            "status/hostIP",
             "metadata/managedFields",
-            "metadata/creationTimestamp",
-            "spec/volumes/0/secret/secretName"
+            "metadata/ownerReferences",
+            "metadata/creationTimestamp"
         ]
     },
     "secret": {
         "sh.helm.release.v1.nifikop-operator.v1": [
-            "data",
-            "metadata/resourceVersion",
-            "metadata/managedFields",
-            "metadata/labels",
             "metadata/uid",
-            "metadata/creationTimestamp"
+            "data",
+            "metadata/managedFields",
+            "metadata/creationTimestamp",
+            "metadata/labels",
+            "metadata/resourceVersion"
         ],
         "sh.helm.release.v1.zookeeper.v1": [
-            "data",
-            "metadata/resourceVersion",
-            "metadata/managedFields",
-            "metadata/labels",
             "metadata/uid",
-            "metadata/creationTimestamp"
+            "data",
+            "metadata/managedFields",
+            "metadata/creationTimestamp",
+            "metadata/labels",
+            "metadata/resourceVersion"
         ],
         "simplenifi-config-1": [
+            "metadata/uid",
             "data",
-            "metadata/resourceVersion",
-            "metadata/ownerReferences",
             "metadata/annotations",
             "metadata/managedFields",
+            "metadata/ownerReferences",
+            "metadata/creationTimestamp",
             "metadata/labels",
-            "metadata/uid",
-            "metadata/creationTimestamp"
+            "metadata/resourceVersion"
         ]
     },
     "service": {
         "clusterip": [
-            "spec/clusterIP",
-            "metadata/resourceVersion",
-            "metadata/ownerReferences",
+            "metadata/uid",
             "metadata/annotations",
             "metadata/managedFields",
+            "metadata/ownerReferences",
+            "metadata/creationTimestamp",
             "metadata/labels",
-            "metadata/uid",
-            "metadata/creationTimestamp"
+            "spec/clusterIP",
+            "metadata/resourceVersion"
         ],
         "kubernetes": [
-            "spec/clusterIP",
-            "metadata/resourceVersion",
-            "metadata/managedFields",
-            "metadata/labels",
             "metadata/uid",
-            "metadata/creationTimestamp"
+            "metadata/managedFields",
+            "metadata/creationTimestamp",
+            "metadata/labels",
+            "spec/clusterIP",
+            "metadata/resourceVersion"
         ],
         "loadbalancer": [
-            "spec/clusterIP",
-            "metadata/resourceVersion",
-            "metadata/ownerReferences",
+            "metadata/uid",
             "metadata/annotations",
             "metadata/managedFields",
+            "metadata/ownerReferences",
+            "metadata/creationTimestamp",
             "metadata/labels",
-            "spec/ports/0/nodePort",
-            "metadata/uid",
-            "metadata/creationTimestamp"
+            "spec/clusterIP",
+            "metadata/resourceVersion",
+            "spec/ports/0/nodePort"
         ],
         "nodepart": [
-            "spec/clusterIP",
-            "metadata/resourceVersion",
-            "metadata/ownerReferences",
+            "metadata/uid",
             "metadata/annotations",
             "metadata/managedFields",
+            "metadata/ownerReferences",
+            "metadata/creationTimestamp",
             "metadata/labels",
-            "spec/ports/0/nodePort",
-            "metadata/uid",
-            "metadata/creationTimestamp"
+            "spec/clusterIP",
+            "metadata/resourceVersion",
+            "spec/ports/0/nodePort"
         ],
         "simplenifi-headless": [
-            "metadata/resourceVersion",
-            "metadata/ownerReferences",
+            "metadata/uid",
             "metadata/annotations",
             "metadata/managedFields",
+            "metadata/ownerReferences",
+            "metadata/creationTimestamp",
             "metadata/labels",
-            "metadata/uid",
-            "metadata/creationTimestamp"
+            "metadata/resourceVersion"
         ],
         "zookeeper": [
-            "spec/clusterIP",
-            "metadata/resourceVersion",
+            "metadata/uid",
             "metadata/annotations",
             "metadata/managedFields",
+            "metadata/creationTimestamp",
             "metadata/labels",
-            "metadata/uid",
-            "metadata/creationTimestamp"
+            "spec/clusterIP",
+            "metadata/resourceVersion"
         ],
         "zookeeper-headless": [
-            "metadata/resourceVersion",
+            "metadata/uid",
             "metadata/annotations",
             "metadata/managedFields",
+            "metadata/creationTimestamp",
             "metadata/labels",
-            "metadata/uid",
-            "metadata/creationTimestamp"
+            "metadata/resourceVersion"
         ]
     },
     "statefulset": {
         "zookeeper": [
-            "metadata/generation",
-            "metadata/resourceVersion",
+            "spec/template/spec/containers/0/env",
             "status/observedGeneration",
+            "spec/template/spec/containers/0/image",
+            "metadata/uid",
+            "metadata/generation",
             "metadata/annotations",
             "metadata/managedFields",
-            "metadata/labels",
-            "spec/template/spec/containers/0/env",
-            "metadata/uid",
             "metadata/creationTimestamp",
-            "spec/template/spec/containers/0/image"
+            "metadata/labels",
+            "metadata/resourceVersion"
         ]
     }
 }
