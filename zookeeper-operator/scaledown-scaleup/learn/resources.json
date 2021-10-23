@@ -526,7 +526,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"9c6db95c-20ed-44ab-8d7a-bb580b732058\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"f262bdf4-239d-420d-bd0a-ede720403296\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -714,7 +714,10 @@
                                 "f:podIP": {},
                                 "f:podIPs": {
                                     ".": {},
-                                    "k:{\"ip\":\"10.244.2.3\"}": "SIEVE-IGNORE"
+                                    "k:{\"ip\":\"10.244.1.4\"}": {
+                                        ".": {},
+                                        "f:ip": {}
+                                    }
                                 },
                                 "f:startTime": {}
                             }
@@ -956,12 +959,12 @@
                         }
                     }
                 ],
-                "hostIP": "172.18.0.2",
+                "hostIP": "172.18.0.4",
                 "phase": "Running",
-                "podIP": "SIEVE-IGNORE",
+                "podIP": "10.244.1.4",
                 "podIPs": [
                     {
-                        "ip": "SIEVE-IGNORE"
+                        "ip": "10.244.1.4"
                     }
                 ],
                 "qosClass": "BestEffort",
@@ -996,7 +999,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"9c6db95c-20ed-44ab-8d7a-bb580b732058\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"f262bdf4-239d-420d-bd0a-ede720403296\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1184,7 +1187,10 @@
                                 "f:podIP": {},
                                 "f:podIPs": {
                                     ".": {},
-                                    "k:{\"ip\":\"10.244.1.7\"}": "SIEVE-IGNORE"
+                                    "k:{\"ip\":\"10.244.2.6\"}": {
+                                        ".": {},
+                                        "f:ip": {}
+                                    }
                                 },
                                 "f:startTime": {}
                             }
@@ -1428,21 +1434,21 @@
                 ],
                 "hostIP": "SIEVE-IGNORE",
                 "phase": "Running",
-                "podIP": "SIEVE-IGNORE",
+                "podIP": "10.244.2.6",
                 "podIPs": [
                     {
-                        "ip": "SIEVE-IGNORE"
+                        "ip": "10.244.2.6"
                     }
                 ],
                 "qosClass": "BestEffort",
                 "startTime": "SIEVE-IGNORE"
             }
         },
-        "zookeeper-operator-5fc77867c7-k6zmd": "SIEVE-IGNORE"
+        "zookeeper-operator-5fc77867c7-6thbd": "SIEVE-IGNORE"
     },
     "secret": {
-        "default-token-rsn76": "SIEVE-IGNORE",
-        "zookeeper-operator-token-pvfn5": "SIEVE-IGNORE"
+        "default-token-w2pmz": "SIEVE-IGNORE",
+        "zookeeper-operator-token-dpbsc": "SIEVE-IGNORE"
     },
     "service": {
         "kubernetes": {
@@ -1487,7 +1493,7 @@
                 ],
                 "name": "kubernetes",
                 "namespace": "default",
-                "resourceVersion": "156",
+                "resourceVersion": "150",
                 "selfLink": "/api/v1/namespaces/default/services/kubernetes",
                 "uid": "SIEVE-IGNORE"
             },
@@ -1530,7 +1536,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"9e8801cd-bddc-4465-8d4e-acb29baccfc9\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"ea6839b1-0985-4b0b-9e81-af26bedd848f\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1618,7 +1624,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"9e8801cd-bddc-4465-8d4e-acb29baccfc9\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"ea6839b1-0985-4b0b-9e81-af26bedd848f\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1703,7 +1709,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"9e8801cd-bddc-4465-8d4e-acb29baccfc9\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"ea6839b1-0985-4b0b-9e81-af26bedd848f\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1842,7 +1848,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"9e8801cd-bddc-4465-8d4e-acb29baccfc9\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"ea6839b1-0985-4b0b-9e81-af26bedd848f\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -2400,8 +2406,8 @@
                 "internalClientEndpoint": "SIEVE-IGNORE",
                 "members": {
                     "ready": [
-                        "zookeeper-cluster-0",
-                        "zookeeper-cluster-1"
+                        "SIEVE-IGNORE",
+                        "SIEVE-IGNORE"
                     ]
                 },
                 "metaRootCreated": true,
