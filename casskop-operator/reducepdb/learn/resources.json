@@ -575,7 +575,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"e85cb378-c641-46cf-97e8-515ac8a59e41\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"fc1bf304-ad2e-44d9-85e8-bf235aa76c4e\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1670,12 +1670,12 @@
                 "startTime": "SIEVE-IGNORE"
             }
         },
-        "casskop-operator-546674cfdd-p5t2x": "SIEVE-IGNORE"
+        "casskop-operator-546674cfdd-mzq9v": "SIEVE-IGNORE"
     },
     "secret": {
-        "cassandra-cluster-node-token-2dc8c": "SIEVE-IGNORE",
-        "cassandra-operator-token-mx6tm": "SIEVE-IGNORE",
-        "default-token-4lctd": "SIEVE-IGNORE",
+        "cassandra-cluster-node-token-gr2tr": "SIEVE-IGNORE",
+        "cassandra-operator-token-kvpps": "SIEVE-IGNORE",
+        "default-token-qcvxt": "SIEVE-IGNORE",
         "sh.helm.release.v1.casskop-operator.v1": {
             "data": {
                 "release": "SIEVE-IGNORE"
@@ -1747,7 +1747,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"f2682b2d-4327-489d-887b-e2a165b3f6dc\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"5748f705-c310-4081-8f47-85d4e221dcc9\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1840,7 +1840,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"f2682b2d-4327-489d-887b-e2a165b3f6dc\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"5748f705-c310-4081-8f47-85d4e221dcc9\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1925,7 +1925,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"170b2f1a-cf72-4de5-9a38-0cbad3e32cb6\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"39cea63c-32d8-4ce2-bf95-fcd3a37f23a2\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -2089,7 +2089,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"f2682b2d-4327-489d-887b-e2a165b3f6dc\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"5748f705-c310-4081-8f47-85d4e221dcc9\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
