@@ -1,150 +1,150 @@
 {
     "deployment": {
         "zookeeper-operator": [
-            "metadata/managedFields",
-            "metadata/generation",
-            "metadata/annotations",
-            "metadata/creationTimestamp",
-            "status/observedGeneration",
-            "spec/template/spec/containers/0/image",
             "metadata/uid",
+            "metadata/annotations",
+            "status/conditions",
             "metadata/resourceVersion",
             "spec/template/spec/containers/0/env",
-            "status/conditions"
+            "metadata/creationTimestamp",
+            "metadata/managedFields",
+            "spec/template/spec/containers/0/image",
+            "status/observedGeneration",
+            "metadata/generation"
         ]
     },
     "persistentvolumeclaim": {
         "data-zookeeper-cluster-0": [
+            "metadata/uid",
+            "metadata/annotations",
+            "metadata/resourceVersion",
+            "metadata/creationTimestamp",
             "metadata/managedFields",
             "spec/volumeName",
-            "metadata/annotations",
-            "metadata/creationTimestamp",
-            "metadata/labels",
-            "metadata/uid",
-            "metadata/resourceVersion"
+            "metadata/labels"
         ],
         "data-zookeeper-cluster-1": [
+            "metadata/uid",
+            "metadata/annotations",
+            "metadata/resourceVersion",
+            "metadata/creationTimestamp",
             "metadata/managedFields",
             "spec/volumeName",
-            "metadata/annotations",
-            "metadata/creationTimestamp",
-            "metadata/labels",
-            "metadata/uid",
-            "metadata/resourceVersion"
+            "metadata/labels"
         ]
     },
     "pod": {
         "zookeeper-cluster-0": [
-            "status/containerStatuses/0/imageID",
+            "metadata/generateName",
+            "spec/nodeName",
+            "status/podIP",
+            "status/startTime",
+            "status/conditions",
+            "metadata/ownerReferences",
+            "metadata/resourceVersion",
             "spec/volumes/0/name",
             "spec/containers/0/volumeMounts/0/name",
-            "status/hostIP",
-            "metadata/creationTimestamp",
-            "status/containerStatuses/0/image",
-            "status/containerStatuses/0/containerID",
-            "spec/containers/0/env",
-            "status/startTime",
-            "metadata/labels",
-            "spec/containers/0/image",
+            "status/containerStatuses/0/imageID",
             "status/containerStatuses/0/state/running/startedAt",
-            "status/conditions",
-            "status/podIP",
-            "metadata/ownerReferences",
+            "status/containerStatuses/0/image",
+            "spec/containers/0/env",
             "metadata/managedFields",
-            "spec/nodeName",
-            "spec/volumes/0/secret/secretName",
-            "metadata/generateName",
-            "status/podIPs/0/ip",
+            "status/hostIP",
+            "metadata/labels",
             "metadata/uid",
-            "metadata/resourceVersion"
+            "status/podIPs/0/ip",
+            "status/containerStatuses/0/containerID",
+            "spec/volumes/0/secret/secretName",
+            "metadata/creationTimestamp",
+            "spec/containers/0/image"
         ],
         "zookeeper-cluster-1": [
-            "status/containerStatuses/0/imageID",
+            "metadata/generateName",
+            "spec/nodeName",
+            "status/podIP",
+            "status/startTime",
+            "status/conditions",
+            "metadata/ownerReferences",
+            "metadata/resourceVersion",
             "spec/volumes/0/name",
             "spec/containers/0/volumeMounts/0/name",
-            "status/hostIP",
-            "metadata/creationTimestamp",
-            "status/containerStatuses/0/image",
-            "status/containerStatuses/0/containerID",
-            "spec/containers/0/env",
-            "status/startTime",
-            "metadata/labels",
-            "spec/containers/0/image",
+            "status/containerStatuses/0/imageID",
             "status/containerStatuses/0/state/running/startedAt",
-            "status/conditions",
-            "status/podIP",
-            "metadata/ownerReferences",
+            "status/containerStatuses/0/image",
+            "spec/containers/0/env",
             "metadata/managedFields",
-            "spec/nodeName",
-            "spec/volumes/0/secret/secretName",
-            "metadata/generateName",
-            "status/podIPs/0/ip",
+            "status/hostIP",
+            "metadata/labels",
             "metadata/uid",
-            "metadata/resourceVersion"
+            "status/podIPs/0/ip",
+            "status/containerStatuses/0/containerID",
+            "spec/volumes/0/secret/secretName",
+            "metadata/creationTimestamp",
+            "spec/containers/0/image"
         ]
     },
     "secret": {},
     "service": {
         "kubernetes": [
-            "metadata/managedFields",
-            "spec/clusterIP",
-            "metadata/creationTimestamp",
-            "metadata/labels",
-            "metadata/uid",
-            "metadata/resourceVersion"
-        ],
-        "zookeeper-cluster-admin-server": [
-            "metadata/ownerReferences",
-            "metadata/managedFields",
-            "spec/clusterIP",
-            "metadata/creationTimestamp",
-            "metadata/labels",
             "metadata/uid",
             "metadata/resourceVersion",
+            "metadata/creationTimestamp",
+            "metadata/managedFields",
+            "spec/clusterIP",
+            "metadata/labels"
+        ],
+        "zookeeper-cluster-admin-server": [
+            "metadata/uid",
+            "metadata/ownerReferences",
+            "metadata/resourceVersion",
+            "metadata/creationTimestamp",
+            "metadata/managedFields",
+            "spec/clusterIP",
+            "metadata/labels",
             "spec/ports/0/nodePort"
         ],
         "zookeeper-cluster-client": [
+            "metadata/uid",
             "metadata/ownerReferences",
+            "metadata/resourceVersion",
+            "metadata/creationTimestamp",
             "metadata/managedFields",
             "spec/clusterIP",
-            "metadata/creationTimestamp",
-            "metadata/labels",
-            "metadata/uid",
-            "metadata/resourceVersion"
+            "metadata/labels"
         ],
         "zookeeper-cluster-headless": [
-            "metadata/ownerReferences",
-            "metadata/managedFields",
-            "metadata/creationTimestamp",
-            "metadata/labels",
             "metadata/uid",
-            "metadata/resourceVersion"
+            "metadata/ownerReferences",
+            "metadata/resourceVersion",
+            "metadata/creationTimestamp",
+            "metadata/managedFields",
+            "metadata/labels"
         ]
     },
     "statefulset": {
         "zookeeper-cluster": [
+            "metadata/uid",
             "metadata/ownerReferences",
-            "metadata/managedFields",
-            "metadata/generation",
+            "metadata/resourceVersion",
+            "spec/template/spec/containers/0/env",
             "metadata/creationTimestamp",
-            "status/observedGeneration",
+            "metadata/managedFields",
             "spec/template/spec/containers/0/image",
             "metadata/labels",
-            "metadata/uid",
-            "metadata/resourceVersion",
-            "spec/template/spec/containers/0/env"
+            "status/observedGeneration",
+            "metadata/generation"
         ]
     },
     "zookeepercluster": {
         "zookeeper-cluster": [
-            "metadata/generation",
-            "status/conditions",
-            "status/internalClientEndpoint",
-            "metadata/annotations",
-            "metadata/creationTimestamp",
             "metadata/uid",
+            "spec/image",
+            "metadata/annotations",
+            "status/internalClientEndpoint",
+            "status/conditions",
             "metadata/resourceVersion",
-            "spec/image"
+            "metadata/creationTimestamp",
+            "metadata/generation"
         ]
     }
 }
