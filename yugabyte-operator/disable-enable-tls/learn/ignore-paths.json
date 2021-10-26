@@ -139,7 +139,7 @@
             "status/containerStatuses/*/lastState/terminated/containerID",
             "status/containerStatuses/*/lastState/terminated/finishedAt",
             "status/containerStatuses/*/lastState/terminated/startedAt",
-            "status/containerStatuses/*/state/waiting",
+            "status/containerStatuses/*/state/waiting/message",
             "status/hostIP",
             "status/podIP",
             "status/podIPs/*/ip",

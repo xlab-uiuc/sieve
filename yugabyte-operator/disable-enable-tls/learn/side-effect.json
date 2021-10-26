@@ -80,9 +80,9 @@
             "DELETED": 0,
             "operator_related": false
         },
-        "/pods/default/yb-master-1": {
-            "ADDED": 3,
-            "DELETED": 2,
+        "/pods/default/yb-master-0": {
+            "ADDED": 1,
+            "DELETED": 0,
             "operator_related": false
         },
         "/pods/default/yb-master-2": {
