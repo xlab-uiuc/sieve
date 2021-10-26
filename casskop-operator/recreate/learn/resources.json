@@ -575,7 +575,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"90b6dcf7-1735-4b44-bd4c-e4287769c711\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"4a25e239-e21d-4c88-b785-3aacab01d3e5\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1085,7 +1085,7 @@
                                 "f:podIP": {},
                                 "f:podIPs": {
                                     ".": {},
-                                    "k:{\"ip\":\"10.244.2.7\"}": "SIEVE-IGNORE"
+                                    "k:{\"ip\":\"10.244.1.7\"}": "SIEVE-IGNORE"
                                 },
                                 "f:startTime": {}
                             }
@@ -1667,12 +1667,12 @@
                 "startTime": "SIEVE-IGNORE"
             }
         },
-        "casskop-operator-546674cfdd-nbkmh": "SIEVE-IGNORE"
+        "casskop-operator-546674cfdd-kjlct": "SIEVE-IGNORE"
     },
     "secret": {
-        "cassandra-cluster-node-token-mgbwb": "SIEVE-IGNORE",
-        "cassandra-operator-token-xk545": "SIEVE-IGNORE",
-        "default-token-hj9vp": "SIEVE-IGNORE",
+        "cassandra-cluster-node-token-t9v7m": "SIEVE-IGNORE",
+        "cassandra-operator-token-pmkp8": "SIEVE-IGNORE",
+        "default-token-dpqnn": "SIEVE-IGNORE",
         "sh.helm.release.v1.casskop-operator.v1": {
             "data": {
                 "release": "SIEVE-IGNORE"
@@ -1744,7 +1744,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"78860fed-d510-44c2-bea0-0286b4357df4\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"c1e02866-dea9-44ce-97be-b01712c0b2ee\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1837,7 +1837,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"78860fed-d510-44c2-bea0-0286b4357df4\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"c1e02866-dea9-44ce-97be-b01712c0b2ee\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1922,7 +1922,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"a07a3545-0d33-427b-93eb-a327863f0007\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"9358e6f7-fa9e-4331-96b0-658f26bcda40\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1961,7 +1961,7 @@
                         "uid": "SIEVE-IGNORE"
                     }
                 ],
-                "resourceVersion": "703",
+                "resourceVersion": "SIEVE-IGNORE",
                 "selfLink": "/api/v1/namespaces/default/services/cassandra-operator-metrics",
                 "uid": "SIEVE-IGNORE"
             },
@@ -2086,7 +2086,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"78860fed-d510-44c2-bea0-0286b4357df4\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"c1e02866-dea9-44ce-97be-b01712c0b2ee\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
