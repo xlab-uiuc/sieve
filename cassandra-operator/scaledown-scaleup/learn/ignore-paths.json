@@ -98,12 +98,7 @@
             "status/containerStatuses/*/containerID",
             "status/containerStatuses/*/image",
             "status/containerStatuses/*/imageID",
-            "status/containerStatuses/*/lastState/terminated",
-            "status/containerStatuses/*/ready",
-            "status/containerStatuses/*/restartCount",
-            "status/containerStatuses/*/started",
             "status/containerStatuses/*/state/running/startedAt",
-            "status/containerStatuses/*/state/waiting",
             "status/hostIP",
             "status/initContainerStatuses/*/containerID",
             "status/initContainerStatuses/*/image",
@@ -167,8 +162,7 @@
             "spec/template/spec/containers/*/env",
             "spec/template/spec/containers/*/image",
             "spec/template/spec/initContainers/*/image",
-            "status/observedGeneration",
-            "status/readyReplicas"
+            "status/observedGeneration"
         ]
     }
 }
