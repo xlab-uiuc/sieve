@@ -76,14 +76,14 @@
                         "message": "",
                         "reason": "",
                         "status": "False",
-                        "type": "SIEVE-IGNORE"
+                        "type": "Updating"
                     },
                     {
                         "lastTransitionTime": "SIEVE-IGNORE",
                         "message": "",
                         "reason": "",
                         "status": "False",
-                        "type": "SIEVE-IGNORE"
+                        "type": "ScalingDown"
                     },
                     {
                         "lastTransitionTime": "SIEVE-IGNORE",
@@ -983,7 +983,7 @@
         }
     },
     "pod": {
-        "cass-operator-595d8d4bc7-76vfw": "SIEVE-IGNORE",
+        "cass-operator-595d8d4bc7-9hqxr": "SIEVE-IGNORE",
         "cluster1-cassandra-datacenter-default-sts-0": {
             "metadata": {
                 "creationTimestamp": "SIEVE-IGNORE",
@@ -1016,7 +1016,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"c2a8f6fa-320e-44cf-8e16-9b2866604e28\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"daed3aad-cd4c-427e-88fc-17a737a7a89e\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1378,7 +1378,7 @@
                                 "f:podIP": {},
                                 "f:podIPs": {
                                     ".": {},
-                                    "k:{\"ip\":\"10.244.2.3\"}": "SIEVE-IGNORE"
+                                    "k:{\"ip\":\"10.244.3.3\"}": "SIEVE-IGNORE"
                                 },
                                 "f:startTime": {}
                             }
@@ -1867,7 +1867,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"c2a8f6fa-320e-44cf-8e16-9b2866604e28\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"daed3aad-cd4c-427e-88fc-17a737a7a89e\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -2229,7 +2229,10 @@
                                 "f:podIP": {},
                                 "f:podIPs": {
                                     ".": {},
-                                    "k:{\"ip\":\"10.244.3.7\"}": "SIEVE-IGNORE"
+                                    "k:{\"ip\":\"10.244.2.6\"}": {
+                                        ".": {},
+                                        "f:ip": {}
+                                    }
                                 },
                                 "f:startTime": {}
                             }
@@ -2676,20 +2679,20 @@
                     }
                 ],
                 "phase": "Running",
-                "podIP": "SIEVE-IGNORE",
+                "podIP": "10.244.2.6",
                 "podIPs": [
                     {
-                        "ip": "SIEVE-IGNORE"
+                        "ip": "10.244.2.6"
                     }
                 ],
                 "qosClass": "Burstable",
                 "startTime": "SIEVE-IGNORE"
             }
         },
-        "local-path-provisioner-579c65cb9b-7wdm6": "SIEVE-IGNORE"
+        "local-path-provisioner-579c65cb9b-zc5bz": "SIEVE-IGNORE"
     },
     "secret": {
-        "cass-operator-token-hpftc": "SIEVE-IGNORE",
+        "cass-operator-token-m2sp9": "SIEVE-IGNORE",
         "cass-operator-webhook-config": {
             "data": {
                 "tls.crt": "SIEVE-IGNORE",
@@ -2734,7 +2737,7 @@
                 ],
                 "name": "cass-operator-webhook-config",
                 "namespace": "default",
-                "resourceVersion": "SIEVE-IGNORE",
+                "resourceVersion": "770",
                 "selfLink": "/api/v1/namespaces/default/secrets/cass-operator-webhook-config",
                 "uid": "SIEVE-IGNORE"
             },
@@ -2766,7 +2769,7 @@
                 ],
                 "name": "cassandra-datacenter-ca-keystore",
                 "namespace": "default",
-                "resourceVersion": "SIEVE-IGNORE",
+                "resourceVersion": "811",
                 "selfLink": "/api/v1/namespaces/default/secrets/cassandra-datacenter-ca-keystore",
                 "uid": "SIEVE-IGNORE"
             },
@@ -2850,8 +2853,8 @@
             },
             "type": "Opaque"
         },
-        "default-token-flw8j": "SIEVE-IGNORE",
-        "local-path-provisioner-service-account-token-5rlcr": "SIEVE-IGNORE"
+        "default-token-m2qqh": "SIEVE-IGNORE",
+        "local-path-provisioner-service-account-token-8rh87": "SIEVE-IGNORE"
     },
     "service": {
         "cass-operator-metrics": {
@@ -2872,7 +2875,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"72cf892f-ed84-480f-a3bc-951d078f6909\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"65063a07-d88e-4013-9449-71e341f80fff\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -3051,7 +3054,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"eb09b0c3-74bc-41bc-9fa2-d1b63cfab47f\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"3f18f196-db9d-4151-b399-81cee01711ed\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -3174,7 +3177,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"eb09b0c3-74bc-41bc-9fa2-d1b63cfab47f\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"3f18f196-db9d-4151-b399-81cee01711ed\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -3319,7 +3322,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"eb09b0c3-74bc-41bc-9fa2-d1b63cfab47f\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"3f18f196-db9d-4151-b399-81cee01711ed\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -3466,7 +3469,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"eb09b0c3-74bc-41bc-9fa2-d1b63cfab47f\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"3f18f196-db9d-4151-b399-81cee01711ed\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
