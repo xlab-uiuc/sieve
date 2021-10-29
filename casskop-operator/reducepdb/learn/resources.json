@@ -575,7 +575,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"0aa030ec-24e8-4332-b91d-5e221191864f\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"48c33185-a469-432d-86c0-35d114495b9d\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1085,7 +1085,7 @@
                                 "f:podIP": {},
                                 "f:podIPs": {
                                     ".": {},
-                                    "k:{\"ip\":\"10.244.1.3\"}": "SIEVE-IGNORE"
+                                    "k:{\"ip\":\"10.244.1.4\"}": "SIEVE-IGNORE"
                                 },
                                 "f:startTime": {}
                             }
@@ -1617,7 +1617,7 @@
                         }
                     }
                 ],
-                "hostIP": "172.18.0.4",
+                "hostIP": "172.18.0.3",
                 "initContainerStatuses": [
                     {
                         "containerID": "SIEVE-IGNORE",
@@ -1667,12 +1667,12 @@
                 "startTime": "SIEVE-IGNORE"
             }
         },
-        "casskop-operator-546674cfdd-654pg": "SIEVE-IGNORE"
+        "casskop-operator-546674cfdd-hchfc": "SIEVE-IGNORE"
     },
     "secret": {
-        "cassandra-cluster-node-token-5clx8": "SIEVE-IGNORE",
-        "cassandra-operator-token-4db7g": "SIEVE-IGNORE",
-        "default-token-hwmm8": "SIEVE-IGNORE",
+        "cassandra-cluster-node-token-gnv6z": "SIEVE-IGNORE",
+        "cassandra-operator-token-77vqn": "SIEVE-IGNORE",
+        "default-token-sjlqp": "SIEVE-IGNORE",
         "sh.helm.release.v1.casskop-operator.v1": {
             "data": {
                 "release": "SIEVE-IGNORE"
@@ -1744,7 +1744,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"55c6c4f8-04eb-418a-874a-34dfc5c0c581\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"fc7e7cb9-a615-4287-bd10-670dd098b595\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1837,7 +1837,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"55c6c4f8-04eb-418a-874a-34dfc5c0c581\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"fc7e7cb9-a615-4287-bd10-670dd098b595\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1922,7 +1922,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"ac88cc7e-a36a-4b11-b662-6afd4b5eb6d1\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"50f23603-5d08-43c9-82ca-61a14301bbbd\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -2027,7 +2027,7 @@
                 ],
                 "name": "kubernetes",
                 "namespace": "default",
-                "resourceVersion": "150",
+                "resourceVersion": "SIEVE-IGNORE",
                 "selfLink": "/api/v1/namespaces/default/services/kubernetes",
                 "uid": "SIEVE-IGNORE"
             },
@@ -2086,7 +2086,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"55c6c4f8-04eb-418a-874a-34dfc5c0c581\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"fc7e7cb9-a615-4287-bd10-670dd098b595\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {

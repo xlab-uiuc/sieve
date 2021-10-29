@@ -575,7 +575,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"17de942c-0f8d-44ff-b794-546511f48c14\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"bd5fb07d-e2a0-482d-9ab8-60bde00e921b\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1085,7 +1085,7 @@
                                 "f:podIP": {},
                                 "f:podIPs": {
                                     ".": {},
-                                    "k:{\"ip\":\"10.244.1.7\"}": "SIEVE-IGNORE"
+                                    "k:{\"ip\":\"10.244.1.6\"}": "SIEVE-IGNORE"
                                 },
                                 "f:startTime": {}
                             }
@@ -1667,12 +1667,12 @@
                 "startTime": "SIEVE-IGNORE"
             }
         },
-        "casskop-operator-546674cfdd-rf6w9": "SIEVE-IGNORE"
+        "casskop-operator-546674cfdd-69d5w": "SIEVE-IGNORE"
     },
     "secret": {
-        "cassandra-cluster-node-token-n6fzl": "SIEVE-IGNORE",
-        "cassandra-operator-token-q9wt4": "SIEVE-IGNORE",
-        "default-token-g8lmw": "SIEVE-IGNORE",
+        "cassandra-cluster-node-token-w2w5x": "SIEVE-IGNORE",
+        "cassandra-operator-token-gh5wc": "SIEVE-IGNORE",
+        "default-token-99w4d": "SIEVE-IGNORE",
         "sh.helm.release.v1.casskop-operator.v1": {
             "data": {
                 "release": "SIEVE-IGNORE"
@@ -1744,7 +1744,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"446ea08b-99c2-4e7f-a455-13f7655cede1\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"00743079-f94a-40df-8d44-1cda63c6dbd0\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1837,7 +1837,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"446ea08b-99c2-4e7f-a455-13f7655cede1\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"00743079-f94a-40df-8d44-1cda63c6dbd0\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1922,7 +1922,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"df2ca1f5-76be-4e5c-a521-d491888a41c8\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"8f1253dc-d86e-4187-9d5e-bd2562ae089b\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -2086,7 +2086,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"446ea08b-99c2-4e7f-a455-13f7655cede1\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"00743079-f94a-40df-8d44-1cda63c6dbd0\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
