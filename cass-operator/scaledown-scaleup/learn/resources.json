@@ -983,7 +983,7 @@
         }
     },
     "pod": {
-        "cass-operator-595d8d4bc7-9hqxr": "SIEVE-IGNORE",
+        "cass-operator-595d8d4bc7-m8bck": "SIEVE-IGNORE",
         "cluster1-cassandra-datacenter-default-sts-0": {
             "metadata": {
                 "creationTimestamp": "SIEVE-IGNORE",
@@ -1016,7 +1016,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"daed3aad-cd4c-427e-88fc-17a737a7a89e\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"6d3edb45-2cb2-483a-9148-75bb7f398a98\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1867,7 +1867,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"daed3aad-cd4c-427e-88fc-17a737a7a89e\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"6d3edb45-2cb2-483a-9148-75bb7f398a98\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -2229,7 +2229,7 @@
                                 "f:podIP": {},
                                 "f:podIPs": {
                                     ".": {},
-                                    "k:{\"ip\":\"10.244.2.6\"}": {
+                                    "k:{\"ip\":\"10.244.2.4\"}": {
                                         ".": {},
                                         "f:ip": {}
                                     }
@@ -2679,20 +2679,20 @@
                     }
                 ],
                 "phase": "Running",
-                "podIP": "10.244.2.6",
+                "podIP": "10.244.2.4",
                 "podIPs": [
                     {
-                        "ip": "10.244.2.6"
+                        "ip": "10.244.2.4"
                     }
                 ],
                 "qosClass": "Burstable",
                 "startTime": "SIEVE-IGNORE"
             }
         },
-        "local-path-provisioner-579c65cb9b-zc5bz": "SIEVE-IGNORE"
+        "local-path-provisioner-579c65cb9b-nqccw": "SIEVE-IGNORE"
     },
     "secret": {
-        "cass-operator-token-m2sp9": "SIEVE-IGNORE",
+        "cass-operator-token-gl6cz": "SIEVE-IGNORE",
         "cass-operator-webhook-config": {
             "data": {
                 "tls.crt": "SIEVE-IGNORE",
@@ -2737,7 +2737,7 @@
                 ],
                 "name": "cass-operator-webhook-config",
                 "namespace": "default",
-                "resourceVersion": "770",
+                "resourceVersion": "SIEVE-IGNORE",
                 "selfLink": "/api/v1/namespaces/default/secrets/cass-operator-webhook-config",
                 "uid": "SIEVE-IGNORE"
             },
@@ -2769,7 +2769,7 @@
                 ],
                 "name": "cassandra-datacenter-ca-keystore",
                 "namespace": "default",
-                "resourceVersion": "811",
+                "resourceVersion": "SIEVE-IGNORE",
                 "selfLink": "/api/v1/namespaces/default/secrets/cassandra-datacenter-ca-keystore",
                 "uid": "SIEVE-IGNORE"
             },
@@ -2853,8 +2853,8 @@
             },
             "type": "Opaque"
         },
-        "default-token-m2qqh": "SIEVE-IGNORE",
-        "local-path-provisioner-service-account-token-8rh87": "SIEVE-IGNORE"
+        "default-token-7gtkg": "SIEVE-IGNORE",
+        "local-path-provisioner-service-account-token-2qpq8": "SIEVE-IGNORE"
     },
     "service": {
         "cass-operator-metrics": {
@@ -2875,7 +2875,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"65063a07-d88e-4013-9449-71e341f80fff\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"0288ae11-a861-4045-87d2-b0c6a04374f3\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -3054,7 +3054,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"3f18f196-db9d-4151-b399-81cee01711ed\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"65c8aa85-7177-4d19-b475-e5f780c9feae\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -3177,7 +3177,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"3f18f196-db9d-4151-b399-81cee01711ed\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"65c8aa85-7177-4d19-b475-e5f780c9feae\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -3322,7 +3322,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"3f18f196-db9d-4151-b399-81cee01711ed\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"65c8aa85-7177-4d19-b475-e5f780c9feae\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -3469,7 +3469,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"3f18f196-db9d-4151-b399-81cee01711ed\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"65c8aa85-7177-4d19-b475-e5f780c9feae\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
