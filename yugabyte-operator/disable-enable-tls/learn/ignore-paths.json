@@ -88,10 +88,8 @@
             "status/containerStatuses/*/containerID",
             "status/containerStatuses/*/image",
             "status/containerStatuses/*/imageID",
-            "status/containerStatuses/*/ready",
             "status/containerStatuses/*/restartCount",
-            "status/containerStatuses/*/started",
-            "status/containerStatuses/*/state/running",
+            "status/containerStatuses/*/state/running/startedAt",
             "status/hostIP",
             "status/podIP",
             "status/podIPs/*/ip",
@@ -139,7 +137,10 @@
             "status/containerStatuses/*/containerID",
             "status/containerStatuses/*/image",
             "status/containerStatuses/*/imageID",
-            "status/containerStatuses/*/state/running/startedAt",
+            "status/containerStatuses/*/lastState/terminated/containerID",
+            "status/containerStatuses/*/lastState/terminated/finishedAt",
+            "status/containerStatuses/*/lastState/terminated/startedAt",
+            "status/containerStatuses/*/state/waiting/message",
             "status/hostIP",
             "status/podIP",
             "status/podIPs/*/ip",
@@ -220,7 +221,12 @@
     },
     "secret": {
         "yb-master-yugabyte-tls-cert": [
-            "data",
+            "data/node.yb-master-0.yb-masters.default.svc.cluster.local.crt",
+            "data/node.yb-master-0.yb-masters.default.svc.cluster.local.key",
+            "data/node.yb-master-1.yb-masters.default.svc.cluster.local.crt",
+            "data/node.yb-master-1.yb-masters.default.svc.cluster.local.key",
+            "data/node.yb-master-2.yb-masters.default.svc.cluster.local.crt",
+            "data/node.yb-master-2.yb-masters.default.svc.cluster.local.key",
             "metadata/creationTimestamp",
             "metadata/labels",
             "metadata/managedFields",
@@ -229,7 +235,12 @@
             "metadata/uid"
         ],
         "yb-tserver-yugabyte-tls-cert": [
-            "data",
+            "data/node.yb-tserver-0.yb-tservers.default.svc.cluster.local.crt",
+            "data/node.yb-tserver-0.yb-tservers.default.svc.cluster.local.key",
+            "data/node.yb-tserver-1.yb-tservers.default.svc.cluster.local.crt",
+            "data/node.yb-tserver-1.yb-tservers.default.svc.cluster.local.key",
+            "data/node.yb-tserver-2.yb-tservers.default.svc.cluster.local.crt",
+            "data/node.yb-tserver-2.yb-tservers.default.svc.cluster.local.key",
             "metadata/creationTimestamp",
             "metadata/labels",
             "metadata/managedFields",
@@ -298,8 +309,7 @@
             "metadata/uid",
             "spec/template/spec/containers/*/env",
             "spec/template/spec/containers/*/image",
-            "status/observedGeneration",
-            "status/readyReplicas"
+            "status/observedGeneration"
         ],
         "yb-tserver": [
             "metadata/creationTimestamp",
