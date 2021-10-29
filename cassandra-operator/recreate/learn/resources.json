@@ -362,7 +362,7 @@
                     "pv.kubernetes.io/bind-completed": "yes",
                     "pv.kubernetes.io/bound-by-controller": "yes",
                     "volume.beta.kubernetes.io/storage-provisioner": "rancher.io/local-path",
-                    "volume.kubernetes.io/selected-node": "kind-worker2"
+                    "volume.kubernetes.io/selected-node": "SIEVE-IGNORE"
                 },
                 "creationTimestamp": "SIEVE-IGNORE",
                 "finalizers": [
@@ -464,7 +464,7 @@
         }
     },
     "pod": {
-        "cassandra-operator-55bf946bb6-fdqlg": "SIEVE-IGNORE",
+        "cassandra-operator-55bf946bb6-64jdk": "SIEVE-IGNORE",
         "cassandra-test-cluster-dc1-rack1-0": {
             "metadata": {
                 "creationTimestamp": "SIEVE-IGNORE",
@@ -495,7 +495,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"b434d4f9-61ad-451e-88d1-11d416afedd7\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"aaef446f-2d95-4d4c-b806-30614f2e6fae\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -949,7 +949,7 @@
                         ]
                     }
                 ],
-                "nodeName": "kind-worker2",
+                "nodeName": "SIEVE-IGNORE",
                 "priority": 0,
                 "restartPolicy": "Always",
                 "schedulerName": "default-scheduler",
@@ -1115,7 +1115,7 @@
                         }
                     }
                 ],
-                "hostIP": "172.18.0.3",
+                "hostIP": "SIEVE-IGNORE",
                 "initContainerStatuses": [
                     {
                         "containerID": "SIEVE-IGNORE",
@@ -1149,10 +1149,10 @@
         }
     },
     "secret": {
-        "cassandra-operator-token-zqtql": "SIEVE-IGNORE",
-        "cassandra-performance-token-z2pnt": "SIEVE-IGNORE",
-        "cassandra-token-rxnh7": "SIEVE-IGNORE",
-        "default-token-gsl79": "SIEVE-IGNORE"
+        "cassandra-operator-token-zxlkw": "SIEVE-IGNORE",
+        "cassandra-performance-token-c8kq6": "SIEVE-IGNORE",
+        "cassandra-token-x49tp": "SIEVE-IGNORE",
+        "default-token-g6cqm": "SIEVE-IGNORE"
     },
     "service": {
         "cassandra-operator-metrics": {
@@ -1173,7 +1173,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"d725a0f7-4297-4907-9ac2-d3f8606a1b79\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"e6ab6bb7-7927-40af-aa0c-d0ff7adac81a\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1260,7 +1260,7 @@
                             "f:metadata": {
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"79178cd4-526b-4e7d-99c8-0838d4808249\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"d20a71b2-90cd-4ce0-9b16-fb3afa466ab1\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1359,7 +1359,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"79178cd4-526b-4e7d-99c8-0838d4808249\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"d20a71b2-90cd-4ce0-9b16-fb3afa466ab1\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1471,7 +1471,7 @@
                 ],
                 "name": "kubernetes",
                 "namespace": "default",
-                "resourceVersion": "151",
+                "resourceVersion": "150",
                 "selfLink": "/api/v1/namespaces/default/services/kubernetes",
                 "uid": "SIEVE-IGNORE"
             },
@@ -1519,7 +1519,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"79178cd4-526b-4e7d-99c8-0838d4808249\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"d20a71b2-90cd-4ce0-9b16-fb3afa466ab1\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
