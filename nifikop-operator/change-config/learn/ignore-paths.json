@@ -21,15 +21,9 @@
             "metadata/generation",
             "metadata/resourceVersion",
             "metadata/uid",
-            "spec/nodeConfigGroups/default_group/resourcesRequirements/limits/cpu",
-            "spec/nodeConfigGroups/default_group/resourcesRequirements/requests/cpu",
-            "status/nodesState/1/gracefulActionState/TaskStarted",
-            "status/nodesState/1/gracefulActionState/actionState",
-            "status/nodesState/1/gracefulActionState/actionStep",
             "status/prometheusReportingTask/id",
-            "status/prometheusReportingTask/version",
             "status/rollingUpgradeStatus/lastSuccess",
-            "status/state"
+            "status/rootProcessGroupId"
         ]
     },
     "nifidataflow": {},
@@ -76,7 +70,7 @@
     },
     "secret": {
         "sh.helm.release.v1.nifikop-operator.v1": [
-            "data",
+            "data/release",
             "metadata/creationTimestamp",
             "metadata/labels",
             "metadata/managedFields",
@@ -84,7 +78,7 @@
             "metadata/uid"
         ],
         "sh.helm.release.v1.zookeeper.v1": [
-            "data",
+            "data/release",
             "metadata/creationTimestamp",
             "metadata/labels",
             "metadata/managedFields",
@@ -92,7 +86,6 @@
             "metadata/uid"
         ],
         "simplenifi-config-1": [
-            "data",
             "metadata/annotations",
             "metadata/creationTimestamp",
             "metadata/labels",
