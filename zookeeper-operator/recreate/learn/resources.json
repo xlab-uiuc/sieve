@@ -424,7 +424,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"389742c3-c1af-4770-af50-e9e08edaf853\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"dd70ab7a-854e-4d95-b8db-217252de3efa\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -612,7 +612,7 @@
                                 "f:podIP": {},
                                 "f:podIPs": {
                                     ".": {},
-                                    "k:{\"ip\":\"10.244.2.6\"}": {
+                                    "k:{\"ip\":\"10.244.1.6\"}": {
                                         ".": {},
                                         "f:ip": {}
                                     }
@@ -859,21 +859,21 @@
                 ],
                 "hostIP": "SIEVE-IGNORE",
                 "phase": "Running",
-                "podIP": "10.244.2.6",
+                "podIP": "10.244.1.6",
                 "podIPs": [
                     {
-                        "ip": "10.244.2.6"
+                        "ip": "10.244.1.6"
                     }
                 ],
                 "qosClass": "BestEffort",
                 "startTime": "SIEVE-IGNORE"
             }
         },
-        "zookeeper-operator-5fc77867c7-zzz2r": "SIEVE-IGNORE"
+        "zookeeper-operator-5fc77867c7-7n77d": "SIEVE-IGNORE"
     },
     "secret": {
-        "default-token-5d2d6": "SIEVE-IGNORE",
-        "zookeeper-operator-token-6j2zh": "SIEVE-IGNORE"
+        "default-token-kbrmr": "SIEVE-IGNORE",
+        "zookeeper-operator-token-d4vx9": "SIEVE-IGNORE"
     },
     "service": {
         "kubernetes": {
@@ -918,7 +918,7 @@
                 ],
                 "name": "kubernetes",
                 "namespace": "default",
-                "resourceVersion": "150",
+                "resourceVersion": "SIEVE-IGNORE",
                 "selfLink": "/api/v1/namespaces/default/services/kubernetes",
                 "uid": "SIEVE-IGNORE"
             },
@@ -961,7 +961,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"837ff4d8-01e2-4f29-be57-c7c4e2c87ce2\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"b63edb51-5459-4940-85a6-ce0e5ea9106c\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1049,7 +1049,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"837ff4d8-01e2-4f29-be57-c7c4e2c87ce2\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"b63edb51-5459-4940-85a6-ce0e5ea9106c\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1134,7 +1134,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"837ff4d8-01e2-4f29-be57-c7c4e2c87ce2\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"b63edb51-5459-4940-85a6-ce0e5ea9106c\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
@@ -1273,7 +1273,7 @@
                                 },
                                 "f:ownerReferences": {
                                     ".": {},
-                                    "k:{\"uid\":\"837ff4d8-01e2-4f29-be57-c7c4e2c87ce2\"}": "SIEVE-IGNORE"
+                                    "k:{\"uid\":\"b63edb51-5459-4940-85a6-ce0e5ea9106c\"}": "SIEVE-IGNORE"
                                 }
                             },
                             "f:spec": {
