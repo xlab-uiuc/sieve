@@ -55,16 +55,16 @@ def generate_state(test_context: TestContext):
 
 
 def canonicalize_state(test_context: TestContext):
-    assert test_context.mode == sieve_modes.LEARN_TWICE
-    learn_twice_dir = test_context.result_dir
-    cur_state = json.loads(open(os.path.join(learn_twice_dir, "state.json")).read())
-    learn_once_dir = os.path.join(
-        os.path.dirname(os.path.dirname(test_context.result_dir)),
-        "learn-once",
-        "learn.yaml",
+    assert test_context.mode == sieve_modes.LEARN and test_context.build_oracle
+    second_pass_learn_dir = test_context.result_dir
+    cur_state = json.loads(
+        open(os.path.join(second_pass_learn_dir, "state.json")).read()
     )
-    prev_state = json.loads(open(os.path.join(learn_once_dir, "state.json")).read())
-    canonicalized_state = learn_twice_trim(prev_state, cur_state)
+    first_pass_learn_dir = first_pass_learn_result_dir(test_context.result_dir)
+    prev_state = json.loads(
+        open(os.path.join(first_pass_learn_dir, "state.json")).read()
+    )
+    canonicalized_state = second_pass_learn_trim(prev_state, cur_state)
     return canonicalized_state
 
 
@@ -140,22 +140,18 @@ def get_canonicalized_state(test_context: TestContext):
 
 
 def get_learning_once_state(test_context: TestContext):
-    learn_once_dir = os.path.join(
-        os.path.dirname(os.path.dirname(test_context.result_dir)),
-        "learn-once",
-        "learn.yaml",
+    first_pass_learn_dir = first_pass_learn_result_dir(test_context.result_dir)
+    learning_once_state = json.load(
+        open(os.path.join(first_pass_learn_dir, "state.json"))
     )
-    learning_once_state = json.load(open(os.path.join(learn_once_dir, "state.json")))
     return learning_once_state
 
 
 def get_learning_twice_state(test_context: TestContext):
-    learn_twice_dir = os.path.join(
-        os.path.dirname(os.path.dirname(test_context.result_dir)),
-        "learn-twice",
-        "learn.yaml",
+    second_pass_learn_dir = test_context.result_dir
+    learning_twice_state = json.load(
+        open(os.path.join(second_pass_learn_dir, "state.json"))
     )
-    learning_twice_state = json.load(open(os.path.join(learn_twice_dir, "state.json")))
     return learning_twice_state
 
 
@@ -165,7 +161,6 @@ def get_testing_state(test_context: TestContext):
 
 
 def check_single_state(state, resource_keys, checker_name, customized_checker):
-    ret_val = 0
     messages = []
     final_state = {}
     for resource_key in resource_keys:
@@ -175,7 +170,6 @@ def check_single_state(state, resource_keys, checker_name, customized_checker):
         name = tokens[2]
         final_state[resource_key] = state[rtype][name]
     if not customized_checker(final_state):
-        ret_val += 1
         messages.append(
             generate_alarm(
                 "[CUSTOMIZED-LIVENESS]",
@@ -184,7 +178,7 @@ def check_single_state(state, resource_keys, checker_name, customized_checker):
                 ),
             )
         )
-    return ret_val, messages
+    return messages
 
 
 def get_objects_from_state_by_type(state, rtype):
@@ -231,13 +225,13 @@ def resource_key_should_be_masked(
         ):
             return True
         state_mask = test_context.controller_config.end_state_checker_mask
-        for test_name in state_mask:
-            if test_name == test_context.test_name or test_name == "*":
-                for masked_resource_key in state_mask[test_name]:
+        for test_workload in state_mask:
+            if test_workload == test_context.test_workload or test_workload == "*":
+                for masked_resource_key in state_mask[test_workload]:
                     if masked_resource_key == resource_key or PurePath(
                         "/" + resource_key
                     ).match("/" + masked_resource_key):
-                        if len(state_mask[test_name][masked_resource_key]) == 0:
+                        if len(state_mask[test_workload][masked_resource_key]) == 0:
                             # print("skip", masked_resource_key)
                             return True
     return False
@@ -248,11 +242,11 @@ def resource_type_should_be_masked_by_controller_config(
     resource_type,
 ):
     state_mask = test_context.controller_config.end_state_checker_mask
-    for test_name in state_mask:
-        if test_name == test_context.test_name or test_name == "*":
-            for masked_resource_key in state_mask[test_name]:
+    for test_workload in state_mask:
+        if test_workload == test_context.test_workload or test_workload == "*":
+            for masked_resource_key in state_mask[test_workload]:
                 if masked_resource_key == "{}/*/*".format(resource_type):
-                    if len(state_mask[test_name][masked_resource_key]) == 0:
+                    if len(state_mask[test_workload][masked_resource_key]) == 0:
                         # print("skip", masked_resource_key)
                         return True
     return False
@@ -263,13 +257,13 @@ def resource_field_path_should_be_masked(
 ):
     # TODO: we should also mask fields as specified in the common_config
     state_mask = test_context.controller_config.end_state_checker_mask
-    for test_name in state_mask:
-        if test_name == test_context.test_name or test_name == "*":
-            for masked_resource_key in state_mask[test_name]:
+    for test_workload in state_mask:
+        if test_workload == test_context.test_workload or test_workload == "*":
+            for masked_resource_key in state_mask[test_workload]:
                 if masked_resource_key == resource_key or PurePath(
                     "/" + resource_key
                 ).match("/" + masked_resource_key):
-                    for masked_path in state_mask[test_name][masked_resource_key]:
+                    for masked_path in state_mask[test_workload][masked_resource_key]:
                         masked_path_str = "/".join(masked_path)
                         field_path_list_prefix = []
                         for field in field_path_list:
@@ -291,7 +285,6 @@ def compare_states(test_context: TestContext):
     reference_state = get_canonicalized_state(test_context)
     testing_state = get_testing_state(test_context)
 
-    ret_val = 0
     messages = []
     resource_existence_messages = []
     fields_diff_messages = []
@@ -338,7 +331,6 @@ def compare_states(test_context: TestContext):
             continue
         resource_type, namespace, name = parse_key(resource_key)
         if resource_type not in resource_type_with_random_names:
-            ret_val += 1
             resource_existence_messages.append(
                 generate_alarm(
                     "End state inconsistency - more objects than reference:",
@@ -355,7 +347,6 @@ def compare_states(test_context: TestContext):
             continue
         resource_type, namespace, name = parse_key(resource_key)
         if resource_type not in resource_type_with_random_names:
-            ret_val += 1
             resource_existence_messages.append(
                 generate_alarm(
                     "End state inconsistency - fewer objects than reference:",
@@ -380,7 +371,6 @@ def compare_states(test_context: TestContext):
             reference_list = reference_resource_to_object_map[resource_type]
             testing_list.sort()
             reference_list.sort()
-            ret_val += 1
             resource_existence_messages.append(
                 generate_alarm(
                     "End state inconsistency - more objects than reference:"
@@ -467,9 +457,9 @@ def compare_states(test_context: TestContext):
             for field in map(str, path[1:]):
                 field_path_list.append(str(field))
                 if field.isdigit():
-                    field_path_for_print += "[%s]" % field
+                    field_path_for_print += "[{}]".format(field)
                 else:
-                    field_path_for_print += '["%s"]' % field
+                    field_path_for_print += '["{}"]'.format(field)
 
             if resource_key_should_be_masked(
                 test_context,
@@ -482,7 +472,6 @@ def compare_states(test_context: TestContext):
             ):
                 continue
 
-            ret_val += 1
             if delta_type in ["dictionary_item_added", "iterable_item_added"]:
                 fields_existence_messages.append(
                     generate_alarm(
@@ -538,4 +527,4 @@ def compare_states(test_context: TestContext):
     messages = (
         resource_existence_messages + fields_diff_messages + fields_existence_messages
     )
-    return ret_val, messages
+    return messages

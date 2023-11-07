@@ -28,64 +28,65 @@ type NotifyLearnAfterReconcileRequest struct {
 	ReconcilerName string
 }
 
-type NotifyLearnBeforeControllerWriteRequest struct {
-	SideEffectType string
+type NotifyLearnBeforeRestWriteRequest struct {
 }
 
-type NotifyLearnAfterControllerWriteRequest struct {
-	SideEffectID   int
-	SideEffectType string
-	Object         string
-	ResourceType   string
-	ReconcilerType string
-	Error          string
+type NotifyLearnAfterRestWriteRequest struct {
+	ControllerOperationID   int
+	ControllerOperationType string
+	ReconcileFun            string
+	ResourceType            string
+	Namespace               string
+	Name                    string
+	ObjectBody              string
+	Error                   string
 }
 
-// type NotifyLearnBeforeNKWriteRequest struct {
-// 	RecvTypeName string
-// 	FunName      string
-// }
+type NotifyLearnBeforeRestReadRequest struct {
+}
 
-// type NotifyLearnAfterNKWriteRequest struct {
-// 	SideEffectID   int
-// 	RecvTypeName   string
-// 	FunName        string
-// 	ReconcilerType string
-// }
+type NotifyLearnAfterRestReadRequest struct {
+	ControllerOperationID   int
+	ControllerOperationType string
+	ReconcileFun            string
+	ResourceType            string
+	Namespace               string
+	Name                    string
+	ObjectBody              string
+	Error                   string
+}
 
 type NotifyLearnBeforeAnnotatedAPICallRequest struct {
-	ModuleName     string
-	FilePath       string
-	ReceiverType   string
-	FunName        string
-	ReconcilerType string
+	ModuleName   string
+	FilePath     string
+	ReceiverType string
+	FunName      string
+	ReconcileFun string
 }
 
 type NotifyLearnAfterAnnotatedAPICallRequest struct {
-	InvocationID   int
-	ModuleName     string
-	FilePath       string
-	ReceiverType   string
-	FunName        string
-	ReconcilerType string
+	InvocationID int
+	ModuleName   string
+	FilePath     string
+	ReceiverType string
+	FunName      string
+	ReconcileFun string
 }
 
-type NotifyLearnAfterControllerGetRequest struct {
-	FromCache      bool
-	ResourceType   string
-	Namespace      string
-	Name           string
-	Object         string
-	ReconcilerType string
-	Error          string
+type NotifyLearnAfterCacheGetRequest struct {
+	ResourceType string
+	Namespace    string
+	Name         string
+	Object       string
+	ReconcileFun string
+	Error        string
 }
 
-type NotifyLearnAfterControllerListRequest struct {
-	FromCache      bool
-	ResourceType   string
-	ObjectList     string
-	ReconcilerType string
-	Error          string
+type NotifyLearnAfterCacheListRequest struct {
+	ResourceType string
+	ObjectList   string
+	ReconcileFun string
+	Error        string
 }
 
 type NotifyTestBeforeAPIServerRecvRequest struct {
@@ -115,29 +116,29 @@ type NotifyTestAfterControllerRecvRequest struct {
 }
 
 type NotifyTestAfterControllerGetRequest struct {
-	ResourceKey    string
-	ReconcilerType string
-	Object         string
+	ResourceKey  string
+	ReconcileFun string
+	Object       string
 }
 
 type NotifyTestAfterControllerListRequest struct {
-	ResourceType   string
-	ReconcilerType string
-	ObjectList     string
+	ResourceType string
+	ReconcileFun string
+	ObjectList   string
 }
 
 type NotifyTestBeforeControllerWriteRequest struct {
-	WriteType      string
-	ResourceKey    string
-	ReconcilerType string
-	Object         string
+	WriteType    string
+	ResourceKey  string
+	ReconcileFun string
+	Object       string
 }
 
 type NotifyTestAfterControllerWriteRequest struct {
-	WriteType      string
-	ResourceKey    string
-	ReconcilerType string
-	Object         string
+	WriteType    string
+	ResourceKey  string
+	ReconcileFun string
+	Object       string
 }
 
 type NotifyTestBeforeControllerWritePauseRequest struct {
@@ -163,17 +164,17 @@ type NotifyTestAfterControllerReadPauseRequest struct {
 }
 
 type NotifyTestBeforeAnnotatedAPICallRequest struct {
-	ModuleName     string
-	FilePath       string
-	ReceiverType   string
-	FunName        string
-	ReconcilerType string
+	ModuleName   string
+	FilePath     string
+	ReceiverType string
+	FunName      string
+	ReconcileFun string
 }
 
 type NotifyTestAfterAnnotatedAPICallRequest struct {
-	ModuleName     string
-	FilePath       string
-	ReceiverType   string
-	FunName        string
-	ReconcilerType string
+	ModuleName   string
+	FilePath     string
+	ReceiverType string
+	FunName      string
+	ReconcileFun string
 }

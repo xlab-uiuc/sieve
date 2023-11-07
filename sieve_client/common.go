@@ -19,26 +19,85 @@ import (
 
 const LEARN string = "learn"
 const TEST string = "test"
-const UNKNOWN_RECONCILER_TYPE = "unknown"
+const UNKNOWN_RECONCILE_FUN = "Unknown"
 
-// TODO(xudong): make SIEVE_SERVER_ADDR configurable
-const SIEVE_SERVER_ADDR string = "kind-control-plane:12345"
-const SIEVE_CONN_ERR string = "[SIEVE CONN ERR]"
-const SIEVE_REPLY_ERR string = "[SIEVE REPLY ERR]"
-const SIEVE_HOST_ERR string = "[SIEVE HOST ERR]"
-const SIEVE_JSON_ERR string = "[SIEVE JSON ERR]"
-const SIEVE_CONFIG_ERR string = "[SIEVE CONFIG ERR]"
+// TODO(xudong): make DEFAULT_SIEVE_SERVER_ADDR configurable
+const DEFAULT_SIEVE_SERVER_ADDR string = "kind-control-plane:12345"
+
+const HTTP_GET string = "GET"
+const HTTP_POST string = "POST"
+const HTTP_PUT string = "PUT"
+const HTTP_PATCH string = "PATCH"
+const HTTP_DELETE string = "DELETE"
+
+const GET string = "Get"
+const LIST string = "List"
+const CREATE string = "Create"
+const UPDATE string = "Update"
+const STATUSUPDATE string = "StatusUpdate"
+const PATCH string = "Patch"
+const DELETE string = "Delete"
+const DELETEALLOF string = "DeleteAllOf"
+
+const UNKNOWN string = "Unknown"
+
+const NO_ERROR string = "NoError"
 
 var config map[string]interface{} = nil
 var configLoadingLock sync.Mutex
 var triggerDefinitionsByResourceKey map[string][]map[interface{}]interface{} = make(map[string][]map[interface{}]interface{})
 var triggerDefinitionsByAnnotatedAPI map[string][]map[interface{}]interface{} = make(map[string][]map[interface{}]interface{})
 var actions map[string][]map[interface{}]interface{} = make(map[string][]map[interface{}]interface{})
+var annotatedReconcileFunctions = make(map[string]interface{})
+var sieveServerAddr string = ""
+var crds []string
+
 var apiserverHostname string = ""
 var rpcClient *rpc.Client = nil
 
 var exists = struct{}{}
 var taintMap sync.Map = sync.Map{}
+
+func printSerializationError(err error) {
+	log.Printf("Sieve client serialization error: %v\n", err)
+}
+
+func printRPCError(err error) {
+	log.Printf("Sieve client RPC error: %v\n", err)
+}
+
+func printConfigError(err error) {
+	log.Printf("Sieve client configuration error: %v\n", err)
+}
+
+func HttpVerbToControllerOperation(verb, resourceName, subresource string) string {
+	switch verb {
+	case HTTP_GET:
+		if resourceName == "" {
+			return LIST
+		} else {
+			return GET
+		}
+	case HTTP_POST:
+		return CREATE
+	case HTTP_PUT:
+		if subresource == "status" {
+			return STATUSUPDATE
+		} else {
+			return UPDATE
+		}
+	case HTTP_PATCH:
+		return PATCH
+	case HTTP_DELETE:
+		if resourceName == "" {
+			return DELETEALLOF
+		} else {
+			return DELETE
+		}
+	default:
+		return UNKNOWN
+	}
+}
 
 func checkKVPairInAction(actionType, key, val string, matchPrefix bool) bool {
 	for actionKey, actionsOfTheSameType := range actions {
@@ -193,7 +252,42 @@ func loadActions(action map[interface{}]interface{}) error {
 	return nil
 }
 
-func loadActionsAndTriggers(testPlan map[string]interface{}) error {
+func loadSieveServerAddr(plan map[string]interface{}) error {
+	if val, ok := plan["sieveServerAddr"]; ok {
+		sieveServerAddr = val.(string)
+	} else {
+		sieveServerAddr = DEFAULT_SIEVE_SERVER_ADDR
+	}
+	return nil
+}
+
+func loadReconcileFuns(learnPlan map[string]interface{}) error {
+	if cs, ok := learnPlan["annotatedReconcileStackFrame"]; ok {
+		switch v := cs.(type) {
+		case []interface{}:
+			for _, c := range v {
+				annotatedReconcileFunctions[c.(string)] = exists
+			}
+		case []string:
+			for _, c := range v {
+				annotatedReconcileFunctions[c] = exists
+			}
+		default:
+			return fmt.Errorf("annotatedReconcileStackFrame wrong type")
+		}
+	} else {
+		return fmt.Errorf("not find annotatedReconcileStackFrame from config")
+	}
+	return nil
+}
+
+func loadTestPlan(testPlan map[string]interface{}) error {
+	if err := loadSieveServerAddr(testPlan); err != nil {
+		return err
+	}
+	if err := loadReconcileFuns(testPlan); err != nil {
+		return err
+	}
 	actions, ok := testPlan["actions"].([]interface{})
 	if !ok {
 		return fmt.Errorf("cannot convert testPlan[\"actions\"] to []interface{}")
@@ -220,6 +314,38 @@ func loadActionsAndTriggers(testPlan map[string]interface{}) error {
 	return nil
 }
 
+func loadCRDs(learnPlan map[string]interface{}) error {
+	crds = []string{}
+	if cs, ok := learnPlan["crdList"]; ok {
+		switch v := cs.(type) {
+		case []interface{}:
+			for _, c := range v {
+				crds = append(crds, c.(string))
+			}
+		case []string:
+			crds = append(crds, v...)
+		default:
+			return fmt.Errorf("crdList wrong type")
+		}
+	} else {
+		return fmt.Errorf("not find crdList from config")
+	}
+	return nil
+}
+
+func loadLearnPlan(learnPlan map[string]interface{}) error {
+	if err := loadCRDs(learnPlan); err != nil {
+		return err
+	}
+	if err := loadReconcileFuns(learnPlan); err != nil {
+		return err
+	}
+	if err := loadSieveServerAddr(learnPlan); err != nil {
+		return err
+	}
+	return nil
+}
+
 func loadSieveConfigFromEnv(testMode bool) error {
 	if config != nil {
 		return nil
@@ -234,16 +360,23 @@ func loadSieveConfigFromEnv(testMode bool) error {
 		data := os.Getenv("sieveTestPlan")
 		err := yaml.Unmarshal([]byte(data), &configFromEnv)
 		if err != nil {
-			printError(err, SIEVE_JSON_ERR)
+			printSerializationError(err)
 			return fmt.Errorf("fail to load from env")
 		}
 		log.Printf("config from env:\n%v\n", configFromEnv)
 		config = configFromEnv
 		if testMode {
-			err = loadActionsAndTriggers(configFromEnv)
+			err = loadTestPlan(configFromEnv)
 			if err != nil {
-				printError(err, SIEVE_CONFIG_ERR)
-				log.Println("failure in loadActionsAndTriggers")
+				printConfigError(err)
+				log.Println("failure in loadTestPlan")
+				return nil
+			}
+		} else {
+			err = loadLearnPlan(configFromEnv)
+			if err != nil {
+				printConfigError(err)
+				log.Println("failure in loadLearnPlan")
 				return nil
 			}
 		}
@@ -265,18 +398,18 @@ func loadSieveConfigFromConfigMap(eventType, key string, object interface{}, tes
 		namespace := tokens[len(tokens)-2]
 		name := tokens[len(tokens)-1]
 		if namespace == "default" && name == "sieve-testing-global-config" {
-			resourceType := regularizeType(object)
+			resourceType := getResourceTypeFromObj(object)
 			if resourceType == "configmap" {
 				log.Println("have seen ADDED configmap/default/sieve-testing-global-config")
 				jsonObject, err := json.Marshal(object)
 				if err != nil {
-					printError(err, SIEVE_JSON_ERR)
+					printSerializationError(err)
 					return fmt.Errorf("fail to load from configmap")
 				}
 				configMapObject := make(map[string]interface{})
 				err = yaml.Unmarshal(jsonObject, &configMapObject)
 				if err != nil {
-					printError(err, SIEVE_JSON_ERR)
+					printSerializationError(err)
 					return fmt.Errorf("fail to load from configmap")
 				}
 				configFromConfigMapData := make(map[string]interface{})
@@ -288,16 +421,23 @@ func loadSieveConfigFromConfigMap(eventType, key string, object interface{}, tes
 				if str, ok := configMapData["sieveTestPlan"].(string); ok {
 					err = yaml.Unmarshal([]byte(str), &configFromConfigMapData)
 					if err != nil {
-						printError(err, SIEVE_JSON_ERR)
+						printSerializationError(err)
 						return fmt.Errorf("fail to load from configmap")
 					}
 					log.Printf("config from configMap:\n%v\n", configFromConfigMapData)
 					config = configFromConfigMapData
 					if testMode {
-						err = loadActionsAndTriggers(configFromConfigMapData)
+						err = loadTestPlan(configFromConfigMapData)
 						if err != nil {
-							printError(err, SIEVE_CONFIG_ERR)
-							log.Println("failure in loadActionsAndTriggers")
+							printConfigError(err)
+							log.Println("failure in loadTestPlan")
+							return nil
+						}
+					} else {
+						err = loadLearnPlan(configFromConfigMapData)
+						if err != nil {
+							printConfigError(err)
+							log.Println("failure in loadLearnPlan")
 							return nil
 						}
 					}
@@ -345,48 +485,18 @@ func initRPCClient() error {
 		return nil
 	}
 	var err error
-	hostPort := SIEVE_SERVER_ADDR
-	if val, ok := config["serverEndpoint"]; ok {
-		hostPort = val.(string)
-	}
-	rpcClient, err = rpc.Dial("tcp", hostPort)
+	rpcServerAddr := sieveServerAddr
+	rpcClient, err = rpc.Dial("tcp", rpcServerAddr)
 	if err != nil {
-		log.Printf("error in setting up connection to %s due to %v\n", hostPort, err)
+		log.Printf("error in setting up connection to %s due to %v\n", rpcServerAddr, err)
 		return err
 	}
 	return nil
 }
 
-func getCRDs() []string {
-	crds := []string{}
-	if cs, ok := config["crdList"]; ok {
-		switch v := cs.(type) {
-		case []interface{}:
-			for _, c := range v {
-				crds = append(crds, c.(string))
-			}
-		case []string:
-			for _, c := range v {
-				crds = append(crds, c)
-			}
-		default:
-			log.Println("crdList wrong type")
-		}
-	} else {
-		log.Println("do not find crdList from config")
-	}
-	return crds
-}
-
-func printError(err error, text string) {
-	log.Printf("[sieve][error] %s due to: %v \n", text, err)
-}
-
-func checkResponse(response Response, reqName string) {
-	if response.Ok {
-		// log.Printf("[sieve][%s] receives good response: %s\n", reqName, response.Message)
-	} else {
-		log.Printf("[sieve][error][%s] receives bad response: %s\n", reqName, response.Message)
+func checkResponse(response Response) {
+	if !response.Ok {
+		log.Printf("Sieve client receives bad response: %s\n", response.Message)
 	}
 }
 
@@ -394,7 +504,28 @@ func generateResourceKey(resourceType, namespace, name string) string {
 	return path.Join(resourceType, namespace, name)
 }
 
-func regularizeType(object interface{}) string {
+// TODO: handle more complex plural cases
+func pluralToSingular(plural string) string {
+	if len(plural) == 0 {
+		return plural
+	} else {
+		return plural[:len(plural)-1]
+	}
+}
+
+func generateResourceKeyFromRestCall(verb, resourceType, namespace, name string, object interface{}) string {
+	if verb == HTTP_POST {
+		if o, err := meta.Accessor(object); err == nil {
+			return generateResourceKey(pluralToSingular(resourceType), namespace, o.GetName())
+		} else {
+			return generateResourceKey(pluralToSingular(resourceType), namespace, name)
+		}
+	} else {
+		return generateResourceKey(pluralToSingular(resourceType), namespace, name)
+	}
+}
+
+func getResourceTypeFromObj(object interface{}) string {
 	objectUnstructured, ok := object.(*unstructured.Unstructured)
 	if ok {
 		return strings.ToLower(fmt.Sprint(objectUnstructured.Object["kind"]))
@@ -412,53 +543,19 @@ func extractNameNamespaceFromObj(object interface{}) (string, string) {
 	return "", ""
 }
 
-func isSameObjectClientSide(object interface{}, namespace string, name string) bool {
-	extractedName, extractedNamespace := extractNameNamespaceFromObj(object)
-	return extractedNamespace == namespace && extractedName == name
-}
-
-func getReconcilerFromStackTrace() string {
-	// reflect.TypeOf(c.Do).String(): *controllers.NifiClusterTaskReconciler
-	stacktrace := string(debug.Stack())
-	// log.Println(stacktrace)
-	stacks := strings.Split(stacktrace, "\n")
-	var stacksPruned []string
-	for _, stack := range stacks {
-		if !strings.HasPrefix(stack, "\t") {
-			stacksPruned = append(stacksPruned, stack)
+func getMatchedReconcileStackFrame() string {
+	// log.Println(string(debug.Stack()))
+	for _, stackframe := range strings.Split(string(debug.Stack()), "\n") {
+		if strings.HasPrefix(stackframe, "\t") {
+			continue
 		}
-	}
-	reconcilerType := ""
-	for i := range stacksPruned {
-		// We parse the stacktrace from bottom
-		index := len(stacksPruned) - 1 - i
-		stack := stacksPruned[index]
-		if strings.HasPrefix(stack, "sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).reconcileHandler(") {
-			if index > 0 {
-				upper_stack := stacksPruned[index-1]
-				if strings.HasPrefix(upper_stack, "sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).Reconcile(") {
-					if index > 1 {
-						upper_upper_stack := stacksPruned[index-2]
-						if strings.Contains(upper_upper_stack, ".Reconcile(") && !strings.HasPrefix(upper_upper_stack, "sigs.k8s.io/controller-runtime/") {
-							reconcilerType = upper_upper_stack[:strings.Index(upper_upper_stack, ".Reconcile(")]
-							break
-						} else {
-							break
-						}
-					}
-				} else if strings.Contains(upper_stack, ".Reconcile(") && !strings.HasPrefix(upper_stack, "sigs.k8s.io/controller-runtime/") {
-					reconcilerType = upper_stack[:strings.Index(upper_stack, ".Reconcile(")]
-					break
-				} else {
-					break
-				}
+		for annotatedReconcileFun := range annotatedReconcileFunctions {
+			if strings.HasPrefix(stackframe, annotatedReconcileFun+"(") {
+				return annotatedReconcileFun
 			}
 		}
 	}
-	if reconcilerType == "" {
-		reconcilerType = UNKNOWN_RECONCILER_TYPE
-	}
-	return reconcilerType
+	return UNKNOWN_RECONCILE_FUN
 }
 
 func getResourceNamespaceNameFromAPIKey(key string) (string, string, error) {
@@ -484,9 +581,9 @@ func LogAPIEvent(eventType, key string, object interface{}) {
 	}
 	jsonObject, err := json.Marshal(object)
 	if err != nil {
-		printError(err, SIEVE_JSON_ERR)
+		printSerializationError(err)
 		return
 	}
-	resourceType := regularizeType(object)
+	resourceType := getResourceTypeFromObj(object)
 	log.Printf("[SIEVE-API-EVENT]\t%s\t%s\t%s\t%s\t%s\t%s\n", eventType, key, resourceType, namespace, name, string(jsonObject))
 }

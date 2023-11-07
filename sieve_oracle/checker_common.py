@@ -3,7 +3,7 @@ import copy
 from deepdiff import DeepDiff
 from sieve_common.k8s_event import (
     APIEventTypes,
-    OperatorWriteTypes,
+    ControllerWriteTypes,
     SIEVE_API_EVENT_MARK,
     parse_api_event,
     parse_key,
@@ -83,7 +83,7 @@ def generate_controller_related_list(test_context: TestContext):
     return controller_related_list
 
 
-def learn_twice_trim(base_resources, twice_resources):
+def second_pass_learn_trim(base_resources, twice_resources):
     def nested_set(dic, keys, value):
         for key in keys[:-1]:
             dic = dic[key]
@@ -109,14 +109,14 @@ def learn_twice_trim(base_resources, twice_resources):
 
 def readable_resource_diff(event_type, diff_content):
     if (
-        event_type == OperatorWriteTypes.CREATE
-        or event_type == OperatorWriteTypes.DELETE
+        event_type == ControllerWriteTypes.CREATE
+        or event_type == ControllerWriteTypes.DELETE
         or event_type == APIEventTypes.ADDED
         or event_type == APIEventTypes.DELETED
     ):
         return ""
     else:
-        return " : %s" % diff_content
+        return " : {}".format(diff_content)
 
 
 def generate_alarm(sub_alarm, msg):
@@ -165,7 +165,7 @@ def convert_occurrence(occurrence):
 
 
 def generate_perturbation_description(test_context: TestContext):
-    test_plan_content = yaml.safe_load(open(test_context.test_config))
+    test_plan_content = yaml.safe_load(open(test_context.test_plan))
     if test_plan_content["actions"] is None:
         return "Sieve does not perform any actions."
     desc = ""
@@ -311,9 +311,7 @@ def print_error_and_debugging_info(test_context: TestContext, test_result: TestR
 
     if len(test_result.common_errors) > 0:
         cprint(
-            "{} detected common errors as follows".format(
-                len(test_result.common_errors)
-            ),
+            "{} detected errors as follows".format(len(test_result.common_errors)),
             bcolors.FAIL,
         )
         cprint("\n".join(test_result.common_errors) + "\n", bcolors.FAIL)

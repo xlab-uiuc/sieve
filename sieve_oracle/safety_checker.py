@@ -14,22 +14,26 @@ from sieve_common.k8s_event import (
 def masked_resource_key_for_state_update_summary_checker(
     resource_key, test_context: TestContext
 ):
-    test_name = test_context.test_name
+    test_workload = test_context.test_workload
     controller_mask = test_context.controller_config.state_update_summary_checker_mask
     common_mask = test_context.common_config.state_update_summary_checker_mask
-    for masked_test_name in controller_mask:
-        if masked_test_name == "*" or masked_test_name == test_name:
-            for masked_key in controller_mask[masked_test_name]:
+    for masked_test_workload in controller_mask:
+        if masked_test_workload == "*" or masked_test_workload == test_workload:
+            for masked_key in controller_mask[masked_test_workload]:
                 if masked_key == resource_key or PurePath("/" + resource_key).match(
                     "/" + masked_key
                 ):
-                    print("Skipping %s for state-update-summary checker" % resource_key)
+                    print(
+                        "Skipping {} for state-update-summary checker".format(
+                            resource_key
+                        )
+                    )
                     return True
     for masked_key in common_mask:
         if masked_key == resource_key or PurePath("/" + resource_key).match(
             "/" + masked_key
         ):
-            print("Skipping %s for state-update-summary checker" % resource_key)
+            print("Skipping {} for state-update-summary checker".format(resource_key))
             return True
     return False
 
@@ -81,20 +85,16 @@ def generate_history_digest(test_context: TestContext):
 
 
 def canonicalize_history_digest(test_context: TestContext):
-    assert test_context.mode == sieve_modes.LEARN_TWICE
-    learn_twice_dir = test_context.result_dir
+    assert test_context.mode == sieve_modes.LEARN and test_context.build_oracle
+    second_pass_learn_dir = test_context.result_dir
     cur_history_digest = json.loads(
-        open(os.path.join(learn_twice_dir, "event.json")).read()
+        open(os.path.join(second_pass_learn_dir, "event.json")).read()
     )
-    learn_once_dir = os.path.join(
-        os.path.dirname(os.path.dirname(test_context.result_dir)),
-        "learn-once",
-        "learn.yaml",
-    )
+    first_pass_learn_dir = first_pass_learn_result_dir(test_context.result_dir)
     prev_history_digest = json.loads(
-        open(os.path.join(learn_once_dir, "event.json")).read()
+        open(os.path.join(first_pass_learn_dir, "event.json")).read()
     )
-    can_history_digest = learn_twice_trim(prev_history_digest, cur_history_digest)
+    can_history_digest = second_pass_learn_trim(prev_history_digest, cur_history_digest)
 
     def remove_ignored_value(event_map):
         ignored = set()
@@ -121,25 +121,17 @@ def get_canonicalized_history_digest(test_context: TestContext):
 
 
 def get_learning_once_history_digest(test_context: TestContext):
-    learn_once_dir = os.path.join(
-        os.path.dirname(os.path.dirname(test_context.result_dir)),
-        "learn-once",
-        "learn.yaml",
-    )
+    first_pass_learn_dir = first_pass_learn_result_dir(test_context.result_dir)
     learning_once_history_digest = json.load(
-        open(os.path.join(learn_once_dir, "event.json"))
+        open(os.path.join(first_pass_learn_dir, "event.json"))
     )
     return learning_once_history_digest
 
 
 def get_learning_twice_history_digest(test_context: TestContext):
-    learn_twice_dir = os.path.join(
-        os.path.dirname(os.path.dirname(test_context.result_dir)),
-        "learn-twice",
-        "learn.yaml",
-    )
+    second_pass_learn_dir = test_context.result_dir
     learning_twice_history_digest = json.load(
-        open(os.path.join(learn_twice_dir, "event.json"))
+        open(os.path.join(second_pass_learn_dir, "event.json"))
     )
     return learning_twice_history_digest
 
@@ -159,25 +151,17 @@ def get_testing_history_digest(test_context: TestContext):
 
 
 def get_learning_once_history(test_context: TestContext):
-    learn_once_dir = os.path.join(
-        os.path.dirname(os.path.dirname(test_context.result_dir)),
-        "learn-once",
-        "learn.yaml",
-    )
+    first_pass_learn_dir = first_pass_learn_result_dir(test_context.result_dir)
     learning_once_history = json.load(
-        open(os.path.join(learn_once_dir, "history.json"))
+        open(os.path.join(first_pass_learn_dir, "history.json"))
     )
     return learning_once_history
 
 
 def get_learning_twice_history(test_context: TestContext):
-    learn_twice_dir = os.path.join(
-        os.path.dirname(os.path.dirname(test_context.result_dir)),
-        "learn-twice",
-        "learn.yaml",
-    )
+    second_pass_learn_dir = test_context.result_dir
     learning_twice_history = json.load(
-        open(os.path.join(learn_twice_dir, "history.json"))
+        open(os.path.join(second_pass_learn_dir, "history.json"))
     )
     return learning_twice_history
 
@@ -196,7 +180,6 @@ def get_event_mask(test_context: TestContext):
 def apply_safety_checker(
     test_context: TestContext, resource_keys, checker_name, customized_checker
 ):
-    ret_val = 0
     messages = []
     current_state = {}
     history = get_testing_history(test_context)
@@ -215,7 +198,6 @@ def apply_safety_checker(
                     existing_resource_cnt += 1
             if existing_resource_cnt == len(current_state):
                 if not customized_checker(current_state):
-                    ret_val += 1
                     messages.append(
                         generate_alarm(
                             "Safety violation:",
@@ -225,7 +207,7 @@ def apply_safety_checker(
                         )
                     )
     messages.sort()
-    return ret_val, messages
+    return messages
 
 
 def compare_history_digests(test_context: TestContext):
@@ -233,7 +215,6 @@ def compare_history_digests(test_context: TestContext):
     testing_events = get_testing_history_digest(test_context)
     controller_family = get_current_controller_related_list(test_context)
 
-    ret_val = 0
     messages = []
 
     # checking events inconsistency for each key
@@ -255,7 +236,6 @@ def compare_history_digests(test_context: TestContext):
             if canonicalized_events[key][etype] == SIEVE_LEARN_VALUE_MASK:
                 continue
             if testing_events[key][etype] != canonicalized_events[key][etype]:
-                ret_val += 1
                 messages.append(
                     generate_alarm(
                         "State-update summaries inconsistency:",
@@ -268,4 +248,4 @@ def compare_history_digests(test_context: TestContext):
                     )
                 )
     messages.sort()
-    return ret_val, messages
+    return messages

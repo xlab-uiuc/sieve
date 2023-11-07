@@ -1,9 +1,10 @@
 import os
 import yaml
+import shutil
 import re
 import json
 import glob
-from sieve_common.default_config import CommonConfig, ControllerConfig
+from sieve_common.config import CommonConfig, ControllerConfig
 
 NO_ERROR_MESSAGE = ""
 
@@ -52,16 +53,10 @@ IP_REG = "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01
 MASK_REGS = [TIME_REG, IP_REG]
 
 
-class sieve_stages:
-    LEARN = "learn"
-    TEST = "test"
-
-
 class sieve_modes:
     TEST = "test"
     VANILLA = "vanilla"
-    LEARN_ONCE = "learn-once"
-    LEARN_TWICE = "learn-twice"
+    LEARN = "learn"
     ALL = "all"
     NONE = "none"
 
@@ -75,48 +70,50 @@ class sieve_built_in_test_patterns:
 class TestContext:
     def __init__(
         self,
-        project,
-        test_name,
-        stage,
+        controller,
+        controller_config_dir,
+        test_workload,
         mode,
-        phase,
-        original_test_config,
-        test_config,
+        postprocess,
+        build_oracle,
+        original_test_plan,
+        test_plan,
+        result_root_dir,
         result_dir,
         oracle_dir,
-        docker_repo,
-        docker_tag,
+        container_registry,
+        image_tag,
         num_apiservers,
         num_workers,
         use_csi_driver,
         common_config: CommonConfig,
         controller_config: ControllerConfig,
-        rate_limiter_enabled,
     ):
-        self.project = project
-        self.test_name = test_name
-        self.stage = stage
+        self.controller = controller
+        self.controller_config_dir = controller_config_dir
+        self.test_workload = test_workload
         self.mode = mode
-        self.phase = phase
-        self.original_test_config = original_test_config
-        self.test_config = test_config
+        self.postprocess = postprocess
+        self.build_oracle = build_oracle
+        self.original_test_plan = original_test_plan
+        self.test_plan = test_plan
+        self.result_root_dir = result_root_dir
         self.result_dir = result_dir
         self.oracle_dir = oracle_dir
-        self.docker_repo = docker_repo
-        self.docker_tag = docker_tag
+        self.container_registry = container_registry
+        self.image_tag = image_tag
         self.num_apiservers = num_apiservers
         self.num_workers = num_workers
         self.use_csi_driver_for_ref = use_csi_driver
         self.use_csi_driver = use_csi_driver
         self.common_config = common_config
         self.controller_config = controller_config
-        self.rate_limiter_enabled = rate_limiter_enabled
-        self.test_plan = None
+        self.test_plan_content = None
         self.action_types = []
-        if self.stage == sieve_stages.TEST and self.mode == sieve_modes.TEST:
-            self.test_plan = yaml.safe_load(open(original_test_config))
-            if self.test_plan["actions"] is not None:
-                for action in self.test_plan["actions"]:
+        if self.mode == sieve_modes.TEST:
+            self.test_plan_content = yaml.safe_load(open(original_test_plan))
+            if self.test_plan_content["actions"] is not None:
+                for action in self.test_plan_content["actions"]:
                     self.action_types.append(action["actionType"])
             if "reconnectController" in self.action_types:
                 if self.num_apiservers < 3:
@@ -150,7 +147,6 @@ class TestResult:
 
 
 def match_mask_regex(val):
-    # Search for ignore regex
     if type(val) is str:
         for reg in MASK_REGS:
             pat = re.compile(reg)
@@ -159,15 +155,41 @@ def match_mask_regex(val):
     return False
 
 
-def cmd_early_exit(cmd, early_exit=True):
+def add_mod(file_name, mod):
+    st = os.stat(file_name)
+    os.chmod(file_name, st.st_mode | mod)
+
+
+def add_mod_recursively(dir_name, mod):
+    add_mod(dir_name, mod)
+    for root, dirs, files in os.walk(dir_name):
+        for d in dirs:
+            add_mod(os.path.join(root, d), mod)
+        for f in files:
+            add_mod(os.path.join(root, f), mod)
+
+
+def rmtree_if_exists(dir_name):
+    if os.path.exists(dir_name):
+        shutil.rmtree(dir_name)
+
+
+def os_system(cmd, early_exit=True):
     return_code = os.WEXITSTATUS(os.system(cmd))
     if return_code != 0 and early_exit:
         fail(cmd)
-        # sys.exit(1)
         raise Exception(
             "Failed to execute {} with return code {}".format(cmd, return_code)
         )
     return return_code
+
+
+def first_pass_learn_result_dir(learn_result_dir):
+    learn_prev_res_dir = os.path.join(
+        os.path.dirname(learn_result_dir),
+        sieve_modes.LEARN + "_prev",
+    )
+    return learn_prev_res_dir
 
 
 def dump_json_file(dir, data, json_file_name):
@@ -177,27 +199,19 @@ def dump_json_file(dir, data, json_file_name):
 
 
 def build_directory(test_context: TestContext):
-    return os.path.join(
-        test_context.common_config.controller_folder, test_context.project, "build"
-    )
+    return os.path.join(test_context.controller_config_dir, "build")
 
 
 def deploy_directory(test_context: TestContext):
-    return os.path.join(
-        test_context.common_config.controller_folder, test_context.project, "deploy"
-    )
+    return os.path.join(test_context.controller_config_dir, "deploy")
 
 
 def test_directory(test_context: TestContext):
-    return os.path.join(
-        test_context.common_config.controller_folder, test_context.project, "test"
-    )
+    return os.path.join(test_context.controller_config_dir, "test")
 
 
 def oracle_directory(test_context: TestContext):
-    return os.path.join(
-        test_context.common_config.controller_folder, test_context.project, "oracle"
-    )
+    return os.path.join(test_context.controller_config_dir, "oracle")
 
 
 class bcolors:

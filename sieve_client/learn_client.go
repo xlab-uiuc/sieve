@@ -2,13 +2,11 @@ package sieve
 
 import (
 	"encoding/json"
-	"fmt"
-	"reflect"
+	"log"
 	"strings"
 
 	"k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/api/meta"
-	"k8s.io/apimachinery/pkg/types"
 )
 
 func isCRD(rType string, crds []string) bool {
@@ -21,8 +19,7 @@ func isCRD(rType string, crds []string) bool {
 }
 
 func triggerReconcile(object interface{}) bool {
-	crds := getCRDs()
-	rType := regularizeType(object)
+	rType := getResourceTypeFromObj(object)
 	if isCRD(rType, crds) {
 		return true
 	}
@@ -52,21 +49,21 @@ func NotifyLearnBeforeControllerRecv(operationType string, object interface{}) i
 	}
 	jsonObject, err := json.Marshal(object)
 	if err != nil {
-		printError(err, SIEVE_JSON_ERR)
+		printSerializationError(err)
 		return -1
 	}
 	request := &NotifyLearnBeforeControllerRecvRequest{
 		OperationType: operationType,
 		Object:        string(jsonObject),
-		ResourceType:  regularizeType(object),
+		ResourceType:  getResourceTypeFromObj(object),
 	}
 	var response Response
 	err = rpcClient.Call("LearnListener.NotifyLearnBeforeControllerRecv", request, &response)
 	if err != nil {
-		printError(err, SIEVE_REPLY_ERR)
+		printRPCError(err)
 		return -1
 	}
-	checkResponse(response, "NotifyLearnBeforeControllerRecv")
+	checkResponse(response)
 	return response.Number
 }
 
@@ -89,107 +86,260 @@ func NotifyLearnAfterControllerRecv(recvID int, operationType string, object int
 	var response Response
 	err := rpcClient.Call("LearnListener.NotifyLearnAfterControllerRecv", request, &response)
 	if err != nil {
-		printError(err, SIEVE_REPLY_ERR)
+		printRPCError(err)
 		return
 	}
-	checkResponse(response, "NotifyLearnAfterControllerRecv")
+	checkResponse(response)
 }
 
-func NotifyLearnBeforeReconcile(reconciler interface{}) {
+func NotifyLearnBeforeReconcile(stackFrame string) {
 	if err := loadSieveConfigFromEnv(false); err != nil {
 		return
 	}
 	if err := initRPCClient(); err != nil {
 		return
 	}
-	reconcilerName := fmt.Sprintf("%s.(*%s)", reflect.TypeOf(reconciler).Elem().PkgPath(), reflect.TypeOf(reconciler).Elem().Name())
+	log.Printf("NotifyLearnBeforeReconcile %s", stackFrame)
 	request := &NotifyLearnBeforeReconcileRequest{
-		ReconcilerName: reconcilerName,
+		ReconcilerName: stackFrame,
 	}
 	var response Response
 	err := rpcClient.Call("LearnListener.NotifyLearnBeforeReconcile", request, &response)
 	if err != nil {
-		printError(err, SIEVE_REPLY_ERR)
+		printRPCError(err)
 		return
 	}
-	checkResponse(response, "NotifyLearnBeforeReconcile")
+	checkResponse(response)
 }
 
-func NotifyLearnAfterReconcile(reconciler interface{}) {
+func NotifyLearnAfterReconcile(stackFrame string) {
 	if err := loadSieveConfigFromEnv(false); err != nil {
 		return
 	}
 	if err := initRPCClient(); err != nil {
 		return
 	}
-	reconcilerName := fmt.Sprintf("%s.(*%s)", reflect.TypeOf(reconciler).Elem().PkgPath(), reflect.TypeOf(reconciler).Elem().Name())
-	request := &NotifyLearnBeforeReconcileRequest{
-		ReconcilerName: reconcilerName,
+	log.Printf("NotifyLearnAfterReconcile %s", stackFrame)
+	request := &NotifyLearnAfterReconcileRequest{
+		ReconcilerName: stackFrame,
 	}
 	var response Response
 	err := rpcClient.Call("LearnListener.NotifyLearnAfterReconcile", request, &response)
 	if err != nil {
-		printError(err, SIEVE_REPLY_ERR)
+		printRPCError(err)
 		return
 	}
-	checkResponse(response, "NotifyLearnAfterReconcile")
+	checkResponse(response)
 }
 
-func NotifyLearnBeforeControllerWrite(sideEffectType string, object interface{}) int {
+func NotifyLearnBeforeCacheGet(key string, items []interface{}) {
+}
+
+func NotifyLearnAfterCacheGet(key string, item interface{}, exists bool) {
+	if err := loadSieveConfigFromEnv(true); err != nil {
+		return
+	}
+	if err := initRPCClient(); err != nil {
+		return
+	}
+	reconcileFun := getMatchedReconcileStackFrame()
+	if reconcileFun == UNKNOWN_RECONCILE_FUN {
+		return
+	}
+	serializedObj, err := json.Marshal(item)
+	if err != nil {
+		printSerializationError(err)
+		return
+	}
+	if !exists {
+		return
+	}
+	resourceType := getResourceTypeFromObj(item)
+	tokens := strings.Split(key, "/")
+	if len(tokens) != 2 {
+		return
+	}
+	namespace := tokens[0]
+	name := tokens[1]
+	log.Printf("NotifyLearnAfterCacheGet %s %s %s %s", resourceType, namespace, name, string(serializedObj))
+	request := &NotifyLearnAfterCacheGetRequest{
+		ResourceType: resourceType,
+		Namespace:    namespace,
+		Name:         name,
+		Object:       string(serializedObj),
+		ReconcileFun: reconcileFun,
+		Error:        NO_ERROR,
+	}
+	var response Response
+	err = rpcClient.Call("LearnListener.NotifyLearnAfterCacheGet", request, &response)
+	if err != nil {
+		printRPCError(err)
+		return
+	}
+	checkResponse(response)
+}
+
+func NotifyLearnBeforeCacheList(items []interface{}) {
+}
+
+func NotifyLearnAfterCacheList(items []interface{}, listErr error) {
+	if err := loadSieveConfigFromEnv(true); err != nil {
+		return
+	}
+	if err := initRPCClient(); err != nil {
+		return
+	}
+	reconcileFun := getMatchedReconcileStackFrame()
+	if reconcileFun == UNKNOWN_RECONCILE_FUN {
+		return
+	}
+	serializedObjList, err := json.Marshal(items)
+	if err != nil {
+		printSerializationError(err)
+		return
+	}
+	if listErr != nil {
+		return
+	}
+	if len(items) == 0 {
+		return
+	}
+	resourceType := getResourceTypeFromObj(items[0])
+	log.Printf("NotifyLearnAfterCacheList %s %s", resourceType, string(serializedObjList))
+	request := &NotifyLearnAfterCacheListRequest{
+		ResourceType: resourceType,
+		ObjectList:   string(serializedObjList),
+		ReconcileFun: reconcileFun,
+		Error:        NO_ERROR,
+	}
+	var response Response
+	err = rpcClient.Call("LearnListener.NotifyLearnAfterCacheList", request, &response)
+	if err != nil {
+		printRPCError(err)
+		return
+	}
+	checkResponse(response)
+}
+
+func NotifyLearnBeforeRestCall(verb string, pathPrefix string, subpath string, namespace string, namespaceSet bool, resourceType string, resourceName string, subresource string, object interface{}) int {
+	log.Printf("NotifyLearnBeforeRestCall")
 	if err := loadSieveConfigFromEnv(false); err != nil {
 		return -1
 	}
 	if err := initRPCClient(); err != nil {
 		return -1
 	}
-	request := &NotifyLearnBeforeControllerWriteRequest{
-		SideEffectType: sideEffectType,
-	}
-	var response Response
-	err := rpcClient.Call("LearnListener.NotifyLearnBeforeControllerWrite", request, &response)
-	if err != nil {
-		printError(err, SIEVE_REPLY_ERR)
+	// NOTE: sometimes the resourceType is empty string, and we skip these cases
+	if len(resourceType) == 0 {
 		return -1
 	}
-	checkResponse(response, "NotifyLearnBeforeControllerWrite")
-	return response.Number
+	reconcileFun := getMatchedReconcileStackFrame()
+	if reconcileFun == UNKNOWN_RECONCILE_FUN {
+		return -1
+	}
+	controllerOperationType := HttpVerbToControllerOperation(verb, resourceName, subresource)
+	if controllerOperationType == UNKNOWN {
+		log.Println("Unknown operation")
+		return -1
+	} else if controllerOperationType == GET || controllerOperationType == LIST {
+		log.Println("Read operation")
+		request := &NotifyLearnBeforeRestReadRequest{}
+		var response Response
+		err := rpcClient.Call("LearnListener.NotifyLearnBeforeRestRead", request, &response)
+		if err != nil {
+			printRPCError(err)
+			return -1
+		}
+		checkResponse(response)
+		return response.Number
+	} else {
+		log.Println("Write operation")
+		request := &NotifyLearnBeforeRestWriteRequest{}
+		var response Response
+		err := rpcClient.Call("LearnListener.NotifyLearnBeforeRestWrite", request, &response)
+		if err != nil {
+			printRPCError(err)
+			return -1
+		}
+		checkResponse(response)
+		return response.Number
+	}
 }
 
-func NotifyLearnAfterControllerWrite(sideEffectID int, sideEffectType string, object interface{}, k8sErr error) {
+func NotifyLearnAfterRestCall(controllerOperationID int, verb string, pathPrefix string, subpath string, namespace string, namespaceSet bool, resourceType string, resourceName string, subresource string, object interface{}, serializationErr error, respErr error) {
+	log.Printf("NotifyLearnAfterRestCall")
+
 	if err := loadSieveConfigFromEnv(false); err != nil {
 		return
 	}
-	if sideEffectID == -1 {
+	if controllerOperationID == -1 {
+		return
+	}
+	if serializationErr != nil {
+		return
+	}
+	// NOTE: sometimes the resourceType is empty string, and we skip these cases
+	if len(resourceType) == 0 {
 		return
 	}
 	if err := initRPCClient(); err != nil {
 		return
 	}
-	reconcilerType := getReconcilerFromStackTrace()
-	jsonObject, err := json.Marshal(object)
-	if err != nil {
-		printError(err, SIEVE_JSON_ERR)
+	reconcileFun := getMatchedReconcileStackFrame()
+	if reconcileFun == UNKNOWN_RECONCILE_FUN {
 		return
 	}
-	errorString := "NoError"
-	if k8sErr != nil {
-		errorString = string(errors.ReasonForError(k8sErr))
-	}
-	request := &NotifyLearnAfterControllerWriteRequest{
-		SideEffectID:   sideEffectID,
-		SideEffectType: sideEffectType,
-		Object:         string(jsonObject),
-		ResourceType:   regularizeType(object),
-		ReconcilerType: reconcilerType,
-		Error:          errorString,
-	}
-	var response Response
-	err = rpcClient.Call("LearnListener.NotifyLearnAfterControllerWrite", request, &response)
+	serializedObj, err := json.Marshal(object)
 	if err != nil {
-		printError(err, SIEVE_REPLY_ERR)
+		printSerializationError(err)
 		return
 	}
-	checkResponse(response, "NotifyLearnAfterControllerWrite")
+	errorString := NO_ERROR
+	if respErr != nil {
+		errorString = string(errors.ReasonForError(respErr))
+	}
+	controllerOperationType := HttpVerbToControllerOperation(verb, resourceName, subresource)
+	if controllerOperationType == UNKNOWN {
+		log.Println("Unknown operation")
+	} else if controllerOperationType == GET || controllerOperationType == LIST {
+		log.Println("Read operation")
+		request := &NotifyLearnAfterRestReadRequest{
+			ControllerOperationID:   controllerOperationID,
+			ControllerOperationType: controllerOperationType,
+			ReconcileFun:            reconcileFun,
+			ResourceType:            pluralToSingular(resourceType),
+			Namespace:               namespace,
+			Name:                    resourceName,
+			ObjectBody:              string(serializedObj),
+			Error:                   errorString,
+		}
+		var response Response
+		err = rpcClient.Call("LearnListener.NotifyLearnAfterRestRead", request, &response)
+		if err != nil {
+			printRPCError(err)
+			return
+		}
+		checkResponse(response)
+	} else {
+		log.Println("Write operation")
+		request := &NotifyLearnAfterRestWriteRequest{
+			ControllerOperationID:   controllerOperationID,
+			ControllerOperationType: controllerOperationType,
+			ReconcileFun:            reconcileFun,
+			ResourceType:            pluralToSingular(resourceType),
+			Namespace:               namespace,
+			Name:                    resourceName,
+			ObjectBody:              string(serializedObj),
+			Error:                   errorString,
+		}
+		var response Response
+		err = rpcClient.Call("LearnListener.NotifyLearnAfterRestWrite", request, &response)
+		if err != nil {
+			printRPCError(err)
+			return
+		}
+		checkResponse(response)
+	}
 }
 
 func NotifyLearnBeforeAnnotatedAPICall(moduleName string, filePath string, receiverType string, funName string) int {
@@ -199,21 +349,21 @@ func NotifyLearnBeforeAnnotatedAPICall(moduleName string, filePath string, recei
 	if err := initRPCClient(); err != nil {
 		return -1
 	}
-	reconcilerType := getReconcilerFromStackTrace()
+	reconcileFun := getMatchedReconcileStackFrame()
 	request := &NotifyLearnBeforeAnnotatedAPICallRequest{
-		ModuleName:     moduleName,
-		FilePath:       filePath,
-		ReceiverType:   receiverType,
-		FunName:        funName,
-		ReconcilerType: reconcilerType,
+		ModuleName:   moduleName,
+		FilePath:     filePath,
+		ReceiverType: receiverType,
+		FunName:      funName,
+		ReconcileFun: reconcileFun,
 	}
 	var response Response
 	err := rpcClient.Call("LearnListener.NotifyLearnBeforeAnnotatedAPICall", request, &response)
 	if err != nil {
-		printError(err, SIEVE_REPLY_ERR)
+		printRPCError(err)
 		return -1
 	}
-	checkResponse(response, "NotifyLearnBeforeAnnotatedAPICall")
+	checkResponse(response)
 	return response.Number
 }
 
@@ -227,90 +377,22 @@ func NotifyLearnAfterAnnotatedAPICall(invocationID int, moduleName string, fileP
 	if err := initRPCClient(); err != nil {
 		return
 	}
-	reconcilerType := getReconcilerFromStackTrace()
+	reconcileFun := getMatchedReconcileStackFrame()
 	request := &NotifyLearnAfterAnnotatedAPICallRequest{
-		InvocationID:   invocationID,
-		ModuleName:     moduleName,
-		FilePath:       filePath,
-		ReceiverType:   receiverType,
-		FunName:        funName,
-		ReconcilerType: reconcilerType,
+		InvocationID: invocationID,
+		ModuleName:   moduleName,
+		FilePath:     filePath,
+		ReceiverType: receiverType,
+		FunName:      funName,
+		ReconcileFun: reconcileFun,
 	}
 	var response Response
 	err := rpcClient.Call("LearnListener.NotifyLearnAfterAnnotatedAPICall", request, &response)
 	if err != nil {
-		printError(err, SIEVE_REPLY_ERR)
+		printRPCError(err)
 		return
 	}
-	checkResponse(response, "NotifyLearnAfterAnnotatedAPICall")
-}
-
-func NotifyLearnAfterControllerGet(readType string, fromCache bool, namespacedName types.NamespacedName, object interface{}, k8sErr error) {
-	if err := loadSieveConfigFromEnv(false); err != nil {
-		return
-	}
-	if err := initRPCClient(); err != nil {
-		return
-	}
-	reconcilerType := getReconcilerFromStackTrace()
-	jsonObject, err := json.Marshal(object)
-	if err != nil {
-		printError(err, SIEVE_JSON_ERR)
-		return
-	}
-	errorString := "NoError"
-	if k8sErr != nil {
-		errorString = string(errors.ReasonForError(k8sErr))
-	}
-	request := &NotifyLearnAfterControllerGetRequest{
-		FromCache:      fromCache,
-		ResourceType:   regularizeType(object),
-		Namespace:      namespacedName.Namespace,
-		Name:           namespacedName.Name,
-		Object:         string(jsonObject),
-		ReconcilerType: reconcilerType,
-		Error:          errorString,
-	}
-	var response Response
-	err = rpcClient.Call("LearnListener.NotifyLearnAfterControllerGet", request, &response)
-	if err != nil {
-		printError(err, SIEVE_REPLY_ERR)
-		return
-	}
-	checkResponse(response, "NotifyLearnAfterControllerGet")
-}
-
-func NotifyLearnAfterControllerList(readType string, fromCache bool, object interface{}, k8sErr error) {
-	if err := loadSieveConfigFromEnv(false); err != nil {
-		return
-	}
-	if err := initRPCClient(); err != nil {
-		return
-	}
-	reconcilerType := getReconcilerFromStackTrace()
-	jsonObject, err := json.Marshal(object)
-	if err != nil {
-		printError(err, SIEVE_JSON_ERR)
-		return
-	}
-	errorString := "NoError"
-	if k8sErr != nil {
-		errorString = string(errors.ReasonForError(k8sErr))
-	}
-	request := &NotifyLearnAfterControllerListRequest{
-		FromCache:      fromCache,
-		ResourceType:   regularizeType(object),
-		ObjectList:     string(jsonObject),
-		ReconcilerType: reconcilerType,
-		Error:          errorString,
-	}
-	var response Response
-	err = rpcClient.Call("LearnListener.NotifyLearnAfterControllerList", request, &response)
-	if err != nil {
-		printError(err, SIEVE_REPLY_ERR)
-		return
-	}
-	checkResponse(response, "NotifyLearnAfterControllerList")
+	checkResponse(response)
 }
 
 func NotifyLearnBeforeAPIServerRecv(eventType, key string, object interface{}) {

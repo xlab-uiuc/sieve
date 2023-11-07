@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "# sieve.client v0.0.0
-## explicit; go 1.13
+## explicit; go 1.19
 sieve.client" >> vendor/modules.txt
 
 ytt -f config/ | kbld -f-

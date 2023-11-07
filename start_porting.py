@@ -1,11 +1,9 @@
 import sys
 import os
 import json
-from sieve_common.default_config import *
+from sieve_common.config import *
 
-controller_name = sys.argv[1]
-controller_folder = get_common_config().controller_folder
-port_folder = os.path.join(controller_folder, controller_name)
+port_folder = sys.argv[1]
 build_folder = os.path.join(port_folder, "build")
 deploy_folder = os.path.join(port_folder, "deploy")
 test_folder = os.path.join(port_folder, "test")
@@ -30,12 +28,14 @@ os.system("chmod +x " + deploy_script)
 
 config_json = os.path.join(port_folder, "config.json")
 controller_config_map = {
+    "name": "",
     "github_link": "",
     "commit": "",
     "kubernetes_version": "",
-    "controller_runtime_version": "",
     "client_go_version": "",
     "dockerfile_path": "",
+    "controller_image_name": "",
+    "annotated_reconcile_functions": {},
     "test_command": "",
     "custom_resource_definitions": [],
     "controller_pod_label": "",

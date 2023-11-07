@@ -7,7 +7,7 @@ from sieve_oracle.liveness_checker import *
 from sieve_oracle.customized_safety_checker import *
 
 
-def persist_history(test_context: TestContext):
+def save_history(test_context: TestContext):
     cprint("Generating state update summary...", bcolors.OKGREEN)
     history = generate_history(test_context)
     history_digest = generate_history_digest(test_context)
@@ -15,13 +15,13 @@ def persist_history(test_context: TestContext):
     dump_json_file(test_context.result_dir, history_digest, "event.json")
 
 
-def persist_state(test_context: TestContext):
+def save_state(test_context: TestContext):
     cprint("Generating end state...", bcolors.OKGREEN)
     state = generate_state(test_context)
     dump_json_file(test_context.result_dir, state, "state.json")
 
 
-def generate_controller_family(test_context: TestContext):
+def save_controller_related_object_list(test_context: TestContext):
     cprint("Generating controller family list...", bcolors.OKGREEN)
     controller_related_list = generate_controller_related_list(test_context)
     dump_json_file(
@@ -29,10 +29,10 @@ def generate_controller_family(test_context: TestContext):
     )
 
 
-def canonicalize_history_and_state(test_context: TestContext):
+def create_differential_oracles(test_context: TestContext):
     if not test_context.common_config.update_oracle_file_enabled:
         return
-    assert test_context.mode == sieve_modes.LEARN_TWICE
+    assert test_context.mode == sieve_modes.LEARN and test_context.build_oracle
     cprint("Generating canonicalized state update summary...", bcolors.OKGREEN)
     can_history_digest = canonicalize_history_digest(test_context)
     dump_json_file(test_context.oracle_dir, can_history_digest, "event.json")
@@ -55,96 +55,84 @@ def canonicalize_history_and_state(test_context: TestContext):
     )
 
 
-def operator_panic_checker(test_context: TestContext):
-    operator_log = os.path.join(test_context.result_dir, "streamed-operator.log")
-    ret_val = 0
+def controller_panic_checker(test_context: TestContext):
+    controller_log = os.path.join(test_context.result_dir, "streamed-controller.log")
     messages = []
-    file = open(operator_log)
+    file = open(controller_log)
     for line in file.readlines():
         if "Observed a panic" in line:
             panic_in_file = line[line.find("Observed a panic") :]
             messages.append(
                 generate_alarm("Exception from controller:", panic_in_file.strip())
             )
-            ret_val += 1
     messages.sort()
-    return ret_val, messages
+    return messages
 
 
-def test_failure_checker(test_context: TestContext):
+def workload_error_checker(test_context: TestContext):
     workload_log = os.path.join(test_context.result_dir, "workload.log")
-    ret_val = 0
     messages = []
     file = open(workload_log)
     for line in file.readlines():
-        if line.startswith("error:"):
-            ret_val += 1
-            messages.append(generate_alarm("Error from the workload:", line.strip()))
+        if line.startswith("FINISH-SIEVE-TEST"):
+            break
+        if "pauseController" in test_context.action_types and line.startswith(
+            "Conditional wait timeout"
+        ):
+            continue
+        messages.append(generate_alarm("Error:", line.strip()))
     messages.sort()
-    return ret_val, messages
+    return messages
 
 
 def textbook_checker(test_context: TestContext):
-    ret_val = 0
     messages = []
     if test_context.common_config.controller_exception_check_enabled:
-        panic_ret_val, panic_messages = operator_panic_checker(test_context)
-        ret_val += panic_ret_val
+        panic_messages = controller_panic_checker(test_context)
         messages.extend(panic_messages)
 
     if test_context.common_config.workload_error_check_enabled:
-        workload_ret_val, workload_messages = test_failure_checker(test_context)
-        ret_val += workload_ret_val
+        workload_messages = workload_error_checker(test_context)
         messages.extend(workload_messages)
-    return ret_val, messages
+    return messages
 
 
 def safety_checker(test_context: TestContext):
-    ret_val = 0
     messages = []
     if test_context.common_config.state_update_summary_check_enabled:
         if not (
-            test_context.test_plan["actions"] is not None
-            and test_context.test_plan["actions"][0]["actionType"] == "pauseController"
-            and test_context.test_plan["actions"][0]["pauseAt"]
+            test_context.test_plan_content["actions"] is not None
+            and test_context.test_plan_content["actions"][0]["actionType"]
+            == "pauseController"
+            and test_context.test_plan_content["actions"][0]["pauseAt"]
             == "beforeControllerRead"
         ):
-            (
-                compare_history_digests_ret_val,
-                compare_history_digests_messages,
-            ) = compare_history_digests(test_context)
-            ret_val += compare_history_digests_ret_val
+            compare_history_digests_messages = compare_history_digests(test_context)
             messages.extend(compare_history_digests_messages)
     for checker_suite in customized_safety_checker_suites:
-        (safety_checker_ret_val, safety_checker_messages) = apply_safety_checker(
+        safety_checker_messages = apply_safety_checker(
             test_context,
             checker_suite.resource_keys,
             checker_suite.checker_name,
             checker_suite.checker_function,
         )
-        ret_val += safety_checker_ret_val
         messages.extend(safety_checker_messages)
-    return ret_val, messages
+    return messages
 
 
 def liveness_checker(test_context: TestContext):
-    ret_val = 0
     messages = []
     if test_context.common_config.end_state_check_enabled:
         # TODO: this is overkill; we should exclude the csi related objects only
         if not (
             test_context.use_csi_driver_for_ref and not test_context.use_csi_driver
         ):
-            compare_states_ret_val, compare_states_messages = compare_states(
-                test_context
-            )
-            ret_val += compare_states_ret_val
+            compare_states_messages = compare_states(test_context)
             messages.extend(compare_states_messages)
-    return ret_val, messages
+    return messages
 
 
 def check(test_context: TestContext):
-    ret_val = 0
     common_errors = []
     end_state_errors = []
     history_errors = []
@@ -153,16 +141,13 @@ def check(test_context: TestContext):
 
     injection_completed, workload_completed = test_run_validation(test_context)
 
-    textbook_ret_val, textbook_messages = textbook_checker(test_context)
-    ret_val += textbook_ret_val
+    textbook_messages = textbook_checker(test_context)
     common_errors.extend(textbook_messages)
 
-    safety_ret_val, safety_messages = safety_checker(test_context)
-    ret_val += safety_ret_val
+    safety_messages = safety_checker(test_context)
     history_errors.extend(safety_messages)
 
-    liveness_ret_val, liveness_messages = liveness_checker(test_context)
-    ret_val += liveness_ret_val
+    liveness_messages = liveness_checker(test_context)
     end_state_errors.extend(liveness_messages)
 
     return TestResult(
